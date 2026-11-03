@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Client overview.
+
+        Rather than a report of its own, this is the contact list with the
+        columns the salon reads. Everything beyond the few shown by default is
+        marked optional, so staff turn columns on and off through Odoo's own
+        "Edit columns" control and can add any other contact field the same
+        way, without a change here each time they want one more.
+    -->
+    <record id="view_partner_list_client_overview" model="ir.ui.view">
+        <field name="name">res.partner.list.client.overview</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="email" position="after">
+                <field name="phone" string="Mobile" optional="show"/>
+                <field name="street" string="Address 1" optional="hide"/>
+                <field name="street2" string="Address 2" optional="hide"/>
+                <field name="city" string="Suburb" optional="hide"/>
+                <field name="state_id" string="State" optional="hide"/>
+                <field name="zip" string="Postcode" optional="hide"/>
+
+                <!-- Latest activity -->
+                <field name="last_appointment_date" optional="show"/>
+                <field name="last_appointment_service" optional="hide"/>
+                <field name="last_appointment_staff" optional="hide"/>
+                <field name="last_appointment_status" optional="hide"/>
+                <field name="last_appointment_channel" optional="hide"/>
+
+                <!-- Upcoming activity -->
+                <field name="next_appointment_date" optional="hide"/>
+                <field name="next_appointment_service" optional="hide"/>
+                <field name="next_appointment_staff" optional="hide"/>
+                <field name="next_appointment_status" optional="hide"/>
+                <field name="next_appointment_channel" optional="hide"/>
+
+                <!-- Status -->
+                <field name="date_added_odoo" string="Date Added" optional="show"/>
+                <field name="date_added_timely" string="Date Imported" optional="hide"/>
+                <field name="appointment_count" string="# of Appts." optional="show"/>
+                <field name="online_booking_count" optional="hide"/>
+                <field name="weeks_absent" optional="hide"/>
+                <field name="client_status" optional="hide"/>
+                <field name="is_vip" string="VIP" optional="hide"/>
+                <field name="is_blocked" string="Blocked" optional="hide"/>
+                <field name="account_credit_balance" string="Outstanding Balance" optional="hide"/>
+                <field name="dob" string="Date of Birth" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- The filters the salon reaches for on this list. -->
+    <record id="view_partner_search_client_overview" model="ir.ui.view">
+        <field name="name">res.partner.search.client.overview</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <group name="group_by" position="before">
+                <separator/>
+                <filter name="bnb_vip" string="VIP" domain="[('is_vip', '=', True)]"/>
+                <filter name="bnb_blocked" string="Blocked" domain="[('is_blocked', '=', True)]"/>
+                <filter name="bnb_upcoming" string="Booked In"
+                        domain="[('next_appointment_date', '!=', False)]"/>
+            </group>
+            <group name="group_by" position="inside">
+                <filter name="bnb_group_status" string="Client Status"
+                        context="{'group_by': 'client_status'}"/>
+            </group>
+        </field>
+    </record>
+
+    <!--
+        Client overview opens the contacts themselves, so what staff see is the
+        customer record they can act on rather than a copy of it they cannot.
+    -->
+    <record id="action_bnb_client_overview_contacts" model="ir.actions.act_window">
+        <field name="name">Client Overview</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('customer_rank', '&gt;', 0)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No customers yet</p>
+            <p>
+                This is the contact list, with the columns the salon reads.
+                Use Filters to narrow it and Edit columns to choose what is
+                shown, then Export what you need.
+            </p>
+        </field>
+    </record>
+
+    <!--
+        Archived customers.
+
+        Odoo does not keep deleted records: once a customer is deleted the row
+        is gone and there is nothing left to report on. Archiving is what
+        actually happens to a customer who is taken out of use, so that is
+        what this lists.
+
+        It opens the contacts themselves rather than a read-only copy, because
+        looking at archived customers is usually the prelude to bringing one
+        back, and that can only be done on the record.
+    -->
+    <record id="action_bnb_archived_customers" model="ir.actions.act_window">
+        <field name="name">Archived Customers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('active', '=', False), ('customer_rank', '&gt;', 0)]</field>
+        <!-- Archived records are hidden from every view unless this is off. -->
+        <field name="context">{'active_test': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No archived customers</p>
+            <p>
+                Customers archived from their contact record appear here.
+                Select one and use Action to restore it.
+            </p>
+        </field>
+    </record>
+
+</odoo>

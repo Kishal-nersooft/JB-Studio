@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_only_form_view_inherit_bb" model="ir.ui.view">
+        <field name="name">product.template.only.form.view.inherit.bb</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <span class="d-inline-flex">
+                    <field name="is_deposit_product"/>
+                    <label for="is_deposit_product"/>
+                </span>
+                <span class="d-inline-flex ms-3">
+                    <field name="is_credit_product"/>
+                    <label for="is_credit_product"/>
+                </span>
+                <span class="d-inline-flex ms-3">
+                    <field name="is_issue_credit_product"/>
+                    <label for="is_issue_credit_product"/>
+                </span>
+            </xpath>
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="salon_other" string="Salon Settings" invisible="type != 'service'">
+                    <group string="Service Details">
+                        <field name="branch_ids" widget="many2many_tags"
+                               options="{'no_create': True, 'no_create_edit': True}"/>
+                        <field name="duration" widget="float_time"/>
+                        <field name="service_duration_display" readonly="1"/>
+                        <field name="bb_surcharge_day"/>
+                        <field name="payment_policy"/>
+                        <field name="deposit_percentage_value"
+                               string="Deposit Percentage (%)"
+                               invisible="payment_policy != 'deposit_percentage'"/>
+                        <field name="deposit_fixed_amount"
+                               string="Deposit Fixed Amount"
+                               invisible="payment_policy != 'deposit_fixed'"/>
+                    </group>
+                    <notebook>
+                        <page string="Related Services">
+                            <field name="related_product_ids" nolabel="1"/>
+                        </page>
+                        <page string="Beautician Details">
+                            <div class="alert alert-info" role="alert" invisible="branch_ids">
+                                Please select branch(es) first to add beauticians.
+                            </div>
+                            <div class="mb-2" invisible="not branch_ids">
+                                <button name="action_open_beautician_bulk_wizard"
+                                        type="object"
+                                        string="Add Multiple Beauticians"
+                                        class="btn btn-secondary btn-sm"
+                                        icon="fa-users"/>
+                            </div>
+                            <field name="beautician_line_ids" string="Beauticians">
+                                <list editable="bottom">
+                                    <field name="beautician_id"
+                                           domain="[('is_beautician', '=', True), '|', ('branch_id', 'in', parent.branch_ids), ('beautician_branch_ids', 'in', parent.branch_ids)]"/>
+                                    <field name="duration" widget="float_time"/>
+                                    <field name="price"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Consumptions">
+                            <field name="consumption_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="uom_id"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Booking Questions">
+                            <group>
+                                <field name="booking_question_display"/>
+                                <field name="important_notice"
+                                       placeholder="Add an important notice for staff or customers..."
+                                       invisible="booking_question_display == 'not_required'"/>
+                            </group>
+                            <field name="booking_question_ids"
+                                   invisible="booking_question_display == 'not_required'">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="question_text" string="Question"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="is_appointment_service" invisible="type != 'service'"/>
+                <field name="is_vip_service"
+                       invisible="type != 'service' or not is_appointment_service"/>
+                <field name="store_only" invisible="type != 'service'"/>
+                <field name="is_video_call_service" invisible="type != 'service'"/>
+                <field name="is_party_product" invisible="type != 'service'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

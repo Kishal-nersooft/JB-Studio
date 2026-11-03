@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_salon_appointment_form_inherit_discount" model="ir.ui.view">
+        <field name="name">salon.appointment.form.inherit.discount</field>
+        <field name="model">salon.appointment</field>
+        <field name="inherit_id" ref="bb_salon_appoitments.view_salon_appointment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='appointment']//group[@name='appointment_customer']/field[@name='customer_last_name']" position="after">
+                <field name="customer_is_vip" readonly="1"/>
+            </xpath>
+
+            <xpath expr="//page[@name='appointment']//group[@name='appointment_totals']/field[@name='services_total']" position="after">
+                <field name="total_amount_before_discount" widget="monetary" readonly="1"/>
+                <field name="discount_amount" widget="monetary" readonly="1"/>
+                <field name="total_amount_after_discount" widget="monetary" readonly="1"/>
+            </xpath>
+
+            <xpath expr="//page[@name='appointment']//group[@name='appointment_totals']" position="inside">
+                <field name="currency_id" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//page[@name='services']/field[@name='service_line_ids']" position="after">
+                <group string="Beauticians">
+                    <field name="beautician_ids" readonly="1" widget="many2many_tags"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='payments']//group[@name='appointment_payments']" position="after">
+                <group string="Payment Summary">
+                    <field name="is_advance_payment" readonly="1"/>
+                    <field name="advance_payment_amount" widget="monetary" readonly="1"
+                           invisible="not is_advance_payment"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

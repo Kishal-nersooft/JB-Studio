@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Prevent editor and asset rendering from evaluating homepage-only values. -->
+    <template id="dynamic_locations_context" inherit_id="bnb_portal_appointment.s_bnb_dynamic_locations"><xpath expr="//t[@t-if=&quot;homepage_data.get('branches')&quot;]" position="attributes"><attribute name="t-if">homepage_data and homepage_data.get('branches')</attribute></xpath></template>
+    <template id="dynamic_services_context" inherit_id="bnb_portal_appointment.s_bnb_dynamic_services"><xpath expr="//t[@t-if=&quot;homepage_data.get('services')&quot;]" position="attributes"><attribute name="t-if">homepage_data and homepage_data.get('services')</attribute></xpath></template>
+    <template id="dynamic_testimonials_context" inherit_id="bnb_portal_appointment.s_bnb_dynamic_testimonials"><xpath expr="//t[@t-if=&quot;homepage_data.get('testimonials')&quot;]" position="attributes"><attribute name="t-if">homepage_data and homepage_data.get('testimonials')</attribute></xpath></template>
+    <template id="dynamic_promotions_context" inherit_id="bnb_portal_appointment.s_bnb_dynamic_promotions"><xpath expr="//t[@t-if=&quot;homepage_data.get('promotions')&quot;]" position="attributes"><attribute name="t-if">homepage_data and homepage_data.get('promotions')</attribute></xpath></template>
+    <template id="dynamic_gallery_context" inherit_id="bnb_portal_appointment.s_bnb_dynamic_gallery"><xpath expr="//t[@t-if=&quot;homepage_data.get('gallery')&quot;]" position="attributes"><attribute name="t-if">homepage_data and homepage_data.get('gallery')</attribute></xpath></template>
+
+</odoo>

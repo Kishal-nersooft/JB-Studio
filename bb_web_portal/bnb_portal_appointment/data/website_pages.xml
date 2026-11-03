@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custom_home_page" model="website.page">
+        <field name="is_published">True</field>
+        <field name="url">/bnb-home</field>
+        <field name="website_indexed">True</field>
+        <field name="view_id" ref="bnb_portal_appointment.custom_home_view"/>
+    </record>
+</odoo>

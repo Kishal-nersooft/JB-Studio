@@ -1,0 +1,355 @@
+/* Styles for this local copy only, standing in for what Odoo's website theme
+   provides around the module (header, page background). Not part of the
+   Odoo module: changes here won't carry over to the real site.
+
+   Header layout:
+   - Desktop (992px and wider): logo on the left, menu links on the right.
+   - Mobile (below 992px): logo + hamburger; on booking steps after a salon
+     is chosen: [back]  logo  [hamburger]. The hamburger opens a side menu
+     from the right. */
+
+:root {
+    /* Pastel blue palette */
+    --bnb-blue: #8ab8f2;          /* fills, borders */
+    --bnb-blue-dark: #74a6ea;     /* hover */
+    --bnb-blue-text: #3d7bd6;     /* blue text / icons on white */
+    --bnb-on-blue: #12305e;       /* text on pastel fills */
+    --bnb-blue-soft: #f1f6fe;
+    --bnb-blue-tint: #e3eefc;
+    --bnb-blue-border: #d3e4fa;
+    --bnb-ink: #0f1e3d;
+    --bnb-muted: #64748b;
+    --bnb-shadow-sm: 0 1px 2px rgba(100, 155, 230, 0.08), 0 2px 6px rgba(100, 155, 230, 0.10);
+    --bnb-shadow-md: 0 4px 14px rgba(100, 155, 230, 0.25);
+}
+
+body {
+    background: #fff;
+}
+
+/* ---------- Top bar (shared) ---------- */
+.bnb-topbar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.bnb-topbar {
+    background: #fff;
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.bnb-topbar-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 68px;
+}
+
+.bnb-topbar-brand {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* ---------- Desktop links ---------- */
+.bnb-topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 0 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+#top .bnb-topbar-links .nav-link {
+    color: var(--bnb-ink);
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+#top .bnb-topbar-links .nav-link:hover {
+    color: var(--bnb-blue-text);
+    background: var(--bnb-blue-soft);
+}
+
+#top .bnb-topbar-links .nav-link.active {
+    color: var(--bnb-blue-text);
+    background: var(--bnb-blue-soft);
+}
+
+.bnb-topbar-links .bnb-btn-primary {
+    margin-left: 8px;
+}
+
+/* ---------- Round buttons (back, hamburger, close) ---------- */
+.bnb-round-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--bnb-blue-soft);
+    color: var(--bnb-blue-text);
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color 0.18s, transform 0.12s;
+}
+
+.bnb-round-btn:hover {
+    background: var(--bnb-blue-tint);
+}
+
+.bnb-round-btn:active {
+    transform: scale(0.92);
+}
+
+.bnb-round-btn:focus-visible {
+    outline: 3px solid var(--bnb-blue-tint);
+    outline-offset: 2px;
+}
+
+/* Hamburger: three rounded lines, the middle one shorter. */
+.bnb-menu-btn {
+    margin-left: auto;
+}
+
+.bnb-menu-lines {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    width: 18px;
+}
+
+.bnb-menu-lines span {
+    display: block;
+    height: 2.5px;
+    width: 100%;
+    border-radius: 2px;
+    background: currentColor;
+    transition: width 0.2s;
+}
+
+.bnb-menu-lines span:nth-child(2) {
+    width: 65%;
+}
+
+.bnb-menu-btn:hover .bnb-menu-lines span:nth-child(2) {
+    width: 100%;
+}
+
+.bnb-back-btn {
+    font-size: 15px;
+}
+
+.bnb-back-btn[hidden] {
+    display: none;
+}
+
+/* ---------- Pill buttons ---------- */
+.bnb-btn-primary,
+.bnb-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.18s, box-shadow 0.18s, color 0.18s;
+}
+
+.bnb-btn-primary {
+    background: var(--bnb-blue);
+    border: 1.5px solid var(--bnb-blue);
+    color: var(--bnb-on-blue);
+    box-shadow: var(--bnb-shadow-md);
+}
+
+.bnb-btn-primary:hover {
+    background: var(--bnb-blue-dark);
+    border-color: var(--bnb-blue-dark);
+    color: var(--bnb-on-blue);
+}
+
+.bnb-btn-outline {
+    background: #fff;
+    border: 1.5px solid var(--bnb-blue-border);
+    color: var(--bnb-blue-text);
+    box-shadow: var(--bnb-shadow-sm);
+}
+
+.bnb-btn-outline:hover {
+    background: var(--bnb-blue-soft);
+    border-color: var(--bnb-blue);
+    color: var(--bnb-blue-text);
+}
+
+/* ---------- Desktop: logo left, links right ---------- */
+@media (min-width: 992px) {
+    .bnb-menu-btn,
+    .bnb-back-btn {
+        display: none !important;
+    }
+}
+
+/* ---------- Mobile: hamburger (and back on booking steps) ---------- */
+@media (max-width: 991.98px) {
+    .bnb-topbar-links {
+        display: none;
+    }
+
+    .bnb-topbar-inner {
+        min-height: 62px;
+    }
+
+    /* Booking steps: [back]  logo  [hamburger] on one line. */
+    .bnb-topbar--booking .bnb-topbar-inner {
+        justify-content: space-between;
+    }
+
+    .bnb-topbar--booking .bnb-topbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* No in-page back chevron (added by category_filter.js above each step's
+   breadcrumb) at any width: mobile uses the header back button, and desktop
+   has no back button. */
+body:has(.bnb-topbar--booking) .step-navigation-buttons {
+    display: none !important;
+}
+
+/* ---------- Side menu (mobile, opens from the right) ---------- */
+.bnb-side-menu.offcanvas {
+    --bs-offcanvas-width: min(320px, 86vw);
+    border-left: 1px solid var(--bnb-blue-border);
+    border-radius: 20px 0 0 20px;
+    box-shadow: -8px 0 30px rgba(100, 155, 230, 0.2);
+}
+
+.offcanvas-backdrop.show {
+    background: #1b3a6b;
+    opacity: 0.25;
+}
+
+.bnb-side-menu-header {
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--bnb-blue-tint);
+    background: linear-gradient(180deg, var(--bnb-blue-soft), #fff);
+    border-top-left-radius: 20px;
+}
+
+.bnb-side-menu-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.bnb-close-btn {
+    width: 40px;
+    height: 40px;
+}
+
+.bnb-side-menu-body {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.bnb-side-menu-caption {
+    margin: 0 0 10px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bnb-muted);
+}
+
+.bnb-side-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bnb-side-menu-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--bnb-blue-tint);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--bnb-ink);
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(100, 155, 230, 0.06);
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.bnb-side-menu-list a:hover {
+    border-color: var(--bnb-blue-border);
+    background: var(--bnb-blue-soft);
+    color: var(--bnb-blue-text);
+    box-shadow: var(--bnb-shadow-sm);
+}
+
+.bnb-side-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--bnb-blue-soft);
+    border: 1px solid var(--bnb-blue-tint);
+    color: var(--bnb-blue-text);
+    font-size: 16px;
+}
+
+.bnb-side-arrow {
+    margin-left: auto;
+    color: var(--bnb-blue);
+    font-size: 18px;
+}
+
+.bnb-side-menu-list a.active {
+    background: var(--bnb-blue);
+    border-color: var(--bnb-blue);
+    color: var(--bnb-on-blue);
+    box-shadow: var(--bnb-shadow-md);
+}
+
+.bnb-side-menu-list a.active .bnb-side-icon {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: var(--bnb-on-blue);
+}
+
+.bnb-side-menu-list a.active .bnb-side-arrow {
+    color: var(--bnb-on-blue);
+}
+
+.bnb-side-menu-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

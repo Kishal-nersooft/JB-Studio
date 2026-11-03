@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bnb_v2_snippets" inherit_id="website.snippets" name="BnB V2 Snippets">
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_hero" string="BnB Hero" group="intro"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_services" string="BnB Services" group="content"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_about" string="BnB About" group="content"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_features" string="BnB Features" group="content"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_testimonials" string="BnB Testimonials" group="people"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_loyalty" string="BnB Loyalty" group="content"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_newsletter" string="BnB Newsletter" group="contact_and_forms"/>
+            <t t-snippet="bnb_portal_appointment.s_bnb_v2_social" string="BnB Social" group="social"/>
+        </xpath>
+    </template>
+</odoo>

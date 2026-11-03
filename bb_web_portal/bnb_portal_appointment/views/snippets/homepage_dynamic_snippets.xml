@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_bnb_dynamic_locations" name="BnB Locations">
+        <t t-if="homepage_data.get('branches')">
+            <section class="s_bnb_dynamic_locations py-5 o_cc1" data-snippet="s_bnb_dynamic_locations">
+                <div class="container">
+                    <div class="text-center">
+                        <div class="bnb-divider mx-auto mb-3"/>
+                        <h2 class="bnb-section-title mb-4">OUR LOCATIONS</h2>
+                    </div>
+                    <div class="bnb-dynamic-location-grid">
+                        <t t-foreach="homepage_data['branches']" t-as="branch">
+                            <a class="bnb-dynamic-location-card" href="/book-online">
+                                <t t-if="branch.image">
+                                    <img t-att-src="'/web/image/beauty.branch/%s/image' % branch.id" t-att-alt="branch.name"/>
+                                </t>
+                                <span t-out="branch.name"/>
+                                <small t-if="branch.city" t-out="branch.city"/>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+
+    <template id="s_bnb_dynamic_services" name="BnB Dynamic Services">
+        <t t-if="homepage_data.get('services')">
+            <section class="s_bnb_v2_services s_bnb_dynamic_services py-5 o_cc1" data-snippet="s_bnb_dynamic_services">
+                <div class="container">
+                    <h2 class="text-center bnb-section-small mb-4">Eyebrow Threading Darwin Canberra Adelaide</h2>
+                    <p class="text-center bnb-section-sub mb-4">Eyebrow threading in Darwin, Westfield Marion, Westfield Belconnen, Westfield Woden, Mitchell Centre, Casuarina Square, and Gateway Shopping Centre</p>
+                    <div class="bnb-divider mx-auto mb-3"/>
+                    <h2 class="text-center bnb-section-title mb-5">SERVICES</h2>
+                    <div id="bnbServicesCarouselDynamic" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row g-3 justify-content-center">
+                                    <t t-foreach="homepage_data['services'][0:3]" t-as="service_item"><div class="col-lg-4 col-md-6"><a class="bnb-service-card text-center d-block" href="/book-online"><img class="img-fluid mb-2" t-att-src="service_item['image_url']" t-att-alt="service_item['record'].name"/><h4 t-out="service_item['record'].name"/></a></div></t>
+                                </div>
+                            </div>
+                            <t t-if="len(homepage_data['services']) &gt; 3"><div class="carousel-item"><div class="row g-3 justify-content-center"><t t-foreach="homepage_data['services'][3:6]" t-as="service_item"><div class="col-lg-4 col-md-6"><a class="bnb-service-card text-center d-block" href="/book-online"><img class="img-fluid mb-2" t-att-src="service_item['image_url']" t-att-alt="service_item['record'].name"/><h4 t-out="service_item['record'].name"/></a></div></t></div></div></t>
+                            <t t-if="len(homepage_data['services']) &gt; 6"><div class="carousel-item"><div class="row g-3 justify-content-center"><t t-foreach="homepage_data['services'][6:9]" t-as="service_item"><div class="col-lg-4 col-md-6"><a class="bnb-service-card text-center d-block" href="/book-online"><img class="img-fluid mb-2" t-att-src="service_item['image_url']" t-att-alt="service_item['record'].name"/><h4 t-out="service_item['record'].name"/></a></div></t></div></div></t>
+                            <t t-if="len(homepage_data['services']) &gt; 9"><div class="carousel-item"><div class="row g-3 justify-content-center"><t t-foreach="homepage_data['services'][9:12]" t-as="service_item"><div class="col-lg-4 col-md-6"><a class="bnb-service-card text-center d-block" href="/book-online"><img class="img-fluid mb-2" t-att-src="service_item['image_url']" t-att-alt="service_item['record'].name"/><h4 t-out="service_item['record'].name"/></a></div></t></div></div></t>
+                        </div>
+                        <button class="carousel-control-prev bnb-serv-nav" type="button" data-bs-target="#bnbServicesCarouselDynamic" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+                        <button class="carousel-control-next bnb-serv-nav" type="button" data-bs-target="#bnbServicesCarouselDynamic" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <t t-else=""><t t-call="bnb_portal_appointment.s_bnb_v2_services"/></t>
+    </template>
+
+    <template id="s_bnb_dynamic_testimonials" name="BnB Dynamic Testimonials">
+        <t t-if="homepage_data.get('testimonials')">
+            <section class="s_bnb_v2_testimonials py-5 o_cc1" data-snippet="s_bnb_dynamic_testimonials">
+                <div class="container text-center">
+                    <div class="bnb-divider mx-auto mb-3"/>
+                    <h2 class="bnb-section-title mb-4">TESTIMONIALS</h2>
+                    <div class="row g-3 justify-content-center">
+                        <t t-foreach="homepage_data['testimonials']" t-as="item">
+                            <article class="col-lg-4 col-md-6 bnb-dynamic-post-card">
+                                <p class="bnb-review-source">Website</p>
+                                <h4 t-out="item['title']"/>
+                                <div t-if="item['content']" t-out="item['content']"/>
+                                <p t-if="item['subtitle']" t-out="item['subtitle']"/>
+                            </article>
+                        </t>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <t t-else=""><t t-call="bnb_portal_appointment.s_bnb_v2_testimonials"/></t>
+    </template>
+
+    <template id="s_bnb_dynamic_promotions" name="BnB Dynamic Promotions">
+        <t t-if="homepage_data.get('promotions')">
+            <section class="s_bnb_dynamic_promotions py-5 o_cc1" data-snippet="s_bnb_dynamic_promotions">
+                <div class="container">
+                    <div class="text-center"><div class="bnb-divider mx-auto mb-3"/><h2 class="bnb-section-title mb-4">PROMOTIONS</h2></div>
+                    <div class="row g-3 justify-content-center">
+                        <t t-foreach="homepage_data['promotions']" t-as="item">
+                            <article class="col-lg-4 col-md-6 bnb-dynamic-post-card">
+                                <img t-if="item['image_url']" t-att-src="item['image_url']" t-att-alt="item['title']"/>
+                                <h4 t-out="item['title']"/>
+                                <p t-if="item['subtitle']" t-out="item['subtitle']"/>
+                                <a t-if="item['url'] != '#'" t-att-href="item['url']">View details</a>
+                            </article>
+                        </t>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <t t-else=""><t t-call="bnb_portal_appointment.s_bnb_v2_loyalty"/></t>
+    </template>
+
+    <template id="s_bnb_dynamic_gallery" name="BnB Dynamic Gallery">
+        <t t-if="homepage_data.get('gallery')">
+            <section class="s_bnb_dynamic_gallery py-5 o_cc1" data-snippet="s_bnb_dynamic_gallery">
+                <div class="container"><div class="text-center"><div class="bnb-divider mx-auto mb-3"/><h2 class="bnb-section-title mb-4">GALLERY</h2></div>
+                    <div class="row g-3">
+                        <t t-foreach="homepage_data['gallery']" t-as="item"><a class="col-lg-4 col-md-6 bnb-dynamic-post-card" t-att-href="item['url']"><img t-if="item['image_url']" t-att-src="item['image_url']" t-att-alt="item['title']"/><h4 t-out="item['title']"/></a></t>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

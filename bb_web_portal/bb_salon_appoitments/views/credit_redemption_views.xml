@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_credit_redemption_list" model="ir.ui.view">
+        <field name="name">beauty.credit.redemption.list</field>
+        <field name="model">beauty.credit.redemption</field>
+        <field name="arch" type="xml">
+            <list default_order="redemption_date desc" decoration-info="amount &gt; 0">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="redemption_date" optional="show"/>
+                <field name="partner_id" optional="show"/>
+                <field name="beautician_id" optional="hide"/>
+                <field name="branch_id" optional="show"/>
+                <field name="expiry_display" string="Expiry Date" optional="hide"/>
+                <field name="movement_type" optional="show"/>
+                <field name="appointment_ref" string="Appointment" optional="show"/>
+                <field name="pos_order_ref" string="POS Order" optional="show"/>
+                <field name="amount" widget="monetary" sum="Total Amount" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="note" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-info="state == 'credited'"
+                       decoration-warning="state == 'partial'"
+                       decoration-danger="state == 'redeemed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_credit_redemption_form" model="ir.ui.view">
+        <field name="name">beauty.credit.redemption.form</field>
+        <field name="model">beauty.credit.redemption</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Customer">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="partner_id"/>
+                            <field name="beautician_id"/>
+                            <field name="branch_id"/>
+                        </group>
+                        <group string="Redemption">
+                            <field name="redemption_date"/>
+                            <field name="expiry_display" string="Expiry Date"/>
+                            <field name="movement_type"/>
+                            <field name="state"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="credit_before" widget="monetary"/>
+                            <field name="currency_id"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <group string="Linked To">
+                        <field name="appointment_ref"/>
+                        <field name="pos_order_ref"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_credit_redemption" model="ir.actions.act_window">
+        <field name="name">Credit Redemptions</field>
+        <field name="res_model">beauty.credit.redemption</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_issue_credit_wizard_form" model="ir.ui.view">
+        <field name="name">beauty.issue.credit.wizard.form</field>
+        <field name="model">beauty.issue.credit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Issue Credit">
+                <group>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="company_id"/>
+                    <field name="branch_id"/>
+                    <field name="beautician_id"/>
+                    <field name="amount"/>
+                    <field name="reason"/>
+                    <field name="expiry_date"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Issue Credit" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

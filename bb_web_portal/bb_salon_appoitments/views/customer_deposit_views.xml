@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_customer_deposit_tree" model="ir.ui.view">
+        <field name="name">beauty.customer.deposit.tree</field>
+        <field name="model">beauty.customer.deposit</field>
+        <field name="arch" type="xml">
+            <list default_order="payment_date desc">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="branch_id" optional="show"/>
+                <field name="partner_id" optional="show"/>
+                <field name="appointment_ref" string="Appointment" optional="show"/>
+                <field name="payment_date" optional="show"/>
+                <field name="amount" widget="monetary" optional="show"/>
+                <field name="service_total_display" widget="monetary" string="Service Total" optional="show"/>
+                <field name="discount_amount" widget="monetary" string="Discount" optional="show"/>
+                <field name="balance_due" widget="monetary" optional="show"/>
+                <field name="credit_amount" widget="monetary" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="pos_payment_method_id" optional="hide"/>
+                <field name="pos_order_ref" string="POS Order" optional="show"/>
+                <field name="parent_deposit_id" string="Original Deposit" optional="show"/>
+                <field name="move_id" optional="hide"/>
+                <field name="action_reason" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-warning="state == 'partial'"
+                       decoration-info="state == 'credited'"
+                       decoration-muted="state == 'cancelled'"
+                       decoration-danger="state in ('refunded', 'forfeited')"/>
+                <button name="action_open_deposit_action_wizard" type="object" string="Detach" icon="fa-chain-broken" class="btn btn-danger" invisible="state in ['credited', 'redeemed', 'cancelled', 'refunded', 'forfeited']"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_customer_deposit_form" model="ir.ui.view">
+        <field name="name">beauty.customer.deposit.form</field>
+        <field name="model">beauty.customer.deposit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Customer">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="branch_id"/>
+                            <field name="partner_id"/>
+                            <field name="appointment_ref"/>
+                        </group>
+                        <group string="Payment">
+                            <field name="payment_date"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="currency_id"/>
+                            <field name="pos_payment_method_id"/>
+                            <field name="pos_order_ref"/>
+                            <field name="parent_deposit_id" readonly="1"/>
+                            <field name="move_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Deposit Application">
+                        <field name="state" widget="badge"
+                               decoration-success="state == 'active'"
+                               decoration-warning="state == 'partial'"
+                               decoration-info="state == 'credited'"
+                               decoration-muted="state == 'cancelled'"
+                               decoration-danger="state in ('refunded', 'forfeited')"/>
+                        <field name="service_total_display" widget="monetary" string="Service Total"/>
+                        <field name="discount_amount" widget="monetary" string="Discount"/>
+                        <field name="balance_due" widget="monetary"/>
+                        <field name="credit_amount" widget="monetary"/>
+                        <field name="action_reason"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+<!--    <record id="view_customer_deposit_search" model="ir.ui.view">-->
+<!--        <field name="name">beauty.customer.deposit.search</field>-->
+<!--        <field name="model">beauty.customer.deposit</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search>-->
+<!--                <field name="partner_id"/>-->
+<!--                <field name="appointment_id"/>-->
+<!--                <field name="branch_id"/>-->
+<!--                <filter name="filter_unused" string="Unused (no service total)" domain="[('service_total', '=', 0)]"/>-->
+<!--                <filter name="filter_used" string="Applied" domain="[('service_total', '>', 0)]"/>-->
+<!--                <group expand="0" string="Group By">-->
+<!--                    <filter name="group_branch" string="Branch" context="{'group_by': 'branch_id'}"/>-->
+<!--                    <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>-->
+<!--                    <filter name="group_date" string="Payment Date" context="{'group_by': 'payment_date:month'}"/>-->
+<!--                </group>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="action_customer_deposit" model="ir.actions.act_window">
+        <field name="name">Customer Deposits</field>
+        <field name="res_model">beauty.customer.deposit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_customer_deposit_action_wizard_form" model="ir.ui.view">
+        <field name="name">beauty.customer.deposit.action.wizard.form</field>
+        <field name="model">beauty.customer.deposit.action.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Deposit Action">
+                <group>
+                    <field name="appointment_ref" readonly="1"/>
+                    <field name="branch_id" readonly="1"/>
+                    <field name="company_id" readonly="1"/>
+                    <field name="action_type"/>
+                    <field name="reason"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

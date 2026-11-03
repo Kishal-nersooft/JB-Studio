@@ -1,0 +1,9 @@
+<odoo noupdate="1">
+  <record id="ir_cron_online_checkout_maintenance" model="ir.cron">
+    <field name="name">Online booking: recover payments and remove abandoned checkouts</field>
+    <field name="model_id" ref="model_bb_online_booking_intent"/>
+    <field name="state">code</field><field name="code">model._cron_checkout_maintenance()</field>
+    <field name="interval_number">5</field><field name="interval_type">minutes</field>
+    <field name="user_id" ref="base.user_root"/><field name="active" eval="True"/>
+  </record>
+</odoo>

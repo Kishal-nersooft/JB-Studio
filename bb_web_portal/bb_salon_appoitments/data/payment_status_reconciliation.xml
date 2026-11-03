@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function model="salon.appointment" name="_reconcile_online_deposit_payment_statuses"/>
+</odoo>

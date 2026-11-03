@@ -1,0 +1,80 @@
+<!-- views/service_view.xml : service_step.
+     The category options, category pills and service cards are filled in by server.js
+     from mock-data.js (service cards use partials/service-card.html) -->
+<div class="service-detail-wrapper container-fluid">
+    <!-- Header -->
+    <div class="service-detail-header py-3 py-md-4">
+        <div class="service-detail-container container">
+            <div class="service-header-content">
+                <!-- include: breadcrumb -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="service-detail-container container py-4">
+        <div class="row g-4 g-lg-4 align-items-start">
+            <!-- Left Column - Services -->
+            <div class="service-left-column col-12 col-lg-8 mb-4 mb-lg-0">
+                <div class="service-section">
+                    <!-- Parent Category Dropdown. base.js turns it into a segmented
+                         control (.bnb-parent-segments) and keeps the select as the source of truth. -->
+                    <div class="bnb-parent-filter">
+                        <select id="parentCategoryDropdown" class="form-select" aria-label="Category">
+                            <option value="all">All</option>
+                            {{PARENT_OPTIONS}}
+                        </select>
+                    </div>
+
+                    <!-- Child Category Pills (swipe to scroll) -->
+                    <div class="bnb-category-pills">
+                        <div class="service-categories-tabs" role="tablist">
+                            <button class="service-tab active" data-category-id="all" role="tab">
+                                Top Selling
+                            </button>
+                            {{CATEGORY_TABS}}
+                        </div>
+                    </div>
+
+                    <!-- Service Items -->
+                    <div class="service-items-list d-flex flex-column gap-3">
+                        {{SERVICE_CARDS}}
+                    </div>
+
+                    <p class="top-selling-empty text-muted" style="display:none;" role="status">
+                        No top-selling services yet in this category. Select a service category to see available services.
+                    </p>
+
+                    <!-- Service Detail Modal -->
+                    <div id="serviceDetailModal" class="service-modal" style="display:none;">
+                        <div class="service-modal-overlay"></div>
+                        <div class="service-modal-content">
+                            <button class="service-modal-close">×</button>
+                            <div class="service-modal-body p-3 m-3">
+                                <h3 class="service-modal-title"></h3>
+                                <div class="service-modal-description-wrapper h-100">
+                                    <div class="service-modal-description collapsed"></div>
+                                    <button class="service-modal-read-more">Read more</button>
+                                </div>
+                                <div class="service-modal-footer">
+                                    <div class="service-modal-price-duration">
+                                        <div class="service-modal-price"></div>
+                                        <div class="service-modal-duration"></div>
+                                    </div>
+                                    <button class="service-modal-action-btn"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Booking Card -->
+            <div class="service-right-column col-12 col-lg-4">
+                <div class="sticky-top" style="top: 20px;">
+                    <!-- include: booking-card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

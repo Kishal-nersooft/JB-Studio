@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Flag the services that were added at POS checkout before the flag was
+        kept, so the Upselling report can tell them from booked services.
+
+        Declared as a function rather than a post-install hook so it also runs
+        when the module is updated, which is how it reaches the lines already
+        in the system. It only ever runs once.
+    -->
+    <function model="salon.appointment.service" name="_backfill_added_at_checkout"/>
+</odoo>

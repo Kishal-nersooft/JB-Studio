@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vip_customer_form_view_inherit_bb" model="ir.ui.view">
+        <field name="name">res.partner.form.view.inherit.bb</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_appointments"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-calendar">
+                    <field name="appointment_count" widget="statinfo" string="Appointments"/>
+                </button>
+                <button name="action_open_rewards"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-trophy"
+                        invisible="bb_rewards_count == 0">
+                    <field name="bb_rewards_count" widget="statinfo" string="Rewards"/>
+                </button>
+                <button name="action_open_gift_vouchers"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-gift"
+                        invisible="bb_gift_voucher_count == 0">
+                    <field name="bb_gift_voucher_count" widget="statinfo" string="Gift Vouchers"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_vip" widget="boolean_toggle"/>
+                <field name="account_credit_balance" widget="monetary" readonly="1"
+                       string="Account Credit Balance"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <!-- Only meaningful for a VIP, so the tab appears once the VIP
+                     flag is ticked. Entitlements apply every time the customer
+                     books the service. -->
+                <page string="VIP Free Services" name="vip_free_services"
+                      invisible="not is_vip">
+                    <div class="alert alert-info" role="alert">
+                        These services are free for every VIP customer. They are
+                        set on the service itself with the <b>VIP Service</b>
+                        option, so this list updates automatically.
+                    </div>
+                    <field name="vip_free_service_ids" nolabel="1" readonly="1">
+                        <list create="false" delete="false">
+                            <field name="display_name" string="Service"/>
+                            <field name="list_price" string="Normal Price"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Deposits">
+                    <field name="deposit_ids" nolabel="1">
+                        <list>
+                            <field name="appointment_ref" string="Appointment" optional="show"/>
+                            <field name="payment_date" optional="show"/>
+                            <field name="amount" widget="monetary" optional="show"/>
+                            <field name="service_total_display" widget="monetary" string="Service Total" optional="show"/>
+                            <field name="discount_amount" widget="monetary" string="Discount" optional="show"/>
+                            <field name="balance_due" widget="monetary" optional="show"/>
+                            <field name="credit_amount" widget="monetary" optional="show"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="pos_payment_method_id" optional="hide"/>
+                            <field name="pos_order_ref" string="POS Order" optional="show"/>
+                            <field name="action_reason" optional="hide"/>
+                            <field name="state" widget="badge"
+                                   decoration-success="state == 'active'"
+                                   decoration-warning="state == 'partial'"
+                                   decoration-info="state == 'credited'"
+                                   decoration-muted="state == 'cancelled'"
+                                   decoration-danger="state in ('refunded', 'forfeited')"/>
+                            <button name="action_open_deposit_action_wizard" type="object" string="Detach" icon="fa-chain-broken" class="btn btn-danger" invisible="state in ['credited', 'redeemed', 'cancelled', 'refunded', 'forfeited']"/>
+                        </list>
+                    </field>
+                </page>
+                <page string="Credit">
+                    <button name="action_open_issue_credit_wizard"
+                            type="object"
+                            string="Issue Credit"
+                            icon="fa-plus-circle"
+                            class="btn btn-primary"/>
+                    <field name="credit_redemption_ids" nolabel="1">
+                        <list>
+                            <field name="redemption_date" optional="show"/>
+                            <field name="expiry_display" string="Expiry Date" optional="hide"/>
+                            <field name="movement_type" optional="show"/>
+                            <field name="beautician_id" optional="hide"/>
+                            <field name="appointment_ref" string="Appointment" optional="show"/>
+                            <field name="pos_order_ref" string="POS Order" optional="show"/>
+                            <field name="branch_id" optional="show"/>
+                            <field name="move_id" string="Journal Entry" optional="hide"/>
+                            <field name="credit_before" widget="monetary" string="Credit Before" optional="show"/>
+                            <field name="amount" widget="monetary" string="Amount" optional="show"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="note" optional="hide"/>
+                            <field name="state" widget="badge"
+                                   decoration-success="state == 'active'"
+                                   decoration-info="state == 'credited'"
+                                   decoration-warning="state == 'partial'"
+                                   decoration-danger="state == 'redeemed'"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Hide the CRM Opportunities button from its default position (priority=1) -->
+    <record id="res_partner_form_hide_crm_opp" model="ir.ui.view">
+        <field name="name">res.partner.form.hide.crm.opp.bb</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Re-add Opportunities at the end of the button box -->
+    <record id="res_partner_form_opp_at_end" model="ir.ui.view">
+        <field name="name">res.partner.form.opp.at.end.bb</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object"
+                        name="action_view_opportunity"
+                        icon="fa-star"
+                        groups="sales_team.group_sale_salesman"
+                        context="{'default_partner_id': id, 'default_type':'opportunity'}">
+                    <field string="Opportunities" name="opportunity_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Online | Browz &amp; Beauty</title>
+    <!-- include: head -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="wrapwrap">
+    <!-- include: header -->
+    <main>
+        <!-- views/base_view.xml : salon_booking_main -->
+        <input type="hidden" id="bnb_csrf_token" value="demo-csrf-token"/>
+        <!-- if:location -->
+        <div class="fresha-main-hero container-fluid">
+            <div class="fresha-hero-container container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 text-center">
+                        <h5 class="fresha-main-title">Browz and Beauty - Where perfection meets personality</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- endif:location -->
+        <div id="fresha-booking-steps" class="container-fluid">
+            <!-- if:location -->
+            <div id="step-location">
+                <!-- include: step-location -->
+            </div>
+            <!-- endif:location -->
+            <!-- if:services -->
+            <div id="step-service">
+                <!-- include: step-service -->
+            </div>
+            <!-- endif:services -->
+            <div id="step-date" style="display: none;">
+                <!-- include: step-date -->
+            </div>
+            <div id="step-beautician" style="display: none;">
+                <!-- include: step-beautician -->
+            </div>
+            <div id="step-customer" style="display: none;">
+                <!-- include: step-customer -->
+            </div>
+            <div id="step-payment" style="display: none;">
+                <!-- include: step-payment -->
+            </div>
+            <div id="step-confirmation" style="display: none;">
+                <!-- include: step-confirmation -->
+            </div>
+        </div>
+        <div class="booking-mobile-actions" id="bookingMobileActions" hidden="hidden" aria-label="Booking actions">
+            <button type="button" class="booking-mobile-actions-summary" id="bookingMobileSummary" aria-live="polite" aria-controls="bnbCartSheet" aria-expanded="false" disabled="disabled"></button>
+            <button type="button" class="booking-mobile-continue" id="bookingMobileContinue">Continue</button>
+        </div>
+    </main>
+</div>
+<!-- include: scripts -->
+</body>
+</html>

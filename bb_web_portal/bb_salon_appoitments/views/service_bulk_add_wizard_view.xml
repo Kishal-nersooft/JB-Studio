@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_service_bulk_add_wizard_form" model="ir.ui.view">
+        <field name="name">service.bulk.add.wizard.form</field>
+        <field name="model">service.bulk.add.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Multiple Services">
+                <group>
+                    <field name="beautician_id" readonly="1"/>
+                    <field name="branch_ids" widget="many2many_tags" readonly="1"/>
+                </group>
+                <separator string="Select Services"/>
+                <field name="service_ids" widget="many2many_tags"
+                       options="{'no_create': True, 'no_create_edit': True}"
+                       domain="[('is_appointment_service', '=', True), ('branch_ids', 'in', branch_ids)]"/>
+                <group string="Defaults for New Lines">
+                    <field name="default_duration" widget="float_time"/>
+                    <field name="default_price"/>
+                </group>
+                <footer>
+                    <button name="action_add_services" type="object"
+                            string="Add Services" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Step 2: Service Selection Template -->
+    <template id="service_step" name="Service Selection Step">
+        <div class="service-detail-wrapper container-fluid">
+            <!-- Header -->
+            <div class="service-detail-header py-3 py-md-4">
+                <div class="service-detail-container container">
+                    <div class="service-header-content">
+                        <t t-call="bnb_portal_appointment.booking_breadcrumb"/>
+                        <h1 class="service-salon-title mb-3">Services</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="service-detail-container container py-4">
+                <div class="row g-4 g-lg-4 align-items-start">
+                    <!-- Left Column - Services -->
+                    <div class="service-left-column col-12 col-lg-8 mb-4 mb-lg-0">
+                        <div class="service-section">
+                            <!-- Parent Category Dropdown -->
+                            <div class="mb-5">
+                                <select id="parentCategoryDropdown" class="form-select">
+                                    <option value="all">All Categories</option>
+                                    <t t-foreach="parent_categories" t-as="parent">
+                                        <option t-att-value="parent['id']" t-out="parent['name']"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!-- Child Category Pills Navigation -->
+                            <div class="d-flex align-items-center mb-4">
+                                <button class="category-nav-btn category-nav-prev"
+                                        style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; border: none; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; margin-right: 12px; color: #666;">
+                                    <i class="fa fa-chevron-left"></i>
+                                </button>
+
+                                <div class="service-categories-tabs d-flex gap-2 align-items-center"
+                                     style="flex: 1; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; -ms-overflow-style: none;">
+                                    <button class="service-tab btn btn-sm btn-outline-primary active"
+                                            data-category-id="all"
+                                            style="flex-shrink: 0; white-space: nowrap; height: 40px; display: inline-flex; align-items: center;">
+                                        🔥 Top Selling
+                                    </button>
+                                    <t t-foreach="service_categories" t-as="category">
+                                        <button class="service-tab btn btn-sm btn-outline-primary"
+                                                t-att-data-category-id="category['id']"
+                                                t-att-data-parent-id="category['parent_id']"
+                                                style="flex-shrink: 0; white-space: nowrap; height: 40px; display: inline-flex; align-items: center;">
+                                            <t t-out="category['name']"/>
+                                        </button>
+                                    </t>
+                                </div>
+
+                                <button class="category-nav-btn category-nav-next"
+                                        style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; border: none; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; margin-left: 12px; color: #666;">
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <style>
+                                .service-categories-tabs::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            </style>
+
+                            <!-- Service Items -->
+                            <div class="service-items-list d-flex flex-column gap-3">
+                                <t t-foreach="service_categories" t-as="category">
+                                    <t t-foreach="category['product_ids']" t-as="product">
+                                        <div class="service-item-card card"
+                                             t-att-data-service-id="product['id']"
+                                             t-att-data-sold-quantity="product['sold_quantity']"
+                                             t-att-data-parent-id="category['parent_id']"
+                                             t-att-data-service-name="product['name']"
+                                             t-att-data-service-price="product['formatted_price']"
+                                             t-att-data-service-duration="product['service_duration_display']"
+                                             t-att-data-service-description="product['description_sale']"
+                                             t-att-data-category-id="category['id']">
+                                            <div class="card-body d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center">
+                                                <div class="service-item-info flex-grow-1 mb-3 mb-sm-0">
+                                                    <h3 class="service-item-name h6 mb-2" t-out="product['name']"/>
+                                                    <div class="service-item-duration text-muted small mb-1"
+                                                         t-out="product['service_duration_display']"/>
+                                                    <button class="service-details-btn btn btn-link p-0 small">Details</button>
+                                                    <div class="service-item-price">
+                                                        <span class="service-price-from fw-bold"
+                                                              t-out="product['formatted_price']"/>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="service-book-btn btn btn-primary">Book</button>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+
+                            <p class="top-selling-empty text-muted" style="display:none;" role="status">
+                                No top-selling services yet in this category. Select a service category to see available services.
+                            </p>
+
+                            <!-- Service Detail Modal -->
+                            <div id="serviceDetailModal" class="service-modal" style="display:none;">
+                                <div class="service-modal-overlay"></div>
+                                <div class="service-modal-content">
+                                    <button class="service-modal-close">×</button>
+                                    <div class="service-modal-body p-3 m-3">
+                                        <h3 class="service-modal-title"></h3>
+                                        <div class="service-modal-description-wrapper h-100">
+                                            <div class="service-modal-description collapsed"></div>
+                                            <button class="service-modal-read-more">Read more</button>
+                                        </div>
+                                        <div class="service-modal-footer">
+                                            <div class="service-modal-price-duration">
+                                                <div class="service-modal-price"></div>
+                                                <div class="service-modal-duration"></div>
+                                            </div>
+                                            <button class="service-modal-action-btn"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Booking Card -->
+                    <div class="service-right-column col-12 col-lg-4">
+                        <div class="sticky-top" style="top: 20px;">
+                            <t t-call="bnb_portal_appointment.salon_service_booking_card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

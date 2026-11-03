@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="location_step" name="Location Selection Step">
+        <div class="location-step-wrapper container-fluid py-4">
+            <div class="location-results-section">
+                <div class="location-results-container container">
+                    <div class="location-salon-grid row g-3 g-md-4">
+                        <t t-foreach="branches" t-as="branch">
+                            <div class="col-12">
+                                <div class="location-salon-card card h-100 shadow-sm" t-att-data-salon-id="branch['id']">
+                                    <div class="location-salon-image">
+                                        <img t-if="branch.get('image_url')"
+                                             t-att-src="branch['image_url']"
+                                             t-att-alt="branch['name']"
+                                             class="card-img-top" />
+                                        <img t-else=""
+                                             src="/web/static/img/placeholder.png"
+                                             t-att-alt="branch['name']"
+                                             class="card-img-top" />
+                                    </div>
+                                    <div class="location-salon-info card-body">
+                                        <h3 class="location-salon-name card-title h6 mb-2" t-out="branch['name']"/>
+                                        <!-- No rating is shown. The stars here were the literal text
+                                             "4.7 ⭐ (3)", so every branch advertised the same score to
+                                             customers regardless of what anyone had actually rated it.
+                                             There is no rating record behind a beauty.branch and no
+                                             flow that asks a customer to leave one, so there is nothing
+                                             true to display. Restore this only alongside a real rating
+                                             source. -->
+                                        <div class="location-salon-address text-muted small mb-2">
+                                            <span t-if="branch.get('city')" t-out="branch['city']"/>
+                                            <t t-if="branch.get('city') and branch.get('state_id')">, </t>
+                                            <span t-if="branch.get('state_id')" t-out="branch['state_id'].name"/>
+                                        </div>
+                                        <div class="location-salon-category badge bg-light text-dark">Beauty Salon</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

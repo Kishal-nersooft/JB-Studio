@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Configure access keys    -->
+    <record id="res_config_settings_view_form_bnb_auth_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.bnb.auth</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='integration']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="google_login">
+                    <div class="o_setting_left_pane">
+                        <field name="enable_google_connector"
+                               string="Google Sign Auth"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="enable_google_connector"/>
+                        <div class="text-muted">
+                            Synchronize with Google Sign
+                        </div>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_google_connector == False)">
+                            Client Id :
+                            <field name="google_client_id"
+                                   invisible="(enable_google_connector == False)"/>
+                        </span>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_google_connector == False)">
+                            Secret Id :
+                            <field name="google_client_secret" password="True"
+                                   invisible="(enable_google_connector == False)"/>
+                        </span>
+                    </div>
+
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_google_connector == False)">
+                            Redirect URI :
+                            <field name="google_redirect_uri"
+                                   invisible="(enable_google_connector == False)"/>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 o_setting_box mt-2" id="apple_loging">
+                    <div class="o_setting_left_pane">
+                        <field name="enable_apple_connector"
+                               string="Apple Sign Auth"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="enable_apple_connector"/>
+                        <div class="text-muted">
+                            Synchronize with Apple Sign
+                        </div>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_apple_connector == False)">
+                            Service Id :
+                            <field name="apple_client_id"
+                                   invisible="(enable_apple_connector == False)"/>
+                        </span>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_apple_connector == False)">
+                            Team Id :
+                            <field name="apple_team_id" password="True"
+                                   invisible="(enable_apple_connector == False)"/>
+                        </span>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_apple_connector == False)">
+                            Key Id :
+                            <field name="apple_key_id" password="True"
+                                   invisible="(enable_apple_connector == False)"/>
+                        </span>
+                    </div>
+
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_apple_connector == False)">
+                            Private Key (.p8) :
+                            <field name="apple_private_key"
+                                   invisible="(enable_apple_connector == False)" widget="text" password="True"/>
+                        </span>
+                    </div>
+
+                    <div class="o_setting_right_pane">
+                        <span invisible="(enable_apple_connector == False)">
+                            Redirect URI :
+                            <field name="apple_redirect_uri"
+                                   invisible="(enable_apple_connector == False)"/>
+                        </span>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

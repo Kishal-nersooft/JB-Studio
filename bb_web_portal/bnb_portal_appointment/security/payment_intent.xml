@@ -1,0 +1,20 @@
+<odoo>
+  <record id="access_online_checkout_admin" model="ir.model.access">
+    <field name="name">Online checkouts: administrators</field><field name="model_id" ref="model_bb_online_booking_intent"/>
+    <field name="group_id" ref="base.group_system"/><field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/><field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+  </record>
+  <record id="rule_online_checkout_company" model="ir.rule">
+    <field name="name">Online checkout company isolation</field><field name="model_id" ref="model_bb_online_booking_intent"/>
+    <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+  </record>
+  <record id="access_online_submission_admin" model="ir.model.access">
+    <field name="name">Gateway submissions: administrators</field><field name="model_id" ref="model_bb_online_gateway_submission"/>
+    <field name="group_id" ref="base.group_system"/><field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="False"/><field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+  </record>
+  <record id="rule_online_submission_company" model="ir.rule">
+    <field name="name">Gateway submission company isolation</field><field name="model_id" ref="model_bb_online_gateway_submission"/>
+    <field name="domain_force">[('transaction_id.company_id', 'in', company_ids)]</field>
+  </record>
+</odoo>

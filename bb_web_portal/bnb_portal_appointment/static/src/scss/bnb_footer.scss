@@ -1,0 +1,84 @@
+// Browz & Beauty custom website footer (scoped to the BB website in footer.xml).
+// Colours/typography mirror the live site browzandbeauty.com.au:
+//   .footer{background:#d29a89} .foot_titl{25px/700/uppercase/#fff}
+$bb-footer-bg: #d29a89;
+$bb-footer-fg: #ffffff;
+
+.bb_footer {
+    background-color: $bb-footer-bg;
+    color: $bb-footer-fg;
+
+    a { color: $bb-footer-fg; text-decoration: none; transition: all .4s; }
+    a:hover, a:focus { text-decoration: none; color: $bb-footer-fg; }
+
+    .bb_footer_main { padding: 2.5rem 0 1.5rem; }
+
+    .bb_footer_col { margin-bottom: 1.5rem; }
+
+    .bb_footer_title {
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: $bb-footer-fg;
+    }
+
+    .bb_footer_locations {
+        li { margin-bottom: .7rem; text-transform: uppercase; font-size: .9rem; letter-spacing: .02em; }
+    }
+
+    .bb_footer_email {
+        margin-bottom: 1rem;
+        .bb_mail_icon { width: 26px; height: auto; margin-right: .6rem; vertical-align: middle; }
+    }
+
+    .bb_footer_social {
+        a {
+            display: inline-block;
+            margin-right: .45rem;
+            img { width: 30px; height: 30px; }
+            &:hover { opacity: .85; }
+        }
+    }
+
+    .bb_review_item {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        margin-bottom: 1.1rem;
+
+        .bb_review_badge { width: 28px; height: 28px; }
+        .bb_stars { display: block; height: 20px; width: auto; margin-bottom: .25rem; }
+        .bb_review_caption { font-size: .9rem; line-height: 1.35; }
+    }
+
+    .bb_footer_bottom {
+        background-color: $bb-footer-bg;
+        border-top: 1px solid rgba(255, 255, 255, .3);
+        padding: 1rem 0;
+        text-align: center;
+
+        .bb_footer_stores {
+            li, a { color: $bb-footer-fg; }
+            a:hover, a:focus { text-decoration: none; }
+            .bb_gmb_icon { width: 18px; height: auto; vertical-align: text-bottom; margin-right: .15rem; filter: brightness(0) invert(1); }
+            .bb_sep { opacity: .6; margin: 0 .2rem; }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .bb_footer {
+        .bb_footer_main { padding: 32px 16px 16px; }
+        .bb_footer_title { font-size: 22px; margin-bottom: 12px; }
+        .bb_footer_col, .bb_footer_email { min-width: 0; overflow-wrap: anywhere; }
+        .bb_footer_locations a, .bb_footer_email a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            max-width: 100%;
+        }
+        .bb_footer_social a { padding: 7px; margin: 0; }
+        .bb_footer_stores { line-height: 1.8; overflow-wrap: anywhere; }
+    }
+}

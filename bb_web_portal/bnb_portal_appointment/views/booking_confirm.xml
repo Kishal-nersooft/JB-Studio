@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="confirmation_step" name="Booking Confirmation">
+        <div id="step-confirmation" class="fresha-confirmation-wrapper container-fluid d-flex align-items-center justify-content-center min-vh-100 py-4 py-md-5">
+            <div class="fresha-confirmation-container container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                        <!-- Success Header -->
+                        <div class="fresha-confirmation-header text-center mb-4">
+                            <div class="fresha-success-icon-wrap mx-auto mb-3">
+                                <div class="fresha-success-icon">
+                                    <svg class="fresha-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                        <circle class="fresha-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                                        <path class="fresha-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h1 class="fresha-confirmation-title mb-2">Booking Confirmed!</h1>
+                            <p class="fresha-confirmation-subtitle text-muted mb-0">We've sent a confirmation email with all the details.</p>
+                        </div>
+
+                        <!-- Booking Details Card -->
+                        <div class="fresha-confirmation-card">
+                            <div class="fresha-card-header">
+                                <h2 class="fresha-card-title">Booking Details</h2>
+                            </div>
+
+                            <div id="confirmed-booking-summary" class="confirmation-details">
+                                <!-- JavaScript will populate this -->
+                            </div>
+                        </div>
+
+                        <!-- New Appointment Button -->
+                        <div class="text-center mt-4">
+                            <a href="/book-online" class="fresha-new-appointment-btn">
+                                <i class="fa fa-plus"></i>
+                                New Appointment
+                            </a>
+                            <div class="mt-3">
+                                <a href="javascript:void(0);" class="fresha-print-link" onclick="window.print();">Print confirmation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .fresha-confirmation-wrapper {
+                min-height: 100vh;
+                padding: 40px 16px;
+                background: #fafbfc;
+            }
+
+            /* Animated Checkmark */
+            .fresha-success-icon-wrap {
+                width: 84px;
+                height: 84px;
+                position: relative;
+            }
+
+            .fresha-success-icon {
+                width: 84px;
+                height: 84px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #10b981;
+                box-shadow: 0 12px 32px rgba(16, 185, 129, 0.35);
+                animation: successScaleIn 0.5s ease-out;
+            }
+
+            .fresha-checkmark {
+                width: 46px;
+                height: 46px;
+            }
+
+            .fresha-checkmark-circle {
+                stroke-dasharray: 166;
+                stroke-dashoffset: 166;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                stroke: rgba(255,255,255,0.3);
+                animation: circleStroke 0.6s ease-in-out 0.3s forwards;
+            }
+
+            .fresha-checkmark-check {
+                stroke-dasharray: 48;
+                stroke-dashoffset: 48;
+                stroke: #fff;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                animation: checkStroke 0.4s ease-in-out 0.7s forwards;
+            }
+
+            @keyframes successScaleIn {
+                0% { transform: scale(0); opacity: 0; }
+                60% { transform: scale(1.1); }
+                100% { transform: scale(1); opacity: 1; }
+            }
+
+            @keyframes circleStroke {
+                100% { stroke-dashoffset: 0; }
+            }
+
+            @keyframes checkStroke {
+                100% { stroke-dashoffset: 0; }
+            }
+
+            .fresha-confirmation-title {
+                font-size: 26px;
+                font-weight: 700;
+                color: #1e293b;
+            }
+
+            .fresha-confirmation-subtitle {
+                font-size: 15px;
+                color: #64748b;
+            }
+
+            /* Card */
+            .fresha-confirmation-card {
+                background: #fff;
+                border-radius: 14px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+                overflow: hidden;
+            }
+
+            .fresha-card-header {
+                padding: 18px 22px;
+                border-bottom: 1px solid #f1f5f9;
+            }
+
+            .fresha-card-title {
+                font-size: 18px;
+                font-weight: 600;
+                color: #1e293b;
+                margin: 0;
+            }
+
+            /* Confirmation Details */
+            .confirmation-details {
+                padding: 0;
+            }
+
+            .confirmation-item {
+                padding: 14px 22px;
+                border-bottom: 1px solid #f1f5f9;
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .confirmation-item:last-child {
+                border-bottom: none;
+            }
+
+            .confirmation-label {
+                font-weight: 600;
+                color: #94a3b8;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.6px;
+            }
+
+            .confirmation-value {
+                color: #1e293b;
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            /* Payment Summary */
+            .payment-summary-section {
+                background: #f8fafc;
+                padding: 18px 22px;
+            }
+
+            .payment-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+            }
+
+            .payment-row:first-child {
+                padding-top: 0;
+            }
+
+            .payment-row:last-child {
+                padding-bottom: 0;
+            }
+
+            .payment-row span:first-child {
+                color: #64748b;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .payment-row span:last-child {
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .payment-total {
+                border-top: 2px solid #e2e8f0;
+                padding-top: 12px !important;
+                margin-top: 6px;
+            }
+
+            .payment-total span:last-child {
+                font-size: 17px;
+                color: #10b981;
+            }
+
+            /* New Appointment Button — small, outline */
+            .fresha-new-appointment-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 10px 22px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #6366f1;
+                background: transparent;
+                border: 2px solid #6366f1;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: all 0.2s ease;
+            }
+
+            .fresha-new-appointment-btn:hover {
+                background: #6366f1;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .fresha-new-appointment-btn i {
+                font-size: 12px;
+            }
+
+            /* Print link — subtle text */
+            .fresha-print-link {
+                font-size: 13px;
+                color: #94a3b8;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            .fresha-print-link:hover {
+                color: #64748b;
+                text-decoration: underline;
+            }
+
+            /* Responsive */
+            @media (min-width: 768px) {
+                .fresha-confirmation-title {
+                    font-size: 30px;
+                }
+
+                .fresha-success-icon-wrap,
+                .fresha-success-icon {
+                    width: 92px;
+                    height: 92px;
+                }
+
+                .fresha-checkmark {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .fresha-card-header {
+                    padding: 20px 26px;
+                }
+
+                .confirmation-item {
+                    padding: 16px 26px;
+                }
+
+                .payment-summary-section {
+                    padding: 20px 26px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .fresha-confirmation-wrapper {
+                    padding: 20px 12px;
+                }
+
+                .fresha-success-icon-wrap,
+                .fresha-success-icon {
+                    width: 72px;
+                    height: 72px;
+                }
+
+                .fresha-checkmark {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .fresha-confirmation-title {
+                    font-size: 22px;
+                }
+
+                .fresha-confirmation-subtitle {
+                    font-size: 14px;
+                }
+
+                .confirmation-item {
+                    padding: 12px 16px;
+                }
+
+                .payment-summary-section {
+                    padding: 14px 16px;
+                }
+
+                .fresha-card-header {
+                    padding: 14px 16px;
+                }
+
+                .fresha-card-title {
+                    font-size: 16px;
+                }
+
+                .fresha-new-appointment-btn {
+                    padding: 10px 20px;
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 375px) {
+                .fresha-confirmation-wrapper {
+                    padding: 16px 8px;
+                }
+
+                .fresha-confirmation-title {
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </template>
+</odoo>

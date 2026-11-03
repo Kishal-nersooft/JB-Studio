@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Salon Appointment Form View -->
+    <record id="view_salon_appointment_form" model="ir.ui.view">
+        <field name="name">salon.appointment.form</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Salon Appointment">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <!-- Marks the customer as having arrived; it does not start
+                         the service. It was labelled "Start Service", which is
+                         why staff saw no Arrived action after an SMS
+                         confirmation even though the state existed. -->
+                    <button name="action_start" string="Arrived" type="object"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_complete" string="Complete" type="object"
+                            class="btn-success" invisible="state != 'in_progress'"/>
+                    <!-- Was state != 'draft,confirmed', which compares against
+                         that literal string and so is always true: Cancel never
+                         appeared at all. -->
+                    <button name="action_open_cancel_wizard" string="Cancel" type="object"
+                            class="btn-secondary"
+                            invisible="state not in ['draft', 'confirmed']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,completed,refunded"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object"
+                            class="btn-secondary" invisible="state == 'draft'"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_pos_order"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-shopping-cart"
+                                invisible="not pos_order_paid">
+                            <field name="pos_order_count" widget="statinfo" string="POS Order"/>
+                        </button>
+                        <button name="action_view_duplicate_appointments"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-clone"
+                                invisible="duplicate_appointment_count == 0">
+                            <field name="duplicate_appointment_count" widget="statinfo" string="Duplicates"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name" readonly="1"/>
+                        </h1>
+                        <!-- Leave and break appointments block an employee's
+                             time rather than serving a customer. Normal
+                             appointments show nothing extra here. -->
+                        <h3 invisible="appointment_type not in ['leave', 'break']">
+                            <field name="appointment_type" widget="badge"
+                                   decoration-warning="appointment_type == 'leave'"
+                                   decoration-info="appointment_type == 'break'"
+                                   readonly="1" nolabel="1"/>
+                            <field name="employee_id" readonly="1" nolabel="1"
+                                   class="oe_inline ms-2"
+                                   invisible="not employee_id"/>
+                        </h3>
+                    </div>
+                    <notebook>
+                        <page string="Appointment" name="appointment">
+                            <group>
+                                <group string="Customer" name="appointment_customer">
+                                    <field name="appointment_ref" readonly="1"/>
+                                    <!-- Blank on leave and break, which take
+                                         the calendar reference only. -->
+                                    <field name="appointment_no" readonly="1"
+                                           invisible="appointment_type in ['leave', 'break']"/>
+                                    <field name="appointment_type" readonly="1"/>
+                                    <field name="employee_id" readonly="1"
+                                           invisible="appointment_type not in ['leave', 'break']"/>
+                                    <field name="customer_id"/>
+                                    <field name="customer_first_name" required="1"/>
+                                    <field name="customer_last_name" required="1"/>
+                                    <field name="customer_email" widget="email"/>
+                                    <field name="customer_phone" widget="phone"/>
+                                    <field name="customer_other_phone" widget="phone"/>
+                                    <field name="customer_pronouns"/>
+                                </group>
+                                <group string="Details" name="appointment_details">
+                                    <field name="company_id"/>
+                                    <field name="branch_id"/>
+                                    <field name="beautician_ids" string="Beautician" widget="many2many_tags" readonly="1"/>
+                                    <field name="appointment_date"/>
+                                    <field name="is_waiting_list"/>
+                                    <!-- Shown on the branch's clock. The stored
+                                         Datetime fields render on whoever is
+                                         looking, so a Colombo session saw a
+                                         Canberra booking 4.5 hours out. Both are
+                                         computed with no inverse, so nothing is
+                                         lost by displaying them this way. -->
+                                    <field name="branch_local_start_display"/>
+                                    <field name="branch_local_end_display"/>
+                                    <field name="branch_local_time_display"
+                                           string="Branch Local Time"/>
+                                    <field name="has_party_details" readonly="1"/>
+                                    <field name="party_prep_minutes_total"
+                                           modifiers="{'invisible': [['has_party_details', '=', False]]}"/>
+                                    <field name="party_wrap_minutes_total"
+                                           modifiers="{'invisible': [['has_party_details', '=', False]]}"/>
+                                    <field name="booking_fee" widget="monetary"/>
+                                    <field name="is_online_booking" invisible="1"/>
+                                    <field name="payment_status" widget="badge"
+                                           invisible="is_online_booking and payment_status != 'paid'"
+                                           decoration-warning="payment_status == 'partial'"
+                                           decoration-success="payment_status == 'paid'"
+                                           decoration-danger="payment_status == 'refunded'"/>
+                                    <field name="online_payment_receipt_status" widget="badge"
+                                           invisible="not is_online_booking"
+                                           decoration-muted="online_payment_receipt_status == 'not_received'"
+                                           decoration-warning="online_payment_receipt_status == 'half_received'"
+                                           decoration-success="online_payment_receipt_status == 'full_received'"
+                                           decoration-danger="online_payment_receipt_status == 'refunded'"/>
+                                    <field name="online_refunded_amount" invisible="not online_refunded_amount"/>
+                                    <field name="policy_agreed"/>
+                                    <field name="remember_customer"/>
+                                    <!-- Only meaningful while the appointment
+                                         is a tentative Draft hold. -->
+                                    <field name="auto_expire"
+                                           invisible="state != 'draft'"/>
+                                    <field name="auto_expire_datetime"
+                                           invisible="not auto_expire or state != 'draft'"
+                                           required="auto_expire and state == 'draft'"/>
+                                </group>
+                                <!-- Only present once the appointment is
+                                     cancelled, so nothing changes on the form
+                                     for a normal booking. -->
+                                <group string="Cancellation" name="appointment_cancellation"
+                                       invisible="state != 'cancelled'">
+                                    <field name="cancellation_reason_id" readonly="1"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="cancellation_note" readonly="1"/>
+                                </group>
+                                <group string="Totals" name="appointment_totals">
+                                    <field name="services_subtotal" widget="monetary" readonly="1"/>
+                                    <field name="surcharge_percent" widget="percentage" readonly="1"/>
+                                    <field name="surcharge_amount" widget="monetary" readonly="1"/>
+                                    <field name="services_total" widget="monetary" readonly="1"/>
+                                    <field name="total_amount" widget="monetary" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Services" name="services">
+                            <field name="service_line_ids">
+                                <list editable="bottom">
+                                    <field name="service_id" options="{'no_create': True}"/>
+                                    <field name="service_category_id" readonly="1"/>
+                                    <field name="beautician_id" options="{'no_create': True}"/>
+                                    <field name="is_party_product" readonly="1" column_invisible="1"/>
+                                    <field name="party_prep_minutes"/>
+                                    <field name="party_wrap_minutes"/>
+                                    <field name="base_price" readonly="1"/>
+                                    <field name="beautician_addon_price" readonly="1"/>
+                                    <field name="total_price" readonly="1" sum="Total"/>
+                                    <field name="duration" readonly="1" widget="float_time"/>
+                                    <field name="time_period"/>
+                                    <field name="start_hour" widget="float_time"/>
+                                    <field name="end_hour" widget="float_time" readonly="1"/>
+                                    <field name="time_display"/>
+                                    <field name="added_at_checkout"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Booking Questions" name="booking_questions">
+                            <div class="alert alert-info" role="alert"
+                                 invisible="question_answer_ids != []">
+                                No booking questions. Add services with questions configured to see them here.
+                            </div>
+                            <field name="question_answer_ids" nolabel="1">
+                                <list editable="bottom" create="0" delete="0">
+                                    <field name="service_name" readonly="1" string="Service"/>
+                                    <field name="important_notice" readonly="1" string="Important Notice" optional="show"/>
+                                    <field name="question_text" readonly="1" string="Question"/>
+                                    <field name="answer_text" string="Answer"/>
+                                </list>
+                            </field>
+                            <group>
+                                <field name="policy_agreed" string="Customer Agreed to Terms"/>
+                            </group>
+                        </page>
+
+                        <page string="Payments &amp; Notes" name="payments">
+                            <group>
+                                <group string="Payments" name="appointment_payments">
+                                    <field name="payment_line_ids" readonly="1">
+                                        <list create="0" edit="0" delete="0">
+                                            <field name="payment_method"/>
+                                            <field name="payment_amount" sum="Total Paid"/>
+                                            <field name="payment_date"/>
+                                            <field name="payment_status"/>
+                                            <field name="payment_reference"/>
+                                            <field name="transaction_id"/>
+                                        </list>
+                                    </field>
+                                </group>
+                                <group string="Notes" name="appointment_notes">
+                                    <field name="notes"/>
+                                    <field name="special_note"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <chatter/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Salon Appointment List View -->
+    <record id="view_salon_appointment_tree" model="ir.ui.view">
+        <field name="name">salon.appointment.tree</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Salon Appointments" decoration-success="state=='completed'"
+                  decoration-danger="state=='cancelled'" decoration-warning="state=='draft'">
+                <header>
+                    <button name="action_delete_all_appointments"
+                            string="Delete All (Test)"
+                            type="object"
+                            class="btn-danger"
+                            confirm="This will delete ALL appointments and related journal entries. Continue?"
+                            groups="base.group_system"/>
+                </header>
+                <field name="display_name"/>
+                <field name="appointment_ref"/>
+                <field name="appointment_no" optional="show"/>
+                <field name="appointment_type" widget="badge" optional="show"
+                       decoration-warning="appointment_type == 'leave'"
+                       decoration-info="appointment_type == 'break'"/>
+                <field name="customer_id"/>
+                <field name="customer_first_name"/>
+                <field name="customer_last_name"/>
+                <field name="customer_phone"/>
+                <field name="appointment_date"/>
+                <field name="branch_id"/>
+                <field name="is_waiting_list" widget="boolean"/>
+                <field name="is_online_booking" column_invisible="True"/>
+                <field name="payment_status"
+                       invisible="is_online_booking and payment_status != 'paid'"/>
+                <field name="online_payment_receipt_status" widget="badge" optional="show"
+                       invisible="not is_online_booking"
+                       decoration-muted="online_payment_receipt_status == 'not_received'"
+                       decoration-warning="online_payment_receipt_status == 'half_received'"
+                       decoration-success="online_payment_receipt_status == 'full_received'"
+                       decoration-danger="online_payment_receipt_status == 'refunded'"/>
+                <field name="online_refunded_amount" optional="show" sum="Total Online Refunded"/>
+                <field name="state" widget="badge"
+                       decoration-success="state=='completed'"
+                       decoration-info="state=='confirmed'"
+                       decoration-warning="state=='draft'"
+                       decoration-danger="state=='cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Search View -->
+    <record id="view_salon_appointment_search" model="ir.ui.view">
+    <field name="name">salon.appointment.search</field>
+    <field name="model">salon.appointment</field>
+    <field name="arch" type="xml">
+        <search string="Search Appointments">
+            <field name="appointment_ref"/>
+            <field name="appointment_no"/>
+            <field name="customer_id"/>
+            <field name="customer_first_name"/>
+            <field name="customer_last_name"/>
+            <field name="customer_email"/>
+            <field name="customer_phone"/>
+            <field name="branch_id"/>
+            <field name="appointment_date"/>
+
+            <filter name="today" string="Today"
+                    domain="[('appointment_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+
+            <separator/>
+            <filter name="waiting_list" string="Waiting List" domain="[('is_waiting_list', '=', True)]"/>
+            <filter name="not_waiting_list" string="Not Waiting List" domain="[('is_waiting_list', '=', False)]"/>
+
+            <separator/>
+            <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+            <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+            <filter name="in_progress" string="In Progress" domain="[('state', '=', 'in_progress')]"/>
+            <filter name="completed" string="Completed" domain="[('state', '=', 'completed')]"/>
+            <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+
+            <separator/>
+            <filter name="unpaid" string="Unpaid" domain="[('payment_status', '=', 'unpaid')]"/>
+            <filter name="partial" string="Partial Payment" domain="[('payment_status', '=', 'partial')]"/>
+            <filter name="paid" string="Paid" domain="[('payment_status', '=', 'paid')]"/>
+            <filter name="online_refunded" string="Online Refunded"
+                    domain="[('online_payment_receipt_status', '=', 'refunded')]"/>
+
+            <group>
+                <filter name="group_by_date" string="Appointment Date" domain="[]" context="{'group_by': 'appointment_date'}"/>
+                <filter name="group_by_branch" string="Branch" domain="[]" context="{'group_by': 'branch_id'}"/>
+                <filter name="group_by_state" string="Status" domain="[]" context="{'group_by': 'state'}"/>
+                <filter name="group_by_payment_status" string="Payment Status" domain="[]" context="{'group_by': 'payment_status'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+    <!-- Salon Appointment Service Form View -->
+    <record id="view_salon_appointment_service_form" model="ir.ui.view">
+        <field name="name">salon.appointment.service.form</field>
+        <field name="model">salon.appointment.service</field>
+        <field name="arch" type="xml">
+            <form string="Appointment Service">
+                <sheet>
+                    <group>
+                        <group string="Service Details">
+                            <field name="service_id"/>
+                            <field name="service_category_id" readonly="1"/>
+                            <field name="service_name" readonly="1"/>
+                            <field name="duration" readonly="1" widget="float_time"/>
+                            <field name="duration_display" readonly="1"/>
+                            <field name="time_slot"/>
+                        </group>
+                        <group string="Beautician &amp; Pricing">
+                            <field name="beautician_id"/>
+                            <field name="beautician_name" readonly="1"/>
+                            <field name="base_price" readonly="1"/>
+                            <field name="beautician_addon_price" readonly="1"/>
+                            <field name="total_price" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Service Tree View -->
+    <record id="view_salon_appointment_service_tree" model="ir.ui.view">
+        <field name="name">salon.appointment.service.tree</field>
+        <field name="model">salon.appointment.service</field>
+        <field name="arch" type="xml">
+            <list string="Appointment Services">
+                <field name="appointment_id"/>
+                <field name="service_name"/>
+                <field name="service_category_id"/>
+                <field name="beautician_name"/>
+                <field name="duration" widget="float_time"/>
+                <field name="time_slot"/>
+                <field name="total_price" sum="Total"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Payment Form View -->
+    <record id="view_salon_appointment_payment_form" model="ir.ui.view">
+        <field name="name">salon.appointment.payment.form</field>
+        <field name="model">salon.appointment.payment</field>
+        <field name="arch" type="xml">
+            <form string="Payment Details" create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <group string="Payment Information">
+                            <field name="payment_method"/>
+                            <field name="payment_amount"/>
+                            <field name="payment_date"/>
+                            <field name="payment_status"/>
+                            <field name="payment_reference"/>
+                            <field name="transaction_id"/>
+                            <field name="payment_provider"/>
+                            <field name="refunded_amount" invisible="not refunded_amount"/>
+                            <field name="refund_date" invisible="not refunded_amount"/>
+                            <field name="refund_reference" invisible="not refunded_amount"/>
+                        </group>
+                        <group string="Card Details" invisible="payment_method != 'card'">
+                            <field name="card_number_masked"/>
+                            <field name="card_type"/>
+                        </group>
+                    </group>
+
+                    <group string="Billing Address">
+                        <field name="billing_address"/>
+                        <field name="billing_city"/>
+                        <field name="billing_state"/>
+                        <field name="billing_postcode"/>
+                    </group>
+
+                    <group string="Promo &amp; Discounts">
+                        <field name="promo_code"/>
+                        <field name="discount_amount"/>
+                        <field name="payment_option"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Payment Tree View -->
+    <record id="view_salon_appointment_payment_tree" model="ir.ui.view">
+        <field name="name">salon.appointment.payment.tree</field>
+        <field name="model">salon.appointment.payment</field>
+        <field name="arch" type="xml">
+            <list string="Payment Details" create="0" edit="0" delete="0">
+                <field name="appointment_id"/>
+                <field name="payment_method"/>
+                <field name="payment_amount" sum="Total"/>
+                <field name="payment_date"/>
+                <field name="payment_status" widget="badge"/>
+                <field name="payment_reference"/>
+                <field name="transaction_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Calendar View -->
+    <record id="view_salon_appointment_calendar" model="ir.ui.view">
+        <field name="name">salon.appointment.calendar</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <calendar js_class="bnb_branch_calendar" date_start="branch_calendar_start"
+                      date_stop="branch_calendar_end"
+                      string="Appointments (Branch Local Time)" quick_create="0"
+                      mode="month"
+                      color="state"
+                      event_open_popup="true">
+                <field name="branch_calendar_start" invisible="1"/>
+                <field name="branch_calendar_end" invisible="1"/>
+                <field name="branch_local_time_display"/>
+                <field name="branch_display_timezone"/>
+                <field name="customer_first_name"/>
+                <field name="customer_last_name"/>
+                <field name="customer_phone"/>
+                <field name="customer_email"/>
+                <field name="branch_id"/>
+                <field name="state"/>
+                <field name="payment_status"/>
+                <field name="total_amount"/>
+                <field name="services_total"/>
+                <field name="booking_fee"/>
+                <field name="appointment_date"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Salon Appointment Gantt View -->
+    <record id="view_salon_appointment_gantt" model="ir.ui.view">
+        <field name="name">salon.appointment.gantt</field>
+        <field name="model">salon.appointment</field>
+        <field name="arch" type="xml">
+            <gantt js_class="bnb_branch_gantt" class="o_salon_appointment_gantt"
+                   create="1" delete="1" plan="0" disable_drag_drop="1" cell_create="0"
+                   date_start="branch_calendar_start"
+                   date_stop="branch_calendar_end"
+                   decoration-success="state == 'completed'"
+                   decoration-warning="state == 'confirmed'"
+                   decoration-info="state == 'in_progress'"
+                   decoration-danger="state == 'cancelled'"
+                   default_group_by="branch_id"
+                   default_scale="day"
+                   form_view_id="%(view_salon_appointment_form)d"
+                   precision="{'day': 'hour:quarter', 'week': 'day:half', 'month': 'day:half'}"
+                   sample="0"
+                   string="Appointments (Branch Local Time)"
+                   total_row="0">
+
+                <field name="branch_local_time_display"/>
+                <field name="branch_display_timezone"/>
+                <field name="state"/>
+                <field name="branch_id"/>
+                <field name="customer_first_name"/>
+                <field name="customer_last_name"/>
+                <field name="customer_phone"/>
+                <field name="customer_email"/>
+                <field name="payment_status"/>
+                <field name="total_amount"/>
+                <field name="services_total"/>
+                <field name="booking_fee"/>
+
+                <templates>
+                    <div t-name="gantt-popover">
+                        <ul class="ps-1 mb-0 list-unstyled">
+                            <strong>Customer Information</strong>
+                            <li><strong>Name: </strong><t t-out="customer_first_name"/> <t t-out="customer_last_name"/></li>
+                            <li t-if="customer_phone"><strong>Phone: </strong><t t-out="customer_phone"/></li>
+                            <li t-if="customer_email"><strong>Email: </strong><t t-out="customer_email"/></li>
+                            <br/>
+                            <strong>Appointment Details</strong>
+                            <li><strong>Branch: </strong><t t-out="branch_id[1]"/></li>
+                            <li><strong>Branch Local Time: </strong><t t-out="branch_local_time_display"/></li>
+                            <li><strong>Status: </strong>
+                                <select t-if="can_edit" class="o_salon_appointment_status o_input">
+                                    <option value="draft" t-att-selected="state === 'draft'">Draft</option>
+                                    <option value="confirmed" t-att-selected="state === 'confirmed'">Confirmed</option>
+                                    <option value="in_progress" t-att-selected="state === 'in_progress'">In Progress</option>
+                                    <option value="completed" t-att-selected="state === 'completed'">Completed</option>
+                                    <option value="cancelled" t-att-selected="state === 'cancelled'">Cancelled</option>
+                                </select>
+                                <t t-else="">
+                                    <t t-if="state === 'draft'">Draft</t>
+                                    <t t-elif="state === 'confirmed'">Confirmed</t>
+                                    <t t-elif="state === 'in_progress'">In Progress</t>
+                                    <t t-elif="state === 'completed'">Completed</t>
+                                    <t t-elif="state === 'cancelled'">Cancelled</t>
+                                </t>
+                            </li>
+                            <li><strong>Payment Status: </strong><t t-out="payment_status"/></li>
+                            <li><strong>Total Amount: </strong><t t-out="total_amount"/></li>
+                        </ul>
+                    </div>
+                </templates>
+            </gantt>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_salon_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">salon.appointment</field>
+        <field name="view_mode">calendar,gantt,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first salon appointment!
+            </p>
+            <p>
+                Manage your salon appointments, track services, and handle payments.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_salon_appointment_service" model="ir.actions.act_window">
+        <field name="name">Appointment Services</field>
+        <field name="res_model">salon.appointment.service</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No appointment services found!
+            </p>
+        </field>
+    </record>
+
+    <record id="action_salon_appointment_payment" model="ir.actions.act_window">
+        <field name="name">Payment Details</field>
+        <field name="res_model">salon.appointment.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No payment records found!
+            </p>
+        </field>
+    </record>
+</odoo>

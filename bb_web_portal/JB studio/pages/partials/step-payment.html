@@ -1,0 +1,94 @@
+<!-- views/payment_view.xml : payment_step -->
+<div class="fresha-payment-wrapper container-fluid">
+    <!-- Header -->
+    <div class="fresha-payment-header py-3 py-md-4">
+        <div class="payment-detail-header container">
+            <!-- include: breadcrumb -->
+            <p class="fresha-payment-subtitle text-muted">Review your booking and continue to secure payment</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="payment-content-grid">
+        <!-- Left Column - Billing address and how payment works -->
+        <div class="fresha-payment-left">
+            <section class="bnb-pay-panel">
+                <div class="bnb-pay-panel-head">
+                    <span class="bnb-pay-panel-icon" aria-hidden="true"><i class="fa fa-home"></i></span>
+                    <div>
+                        <h4 class="fresha-section-title">Billing address <span class="bnb-pay-optional">Optional</span></h4>
+                        <p class="bnb-pay-panel-sub">Only needed if your card issuer asks for it.</p>
+                    </div>
+                </div>
+
+                <form class="fresha-payment-form" id="paymentForm">
+                    <div class="fresha-form-group">
+                        <label class="fresha-form-label" for="billing_address">Street address</label>
+                        <input type="text" class="fresha-form-input" id="billing_address" name="billing_address" placeholder="e.g. 12 Example Street" autocomplete="street-address"/>
+                    </div>
+
+                    <div class="fresha-form-row bnb-pay-form-row-3">
+                        <div class="fresha-form-group">
+                            <label class="fresha-form-label" for="city">City / suburb</label>
+                            <input type="text" class="fresha-form-input" id="city" name="city" placeholder="City" autocomplete="address-level2"/>
+                        </div>
+                        <div class="fresha-form-group">
+                            <label class="fresha-form-label" for="state">State</label>
+                            <input type="text" class="fresha-form-input" id="state" name="state" placeholder="State" autocomplete="address-level1"/>
+                        </div>
+                        <div class="fresha-form-group">
+                            <label class="fresha-form-label" for="postcode">Postcode</label>
+                            <input type="text" class="fresha-form-input" id="postcode" name="postcode" placeholder="2600" inputmode="numeric" autocomplete="postal-code"/>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="bnb-pay-panel">
+                <div class="bnb-pay-panel-head">
+                    <span class="bnb-pay-panel-icon" aria-hidden="true"><i class="fa fa-credit-card"></i></span>
+                    <div>
+                        <h4 class="fresha-section-title">How payment works</h4>
+                        <p class="bnb-pay-panel-sub">Three quick steps and you're booked.</p>
+                    </div>
+                </div>
+
+                <ol class="bnb-pay-steps">
+                    <li>
+                        <span class="bnb-pay-step-num">1</span>
+                        <div>
+                            <strong>Review your booking</strong>
+                            <span>Check your services, time and total, and add a gift or discount code.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bnb-pay-step-num">2</span>
+                        <div>
+                            <strong>Pay on our secure checkout page</strong>
+                            <span>Choose your payment method and complete payment within 20 minutes.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bnb-pay-step-num">3</span>
+                        <div>
+                            <strong>You're booked</strong>
+                            <span>Your appointment is confirmed and we email you the details.</span>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="fresha-security-notice">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <span>You'll be redirected to a secure, encrypted payment page to complete your booking.</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column - Booking Summary Card -->
+        <div class="fresha-payment-right">
+            <div class="sticky-card-wrapper">
+                <!-- include: payment-booking-card -->
+            </div>
+        </div>
+    </div>
+</div>

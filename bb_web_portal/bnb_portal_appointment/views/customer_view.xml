@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="customer_step" name="Customer Details Step">
+        <div class="fresha-customer-wrapper container-fluid">
+            <!-- Header -->
+            <div class="fresha-customer-header py-3 py-md-4">
+                <div class="customer-detail-header container">
+                    <t t-call="bnb_portal_appointment.booking_breadcrumb"/>
+                    <h1 class="fresha-customer-title mb-2">Your details</h1>
+                    <p class="fresha-customer-subtitle text-muted">We'll use these details to confirm your booking</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="customer-content-grid row g-4">
+                    <!-- Left Column - Customer Form -->
+                    <div class="fresha-customer-left col-12">
+
+                        <!-- Social Login Buttons -->
+                        <div class="social-login-container mb-4">
+                            <button type="button" class="social-login-btn apple-login-btn" id="appleLoginBtn">
+                                <img src="/bnb_portal_appointment/static/img/apple-logo.svg" alt="Apple" class="social-icon"/>
+                                <span>Continue with Apple</span>
+                            </button>
+                            <button type="button" class="social-login-btn google-login-btn" id="googleLoginBtn">
+                                <img src="/bnb_portal_appointment/static/img/google-logo.svg" alt="Google" class="social-icon"/>
+                                <span>Continue with Google</span>
+                            </button>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="login-divider mb-4">
+                            <span class="divider-text">OR</span>
+                        </div>
+
+                        <!-- Customer Form -->
+                        <form class="fresha-customer-form customer-details-form" id="customerForm">
+                            <!-- Name Fields -->
+                            <div class="fresha-form-row row g-3 mb-3">
+                                <div class="fresha-form-group col-12">
+                                    <label class="fresha-form-label form-label">First name *</label>
+                                    <input type="text" class="fresha-form-input form-control" id="first_name" name="first_name" placeholder="Enter your first name" required="true"/>
+                                </div>
+                                <div class="fresha-form-group col-12">
+                                    <label class="fresha-form-label form-label">Last name *</label>
+                                    <input type="text" class="fresha-form-input form-control" id="last_name" name="last_name" placeholder="Enter your last name" required="true"/>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="fresha-form-group mb-3">
+                                <label class="fresha-form-label form-label">Email *</label>
+                                <input type="email" class="fresha-form-input form-control" id="email" name="email" placeholder="Enter your email address" required="true"/>
+                                <div class="fresha-form-hint form-text">We'll send booking confirmations to this email</div>
+                            </div>
+
+                            <!-- Pronouns -->
+                            <div class="fresha-form-group mb-3">
+                                <label class="fresha-form-label form-label">Pronouns</label>
+                                <select class="fresha-form-input form-select" id="pronouns" name="pronouns">
+                                    <option value="">Select pronouns</option>
+                                    <option value="she/her">She/Her</option>
+                                    <option value="he/him">He/Him</option>
+                                    <option value="they/them">They/Them</option>
+                                    <option value="prefer_not_to_say">Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <!-- Phone Numbers -->
+                            <div class="fresha-form-row row g-3 mb-3">
+                                <div class="fresha-form-group col-12">
+                                    <label class="fresha-form-label form-label">Mobile phone *</label>
+                                    <div class="fresha-phone-input">
+                                        <input type="tel" class="fresha-form-input form-control" id="mobile_phone" name="mobile_phone" placeholder="Enter your mobile number" required="true"/>
+                                    </div>
+                                    <div class="fresha-form-hint form-text">We may text you booking updates</div>
+                                </div>
+                                <div class="fresha-form-group col-12">
+                                    <label class="fresha-form-label form-label">Other phone</label>
+                                    <input type="tel" class="fresha-form-input form-control" id="other_phone" name="other_phone" placeholder="Alternative phone number"/>
+                                </div>
+                            </div>
+
+                            <!-- Remember Me -->
+                            <div class="fresha-checkbox-group form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me"/>
+                                <label class="fresha-checkbox-label form-check-label" for="remember_me">
+                                    <span class="fresha-checkbox-text">Remember me</span>
+                                </label>
+                            </div>
+
+                            <!-- Terms Agreement -->
+                            <div class="fresha-checkbox-group required form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="agree_policy" name="agree_policy" required="true"/>
+                                <label class="fresha-checkbox-label form-check-label" for="agree_policy">
+                                    <span class="fresha-checkbox-text">
+                                        I agree to the cancellation policy and <a href="https://browzandbeauty.com.au/terms-and-conditions/" target="_blank" rel="noopener" class="fresha-link">Terms of Service</a> and
+                                        <a href="https://browzandbeauty.com.au/privacy-policy/" target="_blank" rel="noopener" class="fresha-link">Privacy Policy</a> *
+                                    </span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right Column - Booking Summary -->
+                    <div class="fresha-customer-right col-12">
+                        <div class="sticky-top" style="top: 20px;">
+                            <t t-call="bnb_portal_appointment.salon_service_booking_card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

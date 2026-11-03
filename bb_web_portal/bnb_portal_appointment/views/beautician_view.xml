@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Step 4: Beautician Selection Template -->
+    <template id="beautician_step" name="Beautician Selection Step">
+        <div class="fresha-beautician-wrapper container-fluid">
+            <!-- Header -->
+            <div class="fresha-beautician-header py-3 py-md-4">
+                <div class="beauty-detail-container container">
+                    <t t-call="bnb_portal_appointment.booking_breadcrumb"/>
+                    <h1 class="fresha-beautician-title mb-3">Choose professional</h1>
+                </div>
+            </div>
+            <div class="fresha-beautician-container container py-4">
+                <div class="beauty-content-grid row g-4">
+                    <!-- Left Column - Beautician Selection -->
+                    <div class="fresha-beautician-left col-12">
+                        <!-- Beautician List -->
+                        <div class="fresha-beautician-list row g-3">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Booking Summary -->
+                    <div class="fresha-beautician-right col-12">
+                        <div class="sticky-top" style="top: 20px;">
+                            <t t-call="bnb_portal_appointment.salon_service_booking_card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

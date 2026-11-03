@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Step 7: Payment Template (billing address + booking summary on right) -->
+    <template id="payment_step" name="Payment Step">
+        <div class="fresha-payment-wrapper container-fluid">
+            <!-- Header -->
+            <div class="fresha-payment-header py-3 py-md-4">
+                <div class="payment-detail-header container">
+                    <t t-call="bnb_portal_appointment.booking_breadcrumb"/>
+                    <h1 class="fresha-payment-title mb-2">Payment</h1>
+                    <p class="fresha-payment-subtitle text-muted">Review your booking and proceed to secure payment</p>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="payment-content-grid">
+                <!-- Left Column - Billing Address -->
+                <div class="fresha-payment-left">
+                    <form class="fresha-payment-form" id="paymentForm">
+                        <h4 class="fresha-section-title">Billing Address (optional)</h4>
+
+                        <div class="fresha-form-group">
+                            <label class="fresha-form-label">Address</label>
+                            <input type="text" class="fresha-form-input" id="billing_address" name="billing_address" placeholder="Street address"/>
+                        </div>
+
+                        <div class="fresha-form-row">
+                            <div class="fresha-form-group">
+                                <label class="fresha-form-label">City</label>
+                                <input type="text" class="fresha-form-input" id="city" name="city" placeholder="City"/>
+                            </div>
+                            <div class="fresha-form-group">
+                                <label class="fresha-form-label">State</label>
+                                <input type="text" class="fresha-form-input" id="state" name="state" placeholder="State"/>
+                            </div>
+                        </div>
+
+                        <div class="fresha-form-group">
+                            <label class="fresha-form-label">Postcode</label>
+                            <input type="text" class="fresha-form-input" id="postcode" name="postcode" placeholder="560001"/>
+                        </div>
+                    </form>
+
+                    <div class="fresha-security-notice mt-3">
+                        <i class="fa fa-lock"></i>
+                        <span>You'll be redirected to a secure payment page to complete your booking</span>
+                    </div>
+                </div>
+
+                <!-- Right Column - Booking Summary Card -->
+                <div class="fresha-payment-right">
+                    <div class="sticky-card-wrapper">
+                        <t t-call="bnb_portal_appointment.payment_booking_card"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Salon Checkout Page - Odoo payment.form with Stripe -->
+    <template id="salon_checkout_page" name="Salon Checkout">
+        <t t-call="website.layout">
+            <div class="salon-checkout-wrapper container py-4">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h1 class="mb-2" style="font-size: 28px; font-weight: 700; color: #1a1a2e;">Complete Payment</h1>
+                        <p class="text-muted mb-0">Securely pay for your salon booking</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Left Column - Odoo Payment Form -->
+                    <div class="col-lg-7 col-md-7 mb-4">
+                        <div class="salon-checkout-card p-4" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                            <h4 class="mb-3" style="font-weight: 600; color: #1a1a2e;">Select Payment Method</h4>
+                            <div id="salon_payment_method" class="mb-3">
+                                <t t-call="payment.form"/>
+                            </div>
+
+                            <!-- NAB wallet express buttons (Google Pay / Apple Pay) -->
+                            <t t-if="nab_wallet">
+                                <div class="nab-web-wallets"
+                                     t-att-data-provider-id="nab_wallet['provider_id']"
+                                     t-att-data-card-method-id="nab_wallet['card_method_id']"
+                                     t-att-data-access-token="nab_wallet['access_token']"
+                                     t-att-data-transaction-route="nab_wallet['transaction_route']"
+                                     t-att-data-landing-route="nab_wallet['landing_route']"
+                                     t-att-data-amount="nab_wallet['amount']"
+                                     t-att-data-currency="nab_wallet['currency']"
+                                     t-att-data-country="nab_wallet['country']"
+                                     t-att-data-is-test="nab_wallet['is_test']"
+                                     t-att-data-merchant-id="nab_wallet['merchant_id']"
+                                     t-att-data-google-merchant-id="nab_wallet['google_merchant_id']"
+                                     t-att-data-google="nab_wallet['google']"
+                                     t-att-data-apple="nab_wallet['apple']">
+                                    <div class="d-flex align-items-center my-3">
+                                        <hr class="flex-grow-1"/>
+                                        <span class="px-2 text-muted small">or pay with</span>
+                                        <hr class="flex-grow-1"/>
+                                    </div>
+                                    <button t-if="nab_wallet['google'] == '1'" type="button"
+                                            class="btn btn-dark w-100 mb-2 nab-web-wallet-btn"
+                                            data-wallet="google_pay">
+                                        <i class="fa fa-google me-2"/>Google Pay
+                                    </button>
+                                    <button t-if="nab_wallet['apple'] == '1'" type="button"
+                                            class="btn btn-dark w-100 nab-web-wallet-btn"
+                                            data-wallet="apple_pay">
+                                        <i class="fa fa-apple me-2"/>Apple Pay
+                                    </button>
+                                    <div class="nab-web-wallet-error text-danger small mt-2 d-none"/>
+                                </div>
+                            </t>
+
+                            <!-- TEMPORARY: NAB test bypass (only in test mode) -->
+                            <t t-if="nab_test_mode">
+                                <div class="d-flex align-items-center my-3">
+                                    <hr class="flex-grow-1"/>
+                                    <span class="px-2 text-muted small">testing only</span>
+                                    <hr class="flex-grow-1"/>
+                                </div>
+                                <a t-att-href="nab_test_url" class="btn btn-warning w-100">
+                                    <i class="fa fa-flask me-2"/>Complete Payment (TEST)
+                                </a>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Booking Summary -->
+                    <div class="col-lg-5 col-md-5">
+                        <div class="salon-checkout-card p-4 sticky-top" style="top: 20px; background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                            <h4 class="mb-3" style="font-weight: 600; color: #1a1a2e;">Booking Summary</h4>
+
+                            <!-- Branch Info -->
+                            <t t-if="branch">
+                                <div class="d-flex align-items-center mb-3 pb-3" style="border-bottom: 1px solid #f0f0f0;">
+                                    <div>
+                                        <div class="fw-semibold" style="font-size: 16px;" t-out="branch.name"/>
+                                        <div class="small text-muted">
+                                            <t t-if="branch.city" t-out="branch.city"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <!-- Appointment Date -->
+                            <t t-if="appointment">
+                                <div class="d-flex justify-content-between mb-2 pb-2" style="border-bottom: 1px solid #f0f0f0;">
+                                    <span class="text-muted">Appointment Date</span>
+                                    <span class="fw-semibold" t-out="appointment.appointment_date"/>
+                                </div>
+                            </t>
+                            <t t-if="service_lines and service_lines.sorted('start_hour')[:1].time_display">
+                                <div class="d-flex justify-content-between mb-3 pb-3" style="border-bottom: 1px solid #f0f0f0;">
+                                    <span class="text-muted">Time</span>
+                                    <span class="fw-semibold" t-out="service_lines.sorted('start_hour')[:1].time_display"/>
+                                </div>
+                            </t>
+
+                            <!-- Services -->
+                            <t t-if="service_lines">
+                                <div class="mb-3 pb-3" style="border-bottom: 1px solid #f0f0f0;">
+                                    <div class="small text-muted text-uppercase fw-semibold mb-2">Services</div>
+                                    <t t-foreach="service_lines" t-as="line">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <div>
+                                                <span class="fw-semibold" t-out="line.service_id.name"/>
+                                                <t t-if="line.beautician_id">
+                                                    <div class="small text-muted">
+                                                        with <t t-out="line.beautician_id.name"/>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <div class="fw-semibold">
+                                                <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(line.total_price)"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+
+                            <!-- Price Breakdown -->
+                            <div class="mb-2">
+                                <t t-if="service_total">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Services Total</span>
+                                        <span><t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(service_total)"/></span>
+                                    </div>
+                                </t>
+                                <t t-if="booking_fee">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Booking Fee</span>
+                                        <span><t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(booking_fee)"/></span>
+                                    </div>
+                                </t>
+                                <t t-if="discount_amount">
+                                    <div class="d-flex justify-content-between mb-1" style="color: #10b981;">
+                                        <span>Discount</span>
+                                        <span>-<t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(discount_amount)"/></span>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- Payment Option Label -->
+                            <t t-if="payment_option == 'half'">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">Payment Type</span>
+                                    <span class="badge bg-info text-white">Pay advance (50% deposit)</span>
+                                </div>
+                            </t>
+
+                            <!-- Amount to Pay -->
+                            <div class="d-flex justify-content-between pt-2 mt-2" style="border-top: 2px solid #e2e8f0;">
+                                <span class="fw-bold" style="font-size: 16px;">Amount to Pay</span>
+                                <span class="fw-bold" style="font-size: 20px; color: #10b981;">
+                                    <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(amount)"/>
+                                </span>
+                            </div>
+
+                            <!-- Remaining Balance (for 50% deposits) -->
+                            <t t-if="remaining_balance">
+                                <div class="d-flex justify-content-between mt-2 pt-2" style="border-top: 1px dashed #e2e8f0;">
+                                    <span class="text-muted small">Remaining Balance (pay at salon)</span>
+                                    <span class="text-muted small fw-semibold">
+                                        <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(remaining_balance)"/>
+                                    </span>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Payment Confirmation Page -->
+    <template id="salon_payment_confirmation" name="Salon Payment Confirmation">
+        <t t-call="website.layout">
+            <div class="spc-wrapper">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+                            <!-- Status Header -->
+                            <div class="text-center spc-header">
+                                <t t-if="payment_status == 'done'">
+                                    <div class="spc-status-icon spc-status-success mx-auto">
+                                        <svg class="spc-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle class="spc-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                                            <path class="spc-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                        </svg>
+                                    </div>
+                                    <h1 class="spc-title">Booking Confirmed!</h1>
+                                    <p class="spc-subtitle">Your appointment has been booked and payment received.</p>
+                                    <span class="spc-badge spc-badge-success">Confirmed</span>
+                                </t>
+                                <t t-elif="payment_status == 'pending'">
+                                    <div class="spc-status-icon spc-status-pending mx-auto">
+                                        <i class="fa fa-clock"></i>
+                                    </div>
+                                    <h1 class="spc-title">Payment Processing</h1>
+                                    <p class="spc-subtitle">Your payment is being processed. You'll receive a confirmation email shortly.</p>
+                                    <span class="spc-badge spc-badge-pending">Processing</span>
+                                </t>
+                                <t t-else="">
+                                    <div class="spc-status-icon spc-status-error mx-auto">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <h1 class="spc-title">Payment Issue</h1>
+                                    <p class="spc-subtitle">There was an issue with your payment. Please try again or contact us.</p>
+                                    <span class="spc-badge spc-badge-error">Issue</span>
+                                </t>
+                            </div>
+                            <t t-if="raw_payment_status in ('error', 'cancel')">
+                                <div id="payment-failure-reason" t-att-data-reason="failure_reason"/>
+                                <script type="text/javascript">
+                                    (function () {
+                                        var el = document.getElementById('payment-failure-reason');
+                                        var reason = el ? el.getAttribute('data-reason') : '';
+                                        var msg = 'Online appointment payment failed';
+                                        if (reason) msg += ': ' + reason;
+                                        if (window.bnbShowBookingError) {
+                                            window.bnbShowBookingError(msg);
+                                        } else {
+                                            (window.bnbPendingBookingErrors ||= []).push(msg);
+                                        }
+                                    })();
+                                </script>
+                            </t>
+
+                            <!-- Booking Details Card -->
+                            <div class="spc-card">
+                                <div class="spc-card-header">
+                                    <h2 class="spc-card-title">Booking Details</h2>
+                                </div>
+                                <div class="spc-card-body">
+                                    <!-- Branch -->
+                                    <t t-if="branch">
+                                        <div class="spc-detail-row">
+                                            <div class="spc-detail-label">Salon</div>
+                                            <div class="spc-detail-value" t-out="branch.name"/>
+                                            <t t-if="branch.city">
+                                                <div class="spc-detail-meta" t-out="branch.city"/>
+                                            </t>
+                                        </div>
+                                    </t>
+
+                                    <!-- Date -->
+                                    <t t-if="appointment">
+                                        <div class="spc-detail-row">
+                                            <div class="spc-detail-label">Appointment Date</div>
+                                            <div class="spc-detail-value" t-out="appointment.appointment_date"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Time (Ticket 19: booked time on the confirmation) -->
+                                    <t t-if="service_lines and service_lines.sorted('start_hour')[:1].time_display">
+                                        <div class="spc-detail-row">
+                                            <div class="spc-detail-label">Time</div>
+                                            <div class="spc-detail-value" t-out="service_lines.sorted('start_hour')[:1].time_display"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Customer -->
+                                    <t t-if="appointment and appointment.customer_id">
+                                        <div class="spc-detail-row">
+                                            <div class="spc-detail-label">Customer</div>
+                                            <div class="spc-detail-value" t-out="appointment.customer_id.name"/>
+                                            <div class="spc-detail-meta" t-out="appointment.customer_id.email"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Services -->
+                                    <t t-if="service_lines">
+                                        <div class="spc-detail-row">
+                                            <div class="spc-detail-label">Services</div>
+                                            <t t-foreach="service_lines" t-as="line">
+                                                <div class="spc-service-line">
+                                                    <div>
+                                                        <span class="spc-detail-value" t-out="line.service_id.name"/>
+                                                        <t t-if="line.beautician_id">
+                                                            <span class="spc-detail-meta"> with <t t-out="line.beautician_id.name"/></span>
+                                                        </t>
+                                                    </div>
+                                                    <span class="spc-service-price">
+                                                        <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(line.total_price)"/>
+                                                    </span>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </t>
+
+                                    <!-- Payment Summary -->
+                                    <div class="spc-payment-summary">
+                                        <t t-if="payment_record">
+                                            <div class="spc-payment-row">
+                                                <span>Payment Method</span>
+                                                <span class="fw-semibold text-capitalize" t-out="payment_record.payment_method"/>
+                                            </div>
+                                            <t t-if="payment_record.payment_option == 'half'">
+                                                <div class="spc-payment-row">
+                                                    <span>Payment Type</span>
+                                                    <span class="spc-badge spc-badge-pending" style="font-size: 11px; padding: 3px 10px;">Pay advance (50% deposit)</span>
+                                                </div>
+                                            </t>
+                                        </t>
+                                        <div class="spc-payment-total">
+                                            <span>Amount Paid</span>
+                                            <span class="spc-amount-paid">
+                                                <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(payment_record.payment_amount if payment_record else 0)"/>
+                                            </span>
+                                        </div>
+                                        <t t-if="payment_record and payment_record.payment_option == 'half'">
+                                            <div class="spc-payment-row spc-payment-row-muted">
+                                                <span>Remaining Balance (pay at salon)</span>
+                                                <span>
+                                                    <t t-out="currency.symbol"/><t t-out="'{:.2f}'.format(payment_record.payment_amount)"/>
+                                                </span>
+                                            </div>
+                                        </t>
+                                        <t t-if="appointment and appointment.appointment_ref">
+                                            <div class="spc-payment-row spc-payment-row-muted">
+                                                <span>Appointment Reference</span>
+                                                <span t-out="appointment.appointment_ref"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- New Appointment Button -->
+                            <div class="text-center spc-actions">
+                                <a href="/book-online" class="spc-new-btn">
+                                    <i class="fa fa-plus"></i>
+                                    New Appointment
+                                </a>
+                                <div class="spc-print-wrap">
+                                    <a href="javascript:void(0);" class="spc-print-link" onclick="window.print();">Print confirmation</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .spc-wrapper {
+                    min-height: 80vh;
+                    padding: 40px 16px;
+                    background: #fafbfc;
+                }
+
+                .spc-header {
+                    margin-bottom: 28px;
+                }
+
+                /* Status Icons */
+                .spc-status-icon {
+                    width: 84px;
+                    height: 84px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 18px;
+                    animation: spcScaleIn 0.5s ease-out;
+                }
+
+                .spc-status-icon i {
+                    font-size: 36px;
+                    color: #fff;
+                }
+
+                .spc-status-success {
+                    background: #10b981;
+                    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.35);
+                }
+
+                .spc-status-pending {
+                    background: #f59e0b;
+                    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.3);
+                }
+
+                .spc-status-error {
+                    background: #ef4444;
+                    box-shadow: 0 12px 32px rgba(239, 68, 68, 0.3);
+                }
+
+                /* Animated Checkmark */
+                .spc-checkmark {
+                    width: 46px;
+                    height: 46px;
+                }
+
+                .spc-checkmark-circle {
+                    stroke-dasharray: 166;
+                    stroke-dashoffset: 166;
+                    stroke-width: 2;
+                    stroke-miterlimit: 10;
+                    stroke: rgba(255,255,255,0.3);
+                    animation: spcCircle 0.6s ease-in-out 0.3s forwards;
+                }
+
+                .spc-checkmark-check {
+                    stroke-dasharray: 48;
+                    stroke-dashoffset: 48;
+                    stroke: #fff;
+                    stroke-width: 3;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    animation: spcCheck 0.4s ease-in-out 0.7s forwards;
+                }
+
+                @keyframes spcScaleIn {
+                    0% { transform: scale(0); opacity: 0; }
+                    60% { transform: scale(1.1); }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+
+                @keyframes spcCircle {
+                    100% { stroke-dashoffset: 0; }
+                }
+
+                @keyframes spcCheck {
+                    100% { stroke-dashoffset: 0; }
+                }
+
+                .spc-title {
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: #1e293b;
+                    margin-bottom: 6px;
+                }
+
+                .spc-subtitle {
+                    font-size: 15px;
+                    color: #64748b;
+                    margin-bottom: 12px;
+                }
+
+                /* Status Badges */
+                .spc-badge {
+                    display: inline-block;
+                    padding: 4px 14px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    border-radius: 20px;
+                }
+
+                .spc-badge-success {
+                    background: #dcfce7;
+                    color: #166534;
+                }
+
+                .spc-badge-pending {
+                    background: #fef3c7;
+                    color: #92400e;
+                }
+
+                .spc-badge-error {
+                    background: #fee2e2;
+                    color: #991b1b;
+                }
+
+                /* Card */
+                .spc-card {
+                    background: #fff;
+                    border-radius: 14px;
+                    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+                    overflow: hidden;
+                }
+
+                .spc-card-header {
+                    padding: 18px 22px;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+
+                .spc-card-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #1e293b;
+                    margin: 0;
+                }
+
+                .spc-card-body {
+                    padding: 0;
+                }
+
+                /* Detail Rows */
+                .spc-detail-row {
+                    padding: 14px 22px;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+
+                .spc-detail-row:last-child {
+                    border-bottom: none;
+                }
+
+                .spc-detail-label {
+                    font-weight: 600;
+                    color: #94a3b8;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.6px;
+                    margin-bottom: 3px;
+                }
+
+                .spc-detail-value {
+                    color: #1e293b;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .spc-detail-meta {
+                    color: #94a3b8;
+                    font-size: 13px;
+                }
+
+                .spc-service-line {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: 6px;
+                }
+
+                .spc-service-line:last-child {
+                    margin-bottom: 0;
+                }
+
+                .spc-service-price {
+                    font-weight: 600;
+                    color: #1e293b;
+                    font-size: 15px;
+                    white-space: nowrap;
+                    margin-left: 12px;
+                }
+
+                /* Payment Summary */
+                .spc-payment-summary {
+                    background: #f8fafc;
+                    padding: 18px 22px;
+                }
+
+                .spc-payment-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 7px 0;
+                    font-size: 14px;
+                    color: #475569;
+                }
+
+                .spc-payment-row-muted {
+                    font-size: 13px;
+                    color: #94a3b8;
+                }
+
+                .spc-payment-total {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 12px 0 6px;
+                    margin-top: 6px;
+                    border-top: 2px solid #e2e8f0;
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: #1e293b;
+                }
+
+                .spc-amount-paid {
+                    font-size: 18px;
+                    color: #10b981;
+                }
+
+                /* Actions */
+                .spc-actions {
+                    margin-top: 28px;
+                }
+
+                .spc-new-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 10px 22px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #6366f1;
+                    background: transparent;
+                    border: 2px solid #6366f1;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                }
+
+                .spc-new-btn:hover {
+                    background: #6366f1;
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                .spc-new-btn i {
+                    font-size: 12px;
+                }
+
+                .spc-print-wrap {
+                    margin-top: 12px;
+                }
+
+                .spc-print-link {
+                    font-size: 13px;
+                    color: #94a3b8;
+                    text-decoration: none;
+                    transition: color 0.2s;
+                }
+
+                .spc-print-link:hover {
+                    color: #64748b;
+                    text-decoration: underline;
+                }
+
+                /* Responsive */
+                @media (min-width: 768px) {
+                    .spc-title {
+                        font-size: 30px;
+                    }
+
+                    .spc-status-icon {
+                        width: 92px;
+                        height: 92px;
+                    }
+
+                    .spc-status-icon i {
+                        font-size: 40px;
+                    }
+
+                    .spc-checkmark {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .spc-card-header {
+                        padding: 20px 26px;
+                    }
+
+                    .spc-detail-row {
+                        padding: 16px 26px;
+                    }
+
+                    .spc-payment-summary {
+                        padding: 20px 26px;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .spc-wrapper {
+                        padding: 20px 12px;
+                    }
+
+                    .spc-status-icon {
+                        width: 72px;
+                        height: 72px;
+                    }
+
+                    .spc-status-icon i {
+                        font-size: 32px;
+                    }
+
+                    .spc-checkmark {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    .spc-title {
+                        font-size: 22px;
+                    }
+
+                    .spc-subtitle {
+                        font-size: 14px;
+                    }
+
+                    .spc-detail-row {
+                        padding: 12px 16px;
+                    }
+
+                    .spc-card-header {
+                        padding: 14px 16px;
+                    }
+
+                    .spc-card-title {
+                        font-size: 16px;
+                    }
+
+                    .spc-payment-summary {
+                        padding: 14px 16px;
+                    }
+
+                    .spc-new-btn {
+                        padding: 10px 20px;
+                        font-size: 13px;
+                    }
+                }
+
+                @media (max-width: 375px) {
+                    .spc-wrapper {
+                        padding: 16px 8px;
+                    }
+
+                    .spc-title {
+                        font-size: 20px;
+                    }
+                }
+            </style>
+        </t>
+    </template>
+</odoo>

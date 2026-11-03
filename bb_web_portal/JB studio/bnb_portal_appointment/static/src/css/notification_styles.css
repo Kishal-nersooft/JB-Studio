@@ -1,0 +1,150 @@
+/* ============================================================================
+   NOTIFICATION STYLES FOR SOCIAL LOGIN
+   ============================================================================ */
+
+/* Notification Container */
+.social-login-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10001;
+  max-width: 420px;
+  min-width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 16px 20px;
+  animation: slideInRight 0.3s ease-out;
+  border-left: 4px solid #10b981;
+}
+
+.social-login-notification.error {
+  border-left-color: #ef4444;
+}
+
+.social-login-notification.success {
+  border-left-color: #10b981;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  color: #10b981;
+}
+
+.social-login-notification.error .notification-icon {
+  color: #ef4444;
+}
+
+.notification-content span {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.notification-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #9ca3af;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+
+.notification-close:hover {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.social-login-notification.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Autofilled field highlight */
+.form-control.autofilled,
+.fresha-form-input.autofilled {
+  animation: highlightField 2s ease;
+}
+
+@keyframes highlightField {
+  0% {
+    background-color: #fef3c7;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .social-login-notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    min-width: 0;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .social-login-notification.fade-out {
+    animation: fadeOutMobile 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeOutMobile {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+}

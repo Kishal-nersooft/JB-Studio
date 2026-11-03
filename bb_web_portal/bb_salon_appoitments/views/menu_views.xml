@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_beauty_main"
+              name="Beauty Salon"
+              sequence="10"
+              web_icon="bb_salon_appoitments,static/description/icon.png"/>
+
+    <menuitem id="menu_beauty_branch"
+              name="Branches"
+              parent="menu_beauty_main"
+              sequence="10"/>
+
+    <menuitem id="menu_beauty_branch_list"
+              name="Branches"
+              parent="menu_beauty_branch"
+              action="action_beauty_branch"
+              sequence="1"/>
+
+    <menuitem id="menu_salon_appointments"
+              name="Appointments"
+              parent="menu_beauty_branch"
+              action="action_salon_appointment"
+              sequence="1"/>
+
+    <menuitem id="menu_customer_deposits"
+              name="Customer Deposits"
+              parent="menu_beauty_branch"
+              action="action_customer_deposit"
+              sequence="20"/>
+
+    <menuitem id="menu_credit_redemptions"
+              name="Credit Redemptions"
+              parent="menu_beauty_branch"
+              action="action_credit_redemption"
+              sequence="21"/>
+
+    <menuitem id="menu_beauty_configurations"
+              name="Configurations"
+              parent="menu_beauty_main"
+              sequence="90"/>
+
+    <menuitem id="menu_beauty_settings"
+              name="Settings"
+              parent="menu_beauty_configurations"
+              action="base.res_config_setting_act_window"
+              sequence="10"/>
+
+</odoo>

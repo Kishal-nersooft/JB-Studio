@@ -1,0 +1,2300 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bb_salon_appoitments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260223\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-06 06:00+0000\n"
+"PO-Revision-Date: 2026-07-06 06:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+msgid "%s: %s = %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+#: code:addons/bb_salon_appoitments/models/appointment_payment.py:0
+#: code:addons/bb_salon_appoitments/models/appointment_service.py:0
+msgid "%s: %s: %s -> %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_option__half
+msgid "50% Deposit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+msgid ""
+"<b>Deposit Detach Action</b><br/><b>User:</b> %s<br/><b>Action:</b> "
+"%s%s<br/><b>Reason:</b> %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid ""
+"<br/>\n"
+"                            <strong>Appointment Details</strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+msgid "<br/><b>Amount:</b> %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "<span class=\"o_stat_text\"> Beauticians</span>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Branch: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Customer Information</strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Email: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Name: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Payment Status: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Phone: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Status: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+msgid "<strong>Total Amount: </strong>"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__account_credit_balance
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__account_credit_balance
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Account Credit Balance"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__action_type
+msgid "Action"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_needaction
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_needaction
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__active
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__state__active
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__active
+msgid "Active"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_exception_decoration
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_state
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_type_icon
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__actual_qty
+msgid "Actual Qty"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_beautician_bulk_add_wizard_form
+msgid "Add Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_beautician_bulk_add_wizard_form
+msgid "Add Multiple Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beautician_bulk_add_wizard
+msgid "Add Multiple Beauticians to Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Add an important notice for staff or customers..."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__additional_beautician_ids
+msgid "Additional Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment_service__additional_beautician_ids
+msgid "Additional beauticians assigned to this service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Address"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__afterpay
+msgid "Afterpay"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__all_working_branch_ids
+msgid "All Working Branches"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_hr_employee__working_company_ids
+msgid ""
+"All companies where this employee can work based on main/working branches."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__amount
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__amount
+msgid "Amount Redeemed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__answer_text
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Answer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__apple_pay
+msgid "Apple Pay"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__appointment_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__appointment_ref
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__appointment_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__appointment_ref
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__appointment_ref
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__appointment_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__appointment_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__appointment_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__appointment_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_list
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_tree
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Appointment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_salon_appointment_question_answer
+msgid "Appointment Booking Question Answer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__appointment_date
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Appointment Date"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__notes
+msgid "Appointment Notes"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__appointment_ref
+msgid "Appointment Reference"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_service_form
+msgid "Appointment Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_salon_appointment_service
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_service_tree
+msgid "Appointment Services"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+msgid "Appointment created"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+msgid "Appointment updated"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_salon_appointment
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__appointment_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__appointment_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__appointment_count
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_salon_appointments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Appointments"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__area_manager_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__portal_manager_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.hr_employee_view_form_bb
+msgid "Area Manager"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__name
+msgid "Area Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__area_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Areas"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__state__in_progress
+msgid "Arrived"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__pos_order_id
+msgid "Associated POS Order for payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_attachment_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_attachment_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__balance_due
+msgid "Balance Due"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__bank_transfer
+msgid "Bank Transfer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__base_price
+msgid "Base Price"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__beautician_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__beautician_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__beautician_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__beautician_id
+msgid "Beautician"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_service_form
+msgid "Beautician & Pricing"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__beautician_addon_price
+msgid "Beautician Add-on Price"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Beautician Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__beautician_name
+msgid "Beautician Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__beautician_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__beautician_line_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__beautician_line_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__beautician_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_branch
+msgid "Beauty Branch"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_location_area
+msgid "Beauty Location Area"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_beauty_main
+msgid "Beauty Salon"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__billing_address
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_form
+msgid "Billing Address"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_appointment_service
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_appointment_service
+msgid "Bookable"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__booking_fee
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__booking_fee
+msgid "Booking Fee"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__question_answer_ids
+msgid "Booking Q&A"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__booking_question_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__booking_question_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Booking Questions"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__branch_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__branch_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__branch_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__branch_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Branch"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__branch_id
+msgid "Branch (Legacy)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Branch Info"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__name
+msgid "Branch Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_beauty_branch
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__branch_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__branch_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__branch_ids
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_beauty_branch
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_beauty_branch_list
+msgid "Branches"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_hr_employee__beautician_branch_ids
+msgid "Branches where this beautician works"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__booking_question_display__calendar_only
+msgid "Calendar Only"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_beautician_bulk_add_wizard_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_action_wizard_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_issue_credit_wizard_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Cancel"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__cancelled
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_form
+msgid "Card Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__card_number_masked
+msgid "Card Number (Masked)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__card_type
+msgid "Card Type"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__cash
+msgid "Cash"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__city
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__billing_city
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "City"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__company_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__company_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__company_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__company_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__company_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__company_id
+msgid "Company"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Complete"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__state__completed
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_status__completed
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Completed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_beauty_configurations
+msgid "Configurations"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_action_wizard_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Confirm"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__state__confirmed
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Confirmed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__product_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__product_id
+msgid "Consumption Product"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+msgid "Consumption added: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+msgid "Consumption removed: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+msgid "Consumption updated: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__consumption_line_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__consumption_line_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__consumption_line_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Consumptions"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__country_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Country"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.actions.act_window,help:bb_salon_appoitments.action_salon_appointment
+msgid "Create your first salon appointment!"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__create_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__create_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__movement_type__credit
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Credit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__credit_amount
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__amount
+msgid "Credit Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_credit_product
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_credit_product
+msgid "Credit Balance"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__credit_before
+msgid "Credit Balance Before"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Credit Before"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_credit_redemption
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__credit_redemption_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__credit_redemption_ids
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_credit_redemptions
+msgid "Credit Redemptions"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/issue_credit_wizard.py:0
+msgid "Credit amount must be greater than zero."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__card
+msgid "Credit/Debit Card"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__state__credited
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__credited
+msgid "Credited"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__currency_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__currency_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__currency_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__currency_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__currency_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__partner_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__partner_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__partner_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Customer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_credit_redemption
+msgid "Customer Account Credit Redemption"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Customer Agreed to Terms"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_customer_deposit
+msgid "Customer Deposit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_customer_deposit_action_wizard
+msgid "Customer Deposit Action Wizard"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_customer_deposit
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_customer_deposits
+msgid "Customer Deposits"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__redemption_date
+msgid "Date"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__default_duration
+msgid "Default Duration (Hours)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__default_price
+msgid "Default Price"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_beautician_bulk_add_wizard_form
+msgid "Defaults for New Lines"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit_action_wizard__action_type__cancel
+msgid "Delete"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_tree
+msgid "Delete All (Test)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__deposit_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_deposit_product
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_deposit_product
+msgid "Deposit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_action_wizard_form
+msgid "Deposit Action"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_form
+msgid "Deposit Application"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__deposit_fixed_amount
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__deposit_fixed_amount
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Deposit Fixed Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__deposit_percentage_value
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__deposit_percentage_value
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Deposit Percentage (%)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/deposit_action_wizard.py:0
+msgid "Deposit record not found."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__deposit_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__deposit_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Deposits"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_tree
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Detach"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__discount_amount
+msgid "Discount Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_ir_rule__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__display_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__payment_policy__do_not_accept
+msgid "Do not accept online payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__state__draft
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Draft"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__duplicate_appointment_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__duplicate_child_ids
+msgid "Duplicate Appointments"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__duplicate_parent_id
+msgid "Duplicate Parent Appointment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Duplicates"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__duration
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__duration
+msgid "Duration"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__duration
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__duration
+msgid "Duration (Hours)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__service_duration_display
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__service_duration_display
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__duration_display
+msgid "Duration Display"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__email
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_email
+msgid "Email"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_product__is_party_product
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_template__is_party_product
+msgid "Enable to add preparation and wrap-up sections to appointment tiles."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_product__is_appointment_service
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_template__is_appointment_service
+msgid "Enable to make this service available for web and POS booking."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_product__store_only
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_template__store_only
+msgid "Enable to make this service available only in-store."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_product__is_video_call_service
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_template__is_video_call_service
+msgid "Enable to mark this service as available via video call."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__appointment_end_datetime
+msgid "End Date & Time"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__end_hour
+msgid "End Hour"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_service__time_period__evening
+msgid "Evening"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__expiry_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__expiry_display
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__expiry_date
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_list
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Expiry Date"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_status__failed
+msgid "Failed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_first_name
+msgid "First Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_follower_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_follower_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_partner_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_partner_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__activity_type_icon
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit_action_wizard__action_type__forfeit
+msgid "Forfeit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__forfeited
+msgid "Forfeited"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_option__full
+msgid "Full Payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__bb_gift_voucher_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__bb_gift_voucher_count
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Gift Vouchers"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__google_pay
+msgid "Google Pay"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__has_message
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__has_message
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__has_party_details
+msgid "Has Party Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__customer_pronouns__he/him
+msgid "He/Him"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_ir_rule__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_config_settings__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__id
+msgid "ID"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_exception_icon
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__activity_exception_icon
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__is_waiting_list
+msgid ""
+"If True, this appointment is on the waiting list (no beautician/time "
+"assigned yet)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__message_needaction
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__message_needaction
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__message_has_error
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__message_has_sms_error
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__message_has_error
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__message_has_sms_error
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__message_has_error
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__image
+msgid "Image"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__important_notice
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__important_notice
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__important_notice
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Important Notice"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_product__important_notice
+#: model:ir.model.fields,help:bb_salon_appoitments.field_product_template__important_notice
+msgid ""
+"Important notice shown alongside this service's booking questions on the "
+"appointment."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "In Progress"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__store_only
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__store_only
+msgid "In-Store Only"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__is_beautician
+msgid "Is Beautician"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_is_follower
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_is_follower
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__is_franchise
+msgid "Is Franchise"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_is_vip
+msgid "Is VIP Customer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_issue_credit_wizard_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Issue Credit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_beauty_issue_credit_wizard
+msgid "Issue Customer Credit Wizard"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__move_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__move_id
+msgid "Journal Entry"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_last_name
+msgid "Last Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__write_uid
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_location_area__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__write_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_form
+msgid "Linked To"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.hr_employee_view_form_bb
+msgid "Main Branch"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/hr_employee.py:0
+msgid ""
+"Main Branch '%s' must be included in Working Branches for employee '%s'."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.actions.act_window,help:bb_salon_appoitments.action_salon_appointment
+msgid "Manage your salon appointments, track services, and handle payments."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_has_error
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_has_error
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_phone
+msgid "Mobile Phone"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_service__time_period__morning
+msgid "Morning"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit_action_wizard__action_type__move_to_credit
+msgid "Move to Credit"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__movement_type
+msgid "Movement Type"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/credit_redemption.py:0
+msgid "Never Expires"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_calendar_event_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_date_deadline
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_summary
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_type_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.actions.act_window,help:bb_salon_appoitments.action_salon_appointment_service
+msgid "No appointment services found!"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid ""
+"No booking questions. Add services with questions configured to see them "
+"here."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__beautician_count
+msgid "No of Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.actions.act_window,help:bb_salon_appoitments.action_salon_appointment_payment
+msgid "No payment records found!"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+msgid "No remaining deposit amount is available to move to credit."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__area_manager_id
+msgid ""
+"Non-beautician employee responsible for this branch. Auto-assigned as the "
+"Area Manager of beauticians whose Main Branch is this branch."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__payment_policy__none
+msgid "None"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__booking_question_display__not_required
+msgid "Not Required"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Not Waiting List"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__note
+msgid "Note"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Notes"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_needaction_counter
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_needaction_counter
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_has_error_counter
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_has_error_counter
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__message_needaction_counter
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__message_needaction_counter
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__message_has_error_counter
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__message_has_error_counter
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__booking_question_display__online_only
+msgid "Online Only"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__online
+msgid "Online Payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__booking_question_display__online_and_calendar
+msgid "Online and via Calendar"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.res_partner_form_opp_at_end
+msgid "Opportunities"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_other_phone
+msgid "Other Phone"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__pos_config_id
+msgid "POS Configuration"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__pos_order_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__pos_order_ref
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__pos_order_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__pos_order_ref
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__pos_order_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_list
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_tree
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "POS Order"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__pos_order_paid
+msgid "POS Order Paid"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__pos_order_count
+msgid "POS Orders"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__session_id
+msgid "POS Session"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__session_id
+msgid "POS Session where this appointment was created/managed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__payment_status__paid
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Paid"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__state__partial
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__partial
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__payment_status__partial
+msgid "Partial"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Partial Payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__party_prep_minutes_total
+msgid "Party Prep (min)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_party_product
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_party_product
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__is_party_product
+msgid "Party Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__party_wrap_minutes_total
+msgid "Party Wrap (min)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_form
+msgid "Payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_amount
+msgid "Payment Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__payment_date
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_date
+msgid "Payment Date"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.actions.act_window,name:bb_salon_appoitments.action_salon_appointment_payment
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__payment_line_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_tree
+msgid "Payment Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_form
+msgid "Payment Information"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__pos_payment_method_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_method
+msgid "Payment Method"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_option
+msgid "Payment Option"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__payment_policy
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__payment_policy
+msgid "Payment Policy"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_provider
+msgid "Payment Provider"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_reference
+msgid "Payment Reference"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__payment_status
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__payment_status
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Payment Status"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_payment.py:0
+msgid "Payment added: %s (%s)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_payment.py:0
+msgid "Payment removed: %s (%s)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_payment.py:0
+msgid "Payment updated: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Payments"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Payments & Notes"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_status__pending
+msgid "Pending"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__phone
+msgid "Phone"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__planned_qty
+msgid "Planned Qty"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Please select branch(es) first to add beauticians."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__policy_agreed
+msgid "Policy Agreed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__child_all_count_portal
+msgid "Portal Indirect Subordinates Count"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__portal_subordinate_ids
+msgid "Portal Subordinates"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__subordinate_ids_portal
+msgid "Portal Subordinates (All)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__billing_postcode
+msgid "Postcode"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__customer_pronouns__prefer_not_to_say
+msgid "Prefer not to say"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__party_prep_minutes
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__party_prep_minutes
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__party_prep_minutes
+msgid "Preparation (min)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__party_prep_color
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__party_prep_color
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__party_prep_color
+msgid "Preparation Color"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__price
+msgid "Price"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_status__processing
+msgid "Processing"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_product_template
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_beautician_line__product_tmpl_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__product_tmpl_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__product_tmpl_id
+msgid "Product"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_product_beautician_line
+msgid "Product Beautician Line"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_product_booking_question
+msgid "Product Booking Question"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_product_service_consumption_line
+msgid "Product Service Consumption Line"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_form
+msgid "Promo & Discounts"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__promo_code
+msgid "Promo Code"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__customer_pronouns
+msgid "Pronouns"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+msgid "Quantities cannot be negative."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__question_text
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__question_text
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Question"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__action_reason
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit_action_wizard__reason
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_issue_credit_wizard__reason
+msgid "Reason"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_ir_rule
+msgid "Record Rule"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__movement_type__redeem
+msgid "Redeem"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_credit_redemption__state__redeemed
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__redeemed
+msgid "Redeemed"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_form
+msgid "Redemption"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit_action_wizard__action_type__refund
+msgid "Refund"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__beauty_customer_deposit__state__refunded
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__payment_status__refunded
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_status__refunded
+msgid "Refunded"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Related Services"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__remember_customer
+msgid "Remember Customer"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__payment_policy__deposit_fixed
+msgid "Require a deposit (fixed amount)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__payment_policy__deposit_percentage
+msgid "Require a deposit (percentage)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__product_template__payment_policy__full_payment
+msgid "Require full payment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_resource_product
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_resource_product
+msgid "Requires Equipment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__activity_user_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__bb_rewards_count
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__bb_rewards_count
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Rewards"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__message_has_sms_error
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__message_has_sms_error
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_salon_appointment
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Salon Appointment"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_salon_appointment_consumption
+msgid "Salon Appointment Consumption"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_salon_appointment_payment
+msgid "Salon Appointment Payment Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model,name:bb_salon_appoitments.model_salon_appointment_service
+msgid "Salon Appointment Service Line"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_gantt
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_tree
+msgid "Salon Appointments"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_calendar
+msgid "Salon Appointments Calendar"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__branch_id
+msgid "Salon Branch"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+msgid "Salon Settings"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__saturday_surcharge_percent
+msgid "Saturday Surcharge (%)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Search Appointments"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_beautician_bulk_add_wizard_form
+msgid "Select Beauticians"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.hr_employee_view_form_bb
+msgid "Select branches..."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_booking_question__sequence
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beautician_bulk_add_wizard__product_tmpl_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__product_tmpl_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__service_name
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__service_id
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__service_category_id
+msgid "Service Category"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.product_template_only_form_view_inherit_bb
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_service_form
+msgid "Service Details"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__service_line_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_question_answer__service_line_id
+msgid "Service Line"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__service_name
+msgid "Service Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__service_total
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__service_total_display
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_customer_deposit_tree
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.vip_customer_form_view_inherit_bb
+msgid "Service Total"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_service.py:0
+msgid "Service line added: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_service.py:0
+msgid "Service line removed: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_service.py:0
+msgid "Service line updated: %s"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__related_product_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__related_product_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__service_line_ids
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Services"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__services_subtotal
+msgid "Services Subtotal"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__services_total
+msgid "Services Total"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.ui.menu,name:bb_salon_appoitments.menu_beauty_settings
+msgid "Settings"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__customer_pronouns__she/her
+msgid "She/Her"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__booking_question_display
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__booking_question_display
+msgid "Show Questions On"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__special_note
+msgid "Special Note"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__appointment_start_datetime
+msgid "Start Date & Time"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__start_hour
+msgid "Start Hour"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Start Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__state_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__billing_state
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "State"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_credit_redemption__state
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__state
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__state
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Status"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__activity_state
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__street
+msgid "Street"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__street2
+msgid "Street 2"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Street 2..."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "Street..."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment_payment__payment_method__stripe
+msgid "Stripe"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__sunday_surcharge_percent
+msgid "Sunday Surcharge (%)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__surcharge_percent
+msgid "Surcharge (%)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__surcharge_amount
+msgid "Surcharge Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__customer_pronouns__they/them
+msgid "They/Them"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__tz
+msgid ""
+"This field is used in order to define in which timezone the resources will "
+"work."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_tree
+msgid ""
+"This will delete ALL appointments and related journal entries. Continue?"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__time_display
+msgid "Time Display"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__time_period
+msgid "Time Period"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__time_slot
+msgid "Time Slot"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__tz
+msgid "Time Zone"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Today"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_payment_tree
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_service_tree
+msgid "Total"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__total_amount
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_credit_redemption_list
+msgid "Total Amount"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_tree
+msgid "Total Booking Fee"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Total Paid"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__total_price
+msgid "Total Price"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_form
+msgid "Totals"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_payment__transaction_id
+msgid "Transaction ID"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__activity_exception_decoration
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_hr_employee__all_working_branch_ids
+msgid ""
+"Union of main branch and working branches for robust multi-branch filtering."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment_consumption.py:0
+#: code:addons/bb_salon_appoitments/models/appointment_service.py:0
+msgid "Unknown"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/customer_deposit.py:0
+msgid "Unknown User"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields.selection,name:bb_salon_appoitments.selection__salon_appointment__payment_status__unpaid
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Unpaid"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__uom_id
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_consumption__uom_id
+msgid "UoM"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_service_consumption_line__uom_reference_id
+msgid "UoM Reference"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_partner__is_vip
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_res_users__is_vip
+msgid "VIP"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__is_video_call_service
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__is_video_call_service
+msgid "Video Call Service"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__is_waiting_list
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_salon_appointment_search
+msgid "Waiting List"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__website_id
+msgid "Website"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__website_message_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_customer_deposit__website_message_ids
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_branch__website_message_ids
+#: model:ir.model.fields,help:bb_salon_appoitments.field_beauty_customer_deposit__website_message_ids
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,help:bb_salon_appoitments.field_salon_appointment__pos_order_paid
+msgid "Whether the associated POS order has been paid"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__work_end_hour
+msgid "Work End Hour"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__work_start_hour
+msgid "Work Start Hour"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__beautician_branch_ids
+msgid "Working Branches"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_hr_employee__working_company_ids
+msgid "Working Companies"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__party_wrap_color
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__party_wrap_color
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__party_wrap_color
+msgid "Wrap-up Color"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_product__party_wrap_minutes
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_product_template__party_wrap_minutes
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_salon_appointment_service__party_wrap_minutes
+msgid "Wrap-up/Cleanup (min)"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/product_template.py:0
+msgid "You can select either Appointment Service or Store Only, not both."
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "ZIP"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model:ir.model.fields,field_description:bb_salon_appoitments.field_beauty_branch__zip
+msgid "Zip"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#: model_terms:ir.ui.view,arch_db:bb_salon_appoitments.view_branch_form
+msgid "e.g. Branch Name"
+msgstr ""
+
+#. module: bb_salon_appoitments
+#. odoo-python
+#: code:addons/bb_salon_appoitments/models/appointment.py:0
+msgid "id"
+msgstr ""

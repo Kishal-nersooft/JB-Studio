@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="menu_book_now" model="website.menu">
+        <field name="name">Book Now !</field>
+        <field name="url">/book-online</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">70</field>
+     </record>
+
+</odoo>

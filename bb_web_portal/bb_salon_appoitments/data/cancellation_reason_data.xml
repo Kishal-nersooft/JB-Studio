@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Starting set of cancellation reasons, taken from the list the salon
+        already uses. Left company-neutral so every branch shares them.
+
+        noupdate="1" so a module upgrade never resurrects a reason a manager
+        archived, or overwrites one they renamed.
+
+        A few entries in the source list were clearly one-off notes about a
+        particular customer rather than reusable reasons ("her baby got sick",
+        "she has sensitive and watery eyes", "wanna go to Woden store"). Those
+        are not seeded: they belong in the free-text note on the cancellation.
+        Managers can still add them from Configurations if they disagree.
+    -->
+    <data noupdate="1">
+        <record id="cancellation_reason_no_show" model="salon.cancellation.reason">
+            <field name="name">Did not show</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="cancellation_reason_made_in_error" model="salon.cancellation.reason">
+            <field name="name">Appointment made in error</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="cancellation_reason_unwell" model="salon.cancellation.reason">
+            <field name="name">Unwell / in hospital</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="cancellation_reason_checkout_manual" model="salon.cancellation.reason">
+            <field name="name">Checkout completed manually</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="cancellation_reason_rescheduled" model="salon.cancellation.reason">
+            <field name="name">Rescheduled</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="cancellation_reason_unable_to_attend" model="salon.cancellation.reason">
+            <field name="name">Unable to attend</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="cancellation_reason_cannot_make_time" model="salon.cancellation.reason">
+            <field name="name">Cannot make the time</field>
+            <field name="sequence">70</field>
+        </record>
+        <record id="cancellation_reason_other_branch" model="salon.cancellation.reason">
+            <field name="name">Went to another Browz &amp; Beauty branch</field>
+            <field name="sequence">80</field>
+        </record>
+        <record id="cancellation_reason_other_salon" model="salon.cancellation.reason">
+            <field name="name">Went to another salon</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="cancellation_reason_no_answer" model="salon.cancellation.reason">
+            <field name="name">Did not answer our call or message</field>
+            <field name="sequence">100</field>
+        </record>
+        <record id="cancellation_reason_out_of_state" model="salon.cancellation.reason">
+            <field name="name">Out of state</field>
+            <field name="sequence">110</field>
+        </record>
+        <record id="cancellation_reason_illness_covid" model="salon.cancellation.reason">
+            <field name="name">COVID / illness</field>
+            <field name="sequence">120</field>
+        </record>
+        <record id="cancellation_reason_wrong_details" model="salon.cancellation.reason">
+            <field name="name">Wrong details</field>
+            <field name="sequence">130</field>
+        </record>
+        <record id="cancellation_reason_none_given" model="salon.cancellation.reason">
+            <field name="name">No reason given</field>
+            <field name="sequence">140</field>
+        </record>
+        <!-- Used by the auto-expiry cron so expired holds are distinguishable
+             from cancellations a person made. -->
+        <record id="cancellation_reason_expired" model="salon.cancellation.reason">
+            <field name="name">Expired (not confirmed in time)</field>
+            <field name="sequence">200</field>
+        </record>
+        <record id="cancellation_reason_testing" model="salon.cancellation.reason">
+            <field name="name">Management testing</field>
+            <field name="sequence">150</field>
+        </record>
+    </data>
+</odoo>

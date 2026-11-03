@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        The timezone every dashboard and report reads its dates in. Sits on
+        General Information with the other business-wide settings, because it
+        is set once for the company rather than per branch.
+    -->
+    <record id="view_company_form_reporting_tz" model="ir.ui.view">
+        <field name="name">res.company.form.reporting.tz</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']//field[@name='currency_id']" position="after">
+                <field name="reporting_tz"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,1321 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bnb_portal_appointment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260223\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-06 06:00+0000\n"
+"PO-Revision-Date: 2026-07-06 06:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "$0.00"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "50% deposit"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "560001"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<i class=\"fa fa-apple me-2\"/>Apple Pay"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.social_auth_error
+msgid ""
+"<i class=\"fa fa-arrow-left me-2\"/>\n"
+"                                        Back to Booking"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<i class=\"fa fa-google me-2\"/>Google Pay"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "<i class=\"fa fa-instagram me-2\"/>Follow on Instagram"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "<i class=\"fa fa-lock\" style=\"margin-right: 6px;\"/> Pay Now"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid ""
+"<i class=\"fa fa-lock\"/>\n"
+"                        <span>You'll be redirected to a secure payment page to complete your booking</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
+"                                    New Appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.confirmation_step
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
+"                                New Appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.social_auth_error
+msgid ""
+"<i class=\"fa fa-refresh me-2\"/>\n"
+"                                        Try Again"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "<option value=\"all\">All Categories</option>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"<select class=\"form-select\" id=\"payment_option\" name=\"payment_option\" style=\"border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 14px; font-size: 14px;\">\n"
+"                        <option value=\"full\">Pay total</option>\n"
+"                        <option value=\"half\">Pay advance</option>\n"
+"                    </select>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid ""
+"<select class=\"form-select\">\n"
+"                            <option>Select Store</option>\n"
+"                            <option>Darwin</option>\n"
+"                            <option>Adelaide</option>\n"
+"                            <option>Canberra</option>\n"
+"                        </select>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid ""
+"<select class=\"fresha-form-input form-select\" id=\"pronouns\" name=\"pronouns\">\n"
+"                                    <option value=\"\">Select pronouns</option>\n"
+"                                    <option value=\"she/her\">She/Her</option>\n"
+"                                    <option value=\"he/him\">He/Him</option>\n"
+"                                    <option value=\"they/them\">They/Them</option>\n"
+"                                    <option value=\"prefer_not_to_say\">Prefer not to say</option>\n"
+"                                </select>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid ""
+"<span class=\"bnb-instagram-dot me-3\"><i class=\"fa fa-instagram\"/></span>\n"
+"                    <span class=\"bnb-handle\">browzandbeauty</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid ""
+"<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"/>\n"
+"                        <span class=\"visually-hidden\">Next</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid ""
+"<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"/>\n"
+"                    <span class=\"visually-hidden\">Next</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid ""
+"<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"/>\n"
+"                        <span class=\"visually-hidden\">Previous</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid ""
+"<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"/>\n"
+"                    <span class=\"visually-hidden\">Previous</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "<span class=\"divider-text\">OR</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.booking_breadcrumb
+msgid ""
+"<span class=\"fresha-breadcrumb-item mb-2 mb-md-0\" data-step=\"0\">Services</span>\n"
+"            <i class=\"fa fa-chevron-right mx-2 mb-2 mb-md-0\"/>\n"
+"            <span class=\"fresha-breadcrumb-item mb-2 mb-md-0\" data-step=\"1\">Time</span>\n"
+"            <i class=\"fa fa-chevron-right mx-2 mb-2 mb-md-0\"/>\n"
+"            <span class=\"fresha-breadcrumb-item mb-2 mb-md-0\" data-step=\"2\">Professional</span>\n"
+"            <i class=\"fa fa-chevron-right mx-2 mb-2 mb-md-0\"/>\n"
+"            <span class=\"fresha-breadcrumb-item mb-2 mb-md-0\" data-step=\"3\">Customer</span>\n"
+"            <i class=\"fa fa-chevron-right mx-2 mb-2 mb-md-0\"/>\n"
+"            <span class=\"fresha-breadcrumb-item mb-2 mb-md-0\" data-step=\"4\">Payment</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "<span class=\"fresha-checkbox-text\">Remember me</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"fw-bold\" style=\"font-size: 16px;\">Amount to Pay</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.location_step
+msgid ""
+"<span class=\"location-salon-stars\">4.7 ⭐</span>\n"
+"                                            <span class=\"location-salon-reviews text-muted\">(3)</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"px-2 text-muted small\">or pay with</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span class=\"spc-badge spc-badge-error\">Issue</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span class=\"spc-badge spc-badge-pending\">Processing</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span class=\"spc-badge spc-badge-success\">Confirmed</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"text-muted small\">Remaining Balance (pay at salon)</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"text-muted\">Booking Fee</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"text-muted\">Date</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid ""
+"<span class=\"text-muted\">Payment Type</span>\n"
+"                                    <span class=\"badge bg-info text-white\">Pay advance (50% deposit)</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span class=\"text-muted\">Services Total</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"<span><i class=\"fa fa-tag me-1\"/>Discount:</span>\n"
+"                        <span id=\"discountDisplay\">-$0.00</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span>Amount Paid</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span>Bank Reference</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "<span>Continue with Apple</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "<span>Continue with Google</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "<span>Discount</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"<span>Pay Now:</span>\n"
+"                            <span id=\"amountToPayDisplay\">$0.00</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span>Payment Method</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid ""
+"<span>Payment Type</span>\n"
+"                                                    <span class=\"spc-badge spc-badge-pending\" style=\"font-size: 11px; padding: 3px 10px;\">Pay advance (50% deposit)</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span>Remaining Balance (pay at salon)</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"<span>Service Total:</span>\n"
+"                        <span id=\"serviceTotalDisplay\">$0.00</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"<span>Surcharge:</span>\n"
+"                        <span id=\"surchargeDisplay\">$0.00</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "<span>Transaction Ref</span>"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+msgid "ABOUT"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Address"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__advance_payment_amount
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__appointment_advance_payment_amount
+msgid "Advance Amount"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__is_advance_payment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__appointment_is_advance_payment
+msgid "Advance Payment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Affordable"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Affordable to<br/>Everyone"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Alternative phone number"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Apple"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__apple_key_id
+msgid "Apple Key ID"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__apple_private_key
+msgid "Apple Private Key (.p8)"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__apple_redirect_uri
+msgid "Apple Redirect URI"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Apple Sign Auth"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__apple_client_id
+msgid "Apple Sign-In Service ID"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__apple_team_id
+msgid "Apple Team ID"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Apply"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__display_name
+msgid "Appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.social_auth_error
+msgid "Authentication Failed"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "BODY WAXING"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "BOOK ONLINE"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "BROW LAMINATION"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.view_salon_appointment_form_inherit_discount
+msgid "Beauticians"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "Beauty Hero"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "Beauty Promo"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.location_step
+msgid "Beauty Salon"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "Beauty VIP"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Billing Address (optional)"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB About"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Features"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Hero"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Loyalty"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Newsletter"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Services"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Social"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.bnb_v2_snippets
+msgid "BnB Testimonials"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "Body Waxing"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "Book"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:website.menu,name:bnb_portal_appointment.menu_book_now
+msgid "Book Now !"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_loyalty
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "Book Online"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.confirmation_step
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Booking Confirmed!"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.confirmation_step
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Booking Details"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Booking Fee"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "Booking Summary"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "Brow Lamination"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_booking_main
+msgid "Browz and Beauty - Where perfection meets personality"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+msgid "Browz and Beauty Logo"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.beautician_step
+msgid "Choose professional"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "City"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Clear"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Client Id :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "Complete Payment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model,name:bnb_portal_appointment.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_service_booking_card
+msgid "Continue"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Customer"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "DON'T MISS OUT"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Date"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "Details"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__discount_amount
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__appointment_discount_amount
+msgid "Discount Amount"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__display_name
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_website__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_loyalty
+msgid ""
+"Due to our strong commitment to our customers, we want to offer special discounts and\n"
+"                                free treatments to our loyal beauties."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "EYELASH EXTENSION"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Email"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Email *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__enable_apple_connector
+msgid "Enable Apple Sign-In"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__enable_google_connector
+msgid "Enable Google Sign-In"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__enable_apple_connector
+msgid "Enable or disable Apple Sign-In authentication for booking portal"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__enable_google_connector
+msgid "Enable or disable Google OAuth authentication for booking portal"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Enter gift/discount code"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__apple_team_id
+msgid ""
+"Enter your Apple Developer Team ID (10 characters). Find it in your Apple "
+"Developer account: Membership section"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__apple_client_id
+msgid ""
+"Enter your Apple Service ID (e.g., com.yourcompany.signin). Get it from: "
+"https://developer.apple.com/account/resources/identifiers/list/serviceId"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__apple_key_id
+msgid ""
+"Enter your Apple Sign-In Key ID (10 characters). Create a key in: "
+"https://developer.apple.com/account/resources/authkeys/list"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__google_client_id
+msgid ""
+"Enter your Google OAuth 2.0 Client ID from Google Cloud Console. Get it "
+"from: https://console.cloud.google.com/apis/credentials"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__google_client_secret
+msgid "Enter your Google OAuth 2.0 Client Secret from Google Cloud Console"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Enter your email address"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Enter your first name"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Enter your last name"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Enter your mobile number"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid ""
+"Excellent service and beautiful results!!! Priya at Woden is wonderful and "
+"always gets the nicest looking eyebrows. Highly recommend."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "Eyebrow Threading Darwin Canberra Adelaide"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid ""
+"Eyebrow threading in Darwin, Westfield Marion, Westfield Belconnen, Westfield Woden,\n"
+"                    Mitchell Centre, Casuarina Square, and Gateway Shopping Centre"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "Eyelash Extension"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "FACIALS"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "Facebook"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "Facials"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "First name *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Fri"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "GRAB A GIFT VOUCHER"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Gift / Discount Code"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "Google"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__google_client_secret
+msgid "Google Client Secret"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__google_client_id
+msgid "Google OAuth Client ID"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__google_redirect_uri
+msgid "Google Redirect URI"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Google Sign Auth"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "High Quality<br/>Products"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "High Quality<br/>Service"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Highly Skilled<br/>Beauticians"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "I agree to the cancellation policy and"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_res_config_settings__id
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__id
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__id
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_website__id
+msgid "ID"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.social_auth_error
+msgid "If you continue to experience issues, please contact support."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "JOIN THE BEAUTY VIP CLUB"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Key Id :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "LET'S GET SOCIAL"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_loyalty
+msgid "LOYALTY PROGRAM"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "LUCY DOHERTY"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Last name *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Loading..."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_loyalty
+msgid "Loyalty Program"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Mobile phone *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Mon"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Name"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Name *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Other phone"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "PURCHASE NOW"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__apple_private_key
+msgid "Paste the complete contents of your .p8 private key file here. "
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Pay now to secure appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Payment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Payment Issue"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid "Payment Option"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Payment Processing"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.view_salon_appointment_form_inherit_discount
+msgid "Payment Summary"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Phone"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Phone *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Postcode"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.confirmation_step
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Print confirmation"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Privacy Policy"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Private Key (.p8) :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Pronouns"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Quality Products"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Quality Service"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "Quick and professional, very happy with my brows!"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_loyalty
+msgid "READ MORE ABOUT OUR LOYALTY PROGRAM"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+msgid "Read More"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "Read more"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Redirect URI :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+msgid ""
+"Remaining <span id=\"remainingBalanceDisplay\">$0.00</span> due at "
+"appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Review your booking and proceed to secure payment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_services
+msgid "SERVICES"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "SIGN UP"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "STEPHANIE ROBINSON"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "STORE LOCATOR"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "SUBSCRIBE"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_booking_card
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_service_booking_card
+msgid "Salon"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model,name:bnb_portal_appointment.model_salon_appointment
+msgid "Salon Appointment"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model,name:bnb_portal_appointment.model_salon_appointment_service
+msgid "Salon Appointment Service Line"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Sat"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Secret Id :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "Securely pay for your salon booking"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+msgid "Select Payment Method"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Select Store *"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Select time"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "September 2025"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Service Id :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "Services"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_newsletter
+msgid "Sign Up With Newsletter"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_features
+msgid "Skilled"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "Social 1"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "Social 2"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "Social 3"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_social
+msgid "Social 4"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "State"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "Store Locator"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.payment_step
+msgid "Street address"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Sun"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Synchronize with Apple Sign"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Synchronize with Google Sign"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_testimonials
+msgid "TESTIMONIALS"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.res_config_settings_view_form_bnb_auth_inherit
+msgid "Team Id :"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Terms of Service"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "There was an issue with your payment. Please try again or contact us."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Thu"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Timezone:"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__total_amount_after_discount
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__appointment_total_after_discount
+msgid "Total After Discount"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment__total_amount_before_discount
+#: model:ir.model.fields,field_description:bnb_portal_appointment.field_salon_appointment_service__appointment_total_before_discount
+msgid "Total Before Discount"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Tue"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__apple_redirect_uri
+msgid "Use this URI in your Apple Sign-In configuration"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model.fields,help:bnb_portal_appointment.field_res_config_settings__google_redirect_uri
+msgid "Use this URI in your Google Cloud Console OAuth configuration"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "VISIT OUR SALON"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_hero
+msgid "WELCOME TO BROWZ &amp; BEAUTY"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+msgid ""
+"We at Browz &amp; Beauty pride ourselves on delivering the very best eyebrow and beauty\n"
+"                            services across Adelaide, Darwin and Canberra. Our qualified beauticians specialise in\n"
+"                            Eyebrow Threading, Brow and Lash Tinting - including Henna and Hybrid, as well as Eyelash\n"
+"                            Extensions. Our absolute priority is to ensure that you get the results you want, and that\n"
+"                            you always leave our salon feeling beautiful."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "We may text you booking updates"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "We'll send booking confirmations to this email"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "We'll use these details to confirm your booking"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.confirmation_step
+msgid "We've sent a confirmation email with all the details."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model:ir.model,name:bnb_portal_appointment.model_website
+msgid "Website"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.date_step
+msgid "Wed"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.s_bnb_v2_about
+msgid "Welcome to Browz &amp; Beauty"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "Your appointment has been booked and payment received."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "Your details"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid ""
+"Your payment is being processed. You'll receive a confirmation email "
+"shortly."
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.customer_step
+msgid "and"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_checkout_page
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.salon_payment_confirmation
+msgid "with"
+msgstr ""
+
+#. module: bnb_portal_appointment
+#: model_terms:ir.ui.view,arch_db:bnb_portal_appointment.service_step
+msgid "🔥 Top Selling"
+msgstr ""

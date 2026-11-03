@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="gift_voucher_page" name="Gift Voucher Purchase">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure bnb-gift-voucher-page">
+                <section class="bnb-gift-voucher-shell container py-4 py-md-5">
+                    <h1 class="text-center mb-4">Purchase a gift voucher</h1>
+                    <form action="/gift-voucher/submit" method="post" class="bnb-gift-voucher-form">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="amount" value="40"/>
+                        <fieldset class="bnb-gift-section"><legend>Voucher amount</legend><div class="row g-2"><t t-foreach="fixed_amounts" t-as="fixed_amount"><div class="col-4"><label class="bnb-gift-amount"><input type="radio" name="amount_fixed" t-att-value="fixed_amount" t-att-checked="fixed_amount == fixed_amounts[0]"/> <t t-out="currency.symbol"/><t t-out="fixed_amount"/></label></div></t></div><label for="bnb_gift_custom_amount">Custom amount</label><input id="bnb_gift_custom_amount" type="number" min="0.01" step="0.01" placeholder="Enter another amount"/></fieldset>
+                        <p class="bnb-gift-help">Confirmation of purchase will be sent to this email address.</p>
+                        <fieldset class="bnb-gift-section"><legend>Send the gift voucher to</legend><label class="bnb-gift-radio"><input type="radio" name="send_to" value="self" checked="checked"/> Send the gift voucher to my email address</label><p>If you want to print the voucher or email it to the recipient yourself</p><label class="bnb-gift-radio"><input type="radio" name="send_to" value="recipient"/> Send the gift voucher to recipient's email address</label></fieldset>
+                        <fieldset class="bnb-gift-section bnb-gift-details"><legend>Gift voucher details</legend><label for="bnb_gift_recipient_name">Recipient name</label><input id="bnb_gift_recipient_name" name="recipient_name" type="text"/><div class="bnb-gift-recipient-email" hidden="hidden"><label for="bnb_gift_recipient_email">Recipient's email address</label><input id="bnb_gift_recipient_email" name="recipient_email" type="email"/></div><label for="bnb_gift_message">Personalised message</label><textarea id="bnb_gift_message" name="personalized_message" placeholder="Happy birthday, have a wonderful day!"></textarea><label for="bnb_gift_from">Who is this gift from?</label><input id="bnb_gift_from" name="gift_from" type="text" placeholder="eg Mum and Dad"/></fieldset>
+                        <fieldset class="bnb-gift-section bnb-gift-details"><legend>Purchaser details</legend><div class="row g-3"><div class="col-6"><label for="bnb_purchaser_first_name">First name</label><input id="bnb_purchaser_first_name" name="purchaser_first_name" type="text"/></div><div class="col-6"><label for="bnb_purchaser_last_name">Last name</label><input id="bnb_purchaser_last_name" name="purchaser_last_name" type="text"/></div></div><label for="bnb_purchaser_email">Email address</label><input id="bnb_purchaser_email" name="purchaser_email" type="email"/><label for="bnb_purchaser_mobile">Mobile number</label><div class="bnb-mobile-input"><span>+61</span><input id="bnb_purchaser_mobile" name="purchaser_mobile" type="tel"/></div></fieldset>
+                        <button type="submit" class="bnb-gift-payment-btn">Go to payment</button>
+                    </form>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

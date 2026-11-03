@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_salon_appointment_service_form_inherit_discount" model="ir.ui.view">
+        <field name="name">salon.appointment.service.form.inherit.discount</field>
+        <field name="model">salon.appointment.service</field>
+        <field name="inherit_id" ref="bb_salon_appoitments.view_salon_appointment_service_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='total_price']" position="after">
+                <field name="appointment_is_advance_payment" readonly="1"/>
+                <field name="appointment_advance_payment_amount" widget="monetary" readonly="1"
+                       modifiers="{'invisible': [['appointment_is_advance_payment', '=', False]]}"/>
+                <field name="appointment_discount_amount" widget="monetary" readonly="1"/>
+                <field name="appointment_total_before_discount" widget="monetary" readonly="1"/>
+                <field name="appointment_total_after_discount" widget="monetary" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

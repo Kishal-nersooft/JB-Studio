@@ -1,0 +1,5158 @@
+/* ============================================================================
+   SALON BOOKING SYSTEM - COMPLETE STYLES
+   ============================================================================ */
+
+/* Inter stands in for Apple's SF Pro on devices that don't have it
+   (Windows, Android); Apple devices use their own system font. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #374151;
+  --gray-700: #1f2937;
+  --indigo: #8ab8f2;
+  --indigo-text: #3d7bd6;
+  --on-indigo: #12305e;
+  --indigo-dark: #74a6ea;
+  --green: #10b981;
+  --green-dark: #047857;
+  --red: #dc2626;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.1);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,.12);
+  --transition: all .2s ease;
+  --space: clamp(8px, 2vw, 20px);
+}
+
+/* ============================================================================
+   GLOBAL RESETS & UTILITIES
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================================================
+   HERO & HEADER
+   ============================================================================ */
+
+.fresha-main-hero {
+  padding: 40px 0 24px;
+  text-align: center;
+}
+
+.fresha-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fresha-main-title {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gray-700);
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+.fresha-counter {
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--gray-500);
+}
+
+.fresha-counter strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   LAYOUT CONTAINERS
+   ============================================================================ */
+
+.location-step-wrapper,
+.service-detail-wrapper,
+.fresha-datetime-wrapper,
+.fresha-beautician-wrapper,
+.fresha-customer-wrapper,
+.fresha-payment-wrapper {
+  min-height: 100vh;
+  padding: 40px 0;
+  background: var(--white);
+}
+
+.service-detail-container,
+.date-detail-container,
+.beauty-detail-container,
+.customer-detail-header,
+.payment-detail-header,
+.location-results-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fresha-datetime-container,
+.fresha-beautician-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fresha-customer-container,
+.fresha-payment-container,
+.service-content-grid,
+.beauty-content-grid,
+.customer-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   HEADERS
+   ============================================================================ */
+
+.service-detail-header,
+.fresha-datetime-header,
+.fresha-beautician-header,
+.fresha-customer-header,
+.fresha-payment-header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 32px;
+}
+
+.service-salon-title,
+.fresha-datetime-title,
+.fresha-beautician-title,
+.fresha-customer-title,
+.fresha-payment-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.fresha-customer-subtitle,
+.fresha-payment-subtitle {
+  font-size: 16px;
+  color: var(--gray-500);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   BREADCRUMBS
+   ============================================================================ */
+
+.fresha-breadcrumb {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+/* Breadcrumb colours, sizes and the active-step "pop" are in the
+   iOS-STYLE REDESIGN section at the end of this file. */
+.fresha-breadcrumb-item {
+  cursor: default;
+}
+/* ============================================================================
+   CARDS
+   ============================================================================ */
+
+.location-salon-card,
+.service-item-card,
+.fresha-beautician-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.location-salon-card:hover,
+.service-item-card:hover,
+.fresha-beautician-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--gray-300);
+}
+
+.location-salon-card {
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.location-salon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.service-item-card.selected {
+  border: 2px solid #5b74e6;
+  background: #f5f7ff;
+}
+
+/* ============================================================================
+   LOCATION GRID
+   ============================================================================ */
+
+.location-results-section {
+  padding: 60px 0;
+  margin-top: 12px;
+}
+
+.location-salon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 45px;
+}
+
+@media (max-width: 400px) {
+  .location-salon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-salon-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.location-salon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location-salon-info {
+  padding: 20px;
+}
+
+.location-salon-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.location-salon-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.location-salon-stars,
+.service-rating-stars,
+.service-booking-stars {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.location-salon-reviews,
+.service-rating-count,
+.service-booking-reviews {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.service-rating-count,
+.service-booking-reviews {
+  color: var(--indigo-text);
+  cursor: pointer;
+}
+
+.location-salon-address {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.service-location-text {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.location-salon-category {
+  display: inline-block;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   SERVICE SECTION
+   ============================================================================ */
+
+.service-salon-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.service-rating-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+.service-status-open {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.service-directions-link {
+  color: var(--indigo-text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.service-directions-link:hover {
+  text-decoration: underline;
+}
+
+.service-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.service-share-btn,
+.service-favorite-btn {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--gray-600);
+}
+
+.service-share-btn:hover,
+.service-favorite-btn:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.service-main-content {
+  padding: 32px 0;
+}
+
+.service-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.service-categories-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.service-categories-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.service-tab {
+  background: var(--gray-100);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.service-tab.active {
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+}
+
+.service-tab:hover:not(.active) {
+  background: var(--gray-200);
+}
+
+.service-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.service-item-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.service-item-duration {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 0;
+}
+
+.service-item-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.service-price-from {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.service-book-btn {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.service-book-btn:hover {
+  background: var(--gray-200);
+  border-color: var(--gray-300);
+}
+
+.service-book-btn.selected {
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+  border-color: var(--indigo);
+}
+
+.salon-booking-service-price-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================================
+   MODAL
+   ============================================================================ */
+
+.service-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.service-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+}
+
+.service-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 16px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+}
+
+.service-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--gray-600);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+  z-index: 10;
+  line-height: 1;
+}
+
+.service-modal-close:hover {
+  background: var(--gray-100);
+  color: var(--black);
+}
+
+.service-modal-body {
+  padding: 40px;
+}
+
+.service-modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+  padding-right: 50px;
+  line-height: 1.3;
+}
+
+.service-modal-description {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.service-modal-description.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.service-modal-read-more {
+  background: none;
+  border: none;
+  color: var(--indigo-text);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.service-modal-read-more:hover {
+  text-decoration: underline;
+}
+
+.service-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  gap: 16px;
+}
+
+.service-modal-price-duration {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-modal-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.service-modal-duration {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.service-modal-action-btn {
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.service-modal-action-btn:hover {
+  background: var(--indigo-dark);
+}
+
+.service-modal-action-btn.remove {
+  background: var(--white);
+  color: var(--indigo-text);
+  border: 2px solid var(--indigo);
+}
+
+/* ============================================================================
+   BOOKING AVAILABILITY POPUP
+   ============================================================================ */
+
+.booking-popup-open {
+  overflow: hidden;
+}
+
+.booking-availability-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.booking-availability-popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.58);
+  backdrop-filter: blur(5px);
+}
+
+.booking-availability-popup-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(17, 24, 39, 0.24);
+  padding: 34px 32px 28px;
+  text-align: center;
+  animation: modalSlideIn 0.24s ease-out;
+}
+
+.booking-availability-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gray-100);
+  color: var(--gray-500);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.booking-availability-popup-close:hover {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.booking-availability-popup-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  color: var(--indigo-text);
+  font-size: 30px;
+  box-shadow: inset 0 0 0 1px rgba(100, 155, 230, 0.14);
+}
+
+.booking-availability-popup-icon.error {
+  background: #fef2f2;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.booking-availability-popup-kicker {
+  color: var(--indigo-text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.booking-availability-popup-title {
+  margin: 0 0 12px;
+  color: var(--gray-700);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.booking-availability-popup-message {
+  margin: 0;
+  color: var(--gray-600);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.booking-availability-popup-detail {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--gray-50);
+  color: var(--gray-600);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.booking-availability-popup-actions {
+  margin-top: 24px;
+}
+
+.booking-availability-popup-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.booking-availability-popup-btn:hover {
+  background: var(--indigo-dark);
+  transform: translateY(-1px);
+}
+
+/* ============================================================================
+   BOOKING CARD & SUMMARY
+   ============================================================================ */
+
+.service-booking-card,
+.fresha-booking-summary {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: sticky;
+  top: 38%;
+  height: max-content;
+}
+
+.service-booking-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.service-booking-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.service-booking-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.service-booking-tag {
+  padding: 4px 16px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.service-booking-tag.featured {
+  background: #ede9fe;
+  color: var(--indigo-text);
+}
+
+.service-booking-tag.deals {
+  background: #dcfce7;
+  color: var(--green);
+}
+
+.service-continue-btn,
+.fresha-continue-btn,
+.fresha-book-btn,
+.fresha-complete-btn {
+  width: 100%;
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 24px;
+}
+
+.service-continue-btn:hover,
+.fresha-continue-btn:hover,
+.fresha-book-btn:hover,
+.fresha-complete-btn:hover {
+  background: var(--indigo-dark);
+  transform: translateY(-1px);
+}
+
+.service-continue-btn:disabled,
+.fresha-continue-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================================================
+   BOOKING SUMMARY DETAILS
+   ============================================================================ */
+
+.salon-booking-divider {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 0 0 15px;
+}
+
+.salon-booking-service-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 4px 0;
+}
+
+.salon-booking-service-item--bordered {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.salon-booking-service-content {
+  flex: 1;
+}
+
+.salon-booking-service-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.salon-booking-service-meta {
+  font-size: 12px;
+  color: #666;
+}
+
+.salon-booking-service-payment-note {
+  font-size: 11px;
+  color: #ff6b35;
+}
+
+.salon-booking-service-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.salon-booking-remove-btn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.salon-booking-total-section {
+  margin: 20px 0 15px;
+  padding: 15px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.salon-booking-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.salon-booking-subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.salon-booking-datetime-display {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.salon-booking-fee-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.salon-booking-fee-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.salon-booking-fee-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.salon-booking-fee-amount {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.salon-booking-paynow-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--green);
+}
+
+.salon-booking-remaining-note,
+.salon-booking-payment-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ============================================================================
+   DATE & TIME SELECTION
+   ============================================================================ */
+
+.fresha-timezone-with-time {
+  font-size: 13px;
+  color: #495057;
+  display: inline-block;
+}
+
+.fresha-timezone-with-time i {
+  margin-right: 8px;
+  color: var(--green-dark);
+}
+
+.current-time {
+  display: block;
+  font-size: 11px;
+  color: #6c757d;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.fresha-month-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.fresha-month-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+}
+
+.fresha-dates-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding: 0 4px 8px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.salon-booking-date-nav-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+  padding: 10px;
+  color: #666;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.salon-booking-date-nav-btn--disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.fresha-date-item {
+  min-width: 70px;
+  height: 70px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  background: var(--white);
+  flex-shrink: 0;
+}
+
+.fresha-date-item:hover {
+  border-color: var(--gray-300);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.fresha-date-item.selected {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--bnb-on-accent);
+}
+
+.fresha-date-number {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.fresha-date-day {
+  font-size: 12px;
+  opacity: .8;
+}
+
+.fresha-date-check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 10px;
+  color: var(--green);
+  background: #dcfce7;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.salon-booking-timeslots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+  padding: 5%;
+}
+
+.salon-booking-timeslot,
+.fresha-time-slot {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background: #f9f9f9;
+  transition: var(--transition);
+}
+
+.salon-booking-timeslot:hover,
+.fresha-time-slot:hover {
+  border-color: var(--gray-300);
+  background: var(--gray-100);
+}
+
+.salon-booking-timeslot.selected,
+.fresha-time-slot.selected {
+  background: #8ab8f2;
+  color: var(--bnb-on-accent);
+  border-color: #8ab8f2;
+}
+
+.fresha-time {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* ============================================================================
+   BEAUTICIAN SELECTION
+   ============================================================================ */
+
+.fresha-beautician-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fresha-beautician-card {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.fresha-beautician-card.selected {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 1px var(--indigo);
+  background: #f8faff;
+}
+
+.fresha-beautician-card.available {
+  border: 2px solid #d1fae5;
+  background: #f0fdf4;
+}
+
+.fresha-beautician-card.busy {
+  opacity: .6;
+  pointer-events: none;
+  background: #f8f9fa;
+}
+
+.fresha-beautician-card.any-professional {
+  border: 2px dashed var(--gray-300);
+  background: var(--gray-50);
+}
+
+.fresha-beautician-card.any-professional.selected {
+  border: 2px dashed var(--indigo);
+  background: #f8faff;
+}
+
+.fresha-beautician-avatar {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.fresha-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.fresha-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  font-size: 20px;
+}
+
+.fresha-beautician-info {
+  flex: 1;
+}
+
+.fresha-beautician-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.fresha-beautician-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.fresha-beautician-availability {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.fresha-beautician-experience {
+  color: var(--gray-500);
+}
+
+.salon-booking-busy-reason {
+  color: #dc3545;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.fresha-beautician-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 16px;
+}
+
+.fresha-beautician-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.fresha-select-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.fresha-select-btn:hover {
+  border-color: var(--gray-300);
+  background: var(--gray-50);
+}
+
+.fresha-beautician-card.selected .fresha-select-btn {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--bnb-on-accent);
+}
+
+.salon-booking-availability-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.salon-booking-availability-message.warning {
+  background: #fef3cd;
+  color: #664d03;
+  border: 1px solid #fde047;
+}
+
+.salon-booking-availability-message.info {
+  background: #cff4fc;
+  color: #055160;
+  border: 1px solid #4dd4f0;
+}
+
+.salon-booking-loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.salon-booking-loading-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================================
+   FORMS
+   ============================================================================ */
+
+.fresha-customer-form,
+.fresha-payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fresha-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fresha-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.fresha-form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.fresha-form-input,
+.fresha-form-textarea,
+.fresha-country-code {
+  padding: 12px 16px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  color: var(--black);
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.fresha-form-input:focus,
+.fresha-form-textarea:focus,
+.fresha-country-code:focus {
+  outline: none;
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(100, 155, 230,.1);
+}
+
+.fresha-form-input::placeholder,
+.fresha-form-textarea::placeholder {
+  color: var(--gray-400);
+}
+
+.fresha-form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.fresha-form-hint {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.fresha-phone-input {
+  display: flex;
+  gap: 8px;
+}
+
+.fresha-country-code {
+  min-width: 80px;
+}
+
+.fresha-phone-input .fresha-form-input {
+  flex: 1;
+}
+
+.fresha-checkbox-group {
+  margin-top: 16px;
+}
+
+.fresha-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.fresha-checkbox-text {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.fresha-link {
+  color: var(--indigo-text);
+  text-decoration: none;
+}
+
+.fresha-link:hover {
+  text-decoration: underline;
+}
+
+.fresha-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0 0 16px;
+}
+
+.fresha-security-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 32px;
+  color: #047857;
+  font-size: 12px;
+}
+
+/* ============================================================================
+   CONFIRMATION
+   ============================================================================ */
+
+.fresha-confirmation-wrapper {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-50);
+}
+
+.fresha-confirmation-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fresha-confirmation-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.fresha-success-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 20px 40px rgba(16,185,129,.3);
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+.fresha-success-icon i {
+  font-size: 36px;
+  color: white;
+}
+
+@keyframes successPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.fresha-confirmation-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-shadow: 0 2px 4px rgba(0,0,0,.1);
+  color: var(--black);
+}
+
+.fresha-confirmation-subtitle {
+  font-size: 16px;
+  margin: 0;
+  color: var(--gray-600);
+}
+
+.fresha-confirmation-card {
+  background: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 25px 50px rgba(0,0,0,.15);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.fresha-card-header {
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.fresha-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.fresha-status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.fresha-status-badge.confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.fresha-booking-summary {
+  padding: 20px 30px;
+}
+
+.booking-row {
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-summary {
+  margin-top: 24px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: var(--radius-md);
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.fresha-confirmation-actions {
+  padding: 20px 30px 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.fresha-btn-primary {
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition);
+  flex: 1;
+}
+
+.fresha-btn-primary:hover {
+  background: var(--indigo-dark);
+  transform: translateY(-1px);
+}
+
+.fresha-btn-secondary {
+  padding: 16px 24px;
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f8fafc;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+  flex: 1;
+}
+
+.fresha-btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* ============================================================================
+   RELATED SERVICES MODAL
+   ============================================================================ */
+
+.related-services-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.related-services-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.related-services-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.related-modal-close-x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+  z-index: 10;
+  color: #666;
+  font-size: 18px;
+}
+
+.related-modal-close-x:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.related-modal-header {
+  padding: 32px 32px 24px 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.related-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  padding-right: 40px;
+}
+
+.related-modal-body {
+  padding: 24px 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.related-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.related-modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.related-modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.related-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.related-service-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.related-service-card:hover {
+  border-color: #8ab8f2;
+  box-shadow: 0 2px 8px rgba(100, 155, 230, 0.1);
+}
+
+.related-service-card.selected {
+  border: 2px solid #8ab8f2;
+  background: #f5f7ff;
+  box-shadow: 0 2px 12px rgba(100, 155, 230, 0.15);
+}
+
+.related-service-card:last-child {
+  margin-bottom: 0;
+}
+
+.related-service-info {
+  width: 100%;
+}
+
+.related-service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.related-service-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  padding-right: 16px;
+  flex: 1;
+}
+
+.related-service-radio {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.related-service-card:hover .radio-circle {
+  border-color: #8ab8f2;
+}
+
+.related-service-card.selected .radio-circle {
+  border-color: #8ab8f2;
+  background: #8ab8f2;
+}
+
+.related-service-card.selected .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.related-service-duration {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.related-service-price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.related-service-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.related-service-discount {
+  font-size: 12px;
+  font-weight: 500;
+  color: #10b981;
+  background: #d1fae5;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.related-modal-footer {
+  padding: 20px 32px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 12px;
+}
+
+.related-modal-no-thanks {
+  flex: 1;
+  padding: 14px 24px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.related-modal-no-thanks:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+.related-modal-add-btn {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #8ab8f2;
+  color: var(--bnb-on-accent);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.related-modal-add-btn:hover:not(:disabled) {
+  background: #74a6ea;
+  transform: translateY(-1px);
+}
+
+.related-modal-add-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.related-modal-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.related-modal-loading p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+
+/* ============================================================================
+   PAYMENT STEP LAYOUT
+   ============================================================================ */
+
+#step-payment .payment-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#step-payment .fresha-payment-left {
+  min-width: 0;
+}
+
+#step-payment .fresha-payment-right {
+  min-width: 0;
+  width: 400px;
+}
+
+#step-payment .fresha-payment-right .sticky-card-wrapper {
+  position: sticky;
+  top: 20px;
+  width: 100%;
+}
+
+#step-payment .fresha-payment-right .service-booking-card {
+  width: 100%;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ============================================================================
+   PAYMENT BOOKING CARD
+   ============================================================================ */
+
+.payment-booking-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.payment-booking-card .branch-main-details {
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.payment-booking-card .card-body {
+  padding: 16px 20px;
+}
+
+.payment-booking-card .card-footer {
+  padding: 16px 20px;
+  background: var(--white);
+}
+
+/* Selected Services Summary */
+.selected-services-summary {
+  font-size: 14px;
+}
+
+.selected-services-summary .fw-semibold {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.selected-services-summary .text-muted {
+  color: var(--gray-500);
+}
+
+.selected-services-summary .text-primary {
+  color: var(--green);
+  font-size: 12px;
+}
+
+/* Date Time Summary */
+.date-time-summary {
+  font-size: 14px;
+}
+
+.date-time-summary .fw-semibold {
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* Promo Code Section */
+#step-payment .input-group {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+#step-payment .input-group .form-control {
+  border: 1px solid var(--gray-300);
+  border-right: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+#step-payment .input-group .form-control:focus {
+  outline: none;
+  border-color: var(--indigo);
+  box-shadow: none;
+}
+
+#step-payment .input-group .btn {
+  border: 1px solid var(--indigo);
+  background: var(--white);
+  color: var(--indigo-text);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  transition: var(--transition);
+}
+
+#step-payment .input-group .btn:hover {
+  background: var(--indigo);
+  color: var(--bnb-on-accent);
+}
+
+#promoCodeFeedback {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+#promoCodeFeedback .text-success {
+  color: var(--green) !important;
+}
+
+#promoCodeFeedback .text-danger {
+  color: var(--red) !important;
+}
+
+/* Payment Summary Section */
+.payment-summary {
+  font-size: 14px;
+}
+
+.payment-summary .text-primary {
+  color: var(--green) !important;
+}
+
+.payment-summary .fw-semibold {
+  font-weight: 600;
+}
+
+/* Payment Option Dropdown */
+#step-payment .form-select {
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#step-payment .form-select:focus {
+  outline: none;
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(100, 155, 230, 0.1);
+}
+
+/* Pay Now Box */
+#step-payment .bg-light {
+  background: var(--gray-50) !important;
+  border: 1px solid var(--gray-200);
+}
+
+#step-payment .bg-light .fw-bold {
+  font-size: 15px;
+}
+
+#step-payment .bg-light .text-primary {
+  color: var(--indigo-text) !important;
+  font-size: 18px;
+}
+
+#step-payment .bg-light .text-muted {
+  color: var(--gray-500);
+}
+
+/* Payment Card Labels */
+#step-payment .form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Border Styling */
+#step-payment .border-top {
+  border-top: 1px solid var(--gray-100) !important;
+}
+
+/* Discount Row */
+#discountRow {
+  display: none;
+}
+
+#discountRow.show {
+  display: flex !important;
+}
+
+/* Remaining Balance */
+#remainingBalanceRow {
+  background: #fff7ed;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 8px;
+  border: 1px solid #fed7aa;
+}
+
+/* Payment Left Form Styling */
+.fresha-payment-left .fresha-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+/* Security Notice */
+.fresha-payment-left .fresha-security-notice {
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* Step Navigation Buttons */
+.step-navigation-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.step-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.step-nav-btn i {
+    font-size: 12px;
+    color: #64748b;
+    transition: color 0.3s ease;
+}
+
+.step-nav-btn:hover {
+    border-color: #8ab8f2;
+    background: #eff6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 155, 230, 0.2);
+}
+
+.step-nav-btn:hover i {
+    color: #3d7bd6;
+}
+
+.step-nav-btn:active {
+    transform: scale(0.9);
+}
+
+.step-nav-prev {
+    margin-right: 4px;
+}
+
+.step-nav-next {
+    border-color: var(--indigo);
+    background: var(--indigo);
+}
+
+.step-nav-next i {
+    color: var(--on-indigo);
+}
+
+.step-nav-next:hover {
+    box-shadow: 0 4px 16px rgba(100, 155, 230, 0.4);
+}
+
+
+/* ============================================================================
+   RESPONSIVE STYLES
+   ============================================================================ */
+
+/* Tablet - 1024px and below */
+@media (max-width: 1024px) {
+  .fresha-datetime-container,
+  .service-content-grid,
+  .beauty-content-grid,
+  .customer-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  #step-payment .payment-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  #step-payment .fresha-payment-right {
+    width: 100% !important;
+  }
+
+  .service-booking-card,
+  .fresha-booking-summary {
+    position: static !important;
+    margin-bottom: 24px;
+  }
+}
+
+/* Mobile - 768px and below */
+@media (max-width: 768px) {
+  .fresha-beautician-container,
+  .fresha-customer-container,
+  .fresha-payment-container {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  /* Payment Section Mobile */
+  #step-payment .payment-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  #step-payment .fresha-payment-right {
+    width: 100% !important;
+    order: 1;
+  }
+
+  #step-payment .fresha-payment-left {
+    order: 2;
+  }
+
+  #step-payment .fresha-payment-right .sticky-card-wrapper {
+    position: static;
+  }
+
+  #step-payment .input-group .form-control {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  #step-payment .input-group .btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  #step-payment .form-select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .fresha-main-hero {
+    padding: 83px 0 5px;
+  }
+
+  .fresha-counter {
+    font-size: small;
+  }
+
+  .fresha-datetime-wrapper {
+    padding: 20px 0;
+  }
+
+  .fresha-datetime-header {
+    padding: 16px 0;
+    margin-bottom: 20px;
+  }
+
+  .date-detail-container {
+    padding: 0 16px;
+  }
+
+  .fresha-datetime-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .fresha-timezone-with-time {
+    font-size: 12px;
+  }
+
+  .current-time {
+    font-size: 11px;
+  }
+
+  .fresha-month-nav {
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+
+  .fresha-month-title {
+    font-size: 1.25rem;
+  }
+
+  .fresha-datetime-left {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .fresha-month-section {
+    width: 100%;
+    padding: 0;
+  }
+
+  .fresha-dates-row {
+    display: flex !important;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 0 16px 8px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .fresha-date-item {
+    min-width: 70px !important;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+
+  .fresha-date-number {
+    font-size: 18px;
+  }
+
+  .fresha-date-day {
+    font-size: 11px;
+  }
+
+  .fresha-date-check {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+  }
+
+  .salon-booking-date-nav-btn {
+    padding: 8px;
+    font-size: 16px;
+    min-width: 36px;
+    flex-shrink: 0;
+  }
+
+  .fresha-time-slots {
+    width: 100%;
+    padding: 0;
+  }
+
+  .salon-booking-timeslots-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  .salon-booking-timeslot,
+  .fresha-time-slot {
+    padding: 12px 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .fresha-time {
+    font-size: 14px;
+  }
+
+  .fresha-datetime-right {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .service-detail-wrapper {
+    padding: 20px 0;
+  }
+
+  .service-detail-header {
+    padding: 16px 0;
+    margin-bottom: 20px;
+  }
+
+  .service-detail-container {
+    padding: 0 16px;
+  }
+
+  .service-salon-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .service-salon-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .service-header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .service-share-btn,
+  .service-favorite-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .service-main-content {
+    padding: 20px 0;
+  }
+
+  .service-section-title {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+
+  .service-categories-tabs {
+    padding-bottom: 8px;
+    gap: 6px;
+  }
+
+  .service-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .service-item-card {
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  .service-item-info {
+    width: 100%;
+  }
+
+  .service-item-name {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .service-item-duration {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .service-item-price {
+    margin-top: 4px;
+  }
+
+  .service-price-from {
+    font-size: 16px;
+  }
+
+  .service-book-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .service-booking-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .service-booking-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .service-booking-rating {
+    margin-bottom: 12px;
+  }
+
+  .service-booking-stars,
+  .service-booking-reviews {
+    font-size: 13px;
+  }
+
+  .service-booking-tags {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .service-booking-tag {
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+
+  .service-continue-btn,
+  .fresha-continue-btn {
+    padding: 14px;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .branch-main-details.d-flex {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .salon-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .salon-name {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .salon-address {
+    font-size: 13px;
+  }
+
+  .salon-booking-service-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .salon-booking-service-name {
+    font-size: 13px;
+  }
+
+  .salon-booking-service-meta {
+    font-size: 11px;
+  }
+
+  .salon-booking-service-price {
+    font-size: 13px;
+  }
+
+  .service-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .service-modal-body {
+    padding: 24px 16px;
+  }
+
+  .service-modal-title {
+    font-size: 1.25rem;
+    padding-right: 40px;
+  }
+
+  .service-modal-description {
+    font-size: 13px;
+  }
+
+  .service-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .service-modal-price-duration {
+    align-items: flex-start;
+  }
+
+  .service-modal-price {
+    font-size: 1.125rem;
+  }
+
+  .service-modal-action-btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+
+  .related-services-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .related-services-modal-content {
+    max-width: 100%;
+    width: 100%;
+    max-height: 95vh;
+    border-radius: 16px 16px 0 0;
+    animation: modalSlideUp 0.3s ease-out;
+  }
+
+  @keyframes modalSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .related-modal-header {
+    padding: 24px 20px 16px 20px;
+  }
+
+  .related-modal-title {
+    font-size: 20px;
+    padding-right: 40px;
+  }
+
+  .related-modal-body {
+    padding: 16px 20px;
+  }
+
+  .related-service-card {
+    padding: 16px;
+  }
+
+  .related-service-name {
+    font-size: 15px;
+  }
+
+  /* Mobile: "No, thanks" and "Add to booking" side by side, in that order */
+  .related-modal-footer {
+    padding: 16px 20px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .related-modal-no-thanks,
+  .related-modal-add-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 12px 16px;
+    white-space: nowrap;
+  }
+
+  .fresha-confirmation-actions {
+    flex-direction: row;
+  }
+
+  .fresha-card-header {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .fresha-breadcrumb {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+  .location-step-wrapper,
+  .service-detail-wrapper,
+  .fresha-datetime-wrapper,
+  .fresha-beautician-wrapper,
+  .fresha-customer-wrapper,
+  .fresha-payment-wrapper {
+    padding: 20px 0;
+  }
+
+  .fresha-confirmation-wrapper {
+    padding: 20px 15px;
+  }
+
+  .fresha-datetime-container {
+    width: 100%;
+  }
+
+  .date-detail-container,
+  .service-detail-container,
+  .beauty-detail-container {
+    padding: 0 12px;
+  }
+
+  .fresha-datetime-header {
+    padding: 12px 0;
+    margin-bottom: 16px;
+  }
+
+  .fresha-datetime-title {
+    font-size: 1.25rem;
+  }
+
+  .fresha-timezone-with-time {
+    font-size: 11px;
+  }
+
+  .fresha-timezone-with-time i {
+    margin-right: 4px;
+    font-size: 10px;
+  }
+
+  .current-time {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .fresha-month-nav {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  .fresha-month-title {
+    font-size: 1.125rem;
+  }
+
+  .fresha-dates-row {
+    gap: 6px;
+    padding: 0 12px 8px 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+    margin-bottom: 20px;
+  }
+
+  .fresha-date-item {
+    min-width: 65px !important;
+    width: 65px;
+    height: 65px;
+  }
+
+  .fresha-date-number {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .fresha-date-day {
+    font-size: 10px;
+  }
+
+  .fresha-date-check {
+    top: 4px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
+  }
+
+  .salon-booking-date-nav-btn {
+    padding: 6px;
+    font-size: 14px;
+    min-width: 32px;
+  }
+
+  .salon-booking-timeslots-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .salon-booking-timeslot,
+  .fresha-time-slot {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  .fresha-time {
+    font-size: 13px;
+  }
+
+  .fresha-datetime-right {
+    padding: 0 12px;
+  }
+
+  .service-detail-container {
+    padding: 0 12px;
+  }
+
+  .service-salon-title {
+    font-size: 1.25rem;
+  }
+
+  .service-categories-tabs {
+    gap: 4px;
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .service-tab {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .service-item-card {
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  .service-item-name {
+    font-size: 14px;
+  }
+
+  .service-item-duration {
+    font-size: 12px;
+  }
+
+  .service-price-from {
+    font-size: 15px;
+  }
+
+  .service-book-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .service-booking-card {
+    padding: 16px 12px;
+    width: 100%;
+  }
+
+  .salon-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .salon-name {
+    font-size: 14px;
+  }
+
+  .salon-address {
+    font-size: 12px;
+  }
+
+  .service-continue-btn,
+  .fresha-continue-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .salon-booking-total-row {
+    font-size: 15px;
+  }
+
+  .salon-booking-subtotal-row {
+    font-size: 13px;
+  }
+
+  .service-modal-close {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .service-modal-body {
+    padding: 32px 12px 20px;
+  }
+
+  .service-modal-title {
+    font-size: 1.125rem;
+  }
+
+  .fresha-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fresha-confirmation-actions {
+    flex-direction: column;
+  }
+
+  .fresha-breadcrumb {
+    font-size: 10px;
+  }
+
+  .fresha-breadcrumb i {
+    font-size: 9px;
+  }
+
+  .related-modal-header {
+    padding: 20px 16px 12px 16px;
+  }
+
+  .related-modal-title {
+    font-size: 18px;
+  }
+
+  .related-modal-body {
+    padding: 12px 16px;
+  }
+
+  .related-service-card {
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  .related-service-name {
+    font-size: 14px;
+  }
+
+  .related-service-duration {
+    font-size: 13px;
+  }
+
+  .related-service-price {
+    font-size: 15px;
+  }
+
+  .related-modal-footer {
+    padding: 12px 16px;
+  }
+}
+
+/* Extra Small - 375px and below */
+@media (max-width: 375px) {
+  .fresha-datetime-title {
+    font-size: 1.125rem;
+  }
+
+  .fresha-month-title {
+    font-size: 1rem;
+  }
+
+  .fresha-dates-row {
+    gap: 5px;
+    padding: 0 10px 6px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+  }
+
+  .fresha-date-item {
+    min-width: 60px !important;
+    width: 60px;
+    height: 60px;
+  }
+
+  .fresha-date-number {
+    font-size: 15px;
+  }
+
+  .fresha-date-day {
+    font-size: 9px;
+  }
+
+  .salon-booking-timeslots-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .salon-booking-timeslot,
+  .fresha-time-slot {
+    padding: 9px 5px;
+    font-size: 12px;
+  }
+
+  .service-salon-title {
+    font-size: 1.125rem;
+  }
+
+  .service-item-card {
+    padding: 12px;
+  }
+
+  .service-booking-card {
+    padding: 14px 10px;
+  }
+
+  .branch-main-details.d-flex {
+    gap: 10px;
+  }
+
+  .salon-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .date-detail-container,
+  .service-detail-container {
+    padding: 0 10px;
+  }
+}
+
+/* ============================================================================
+   STRIPE PAYMENT ELEMENTS (inline on payment step)
+   ============================================================================ */
+.stripe-payment-section {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.stripe-method-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stripe-method-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--indigo);
+    color: var(--indigo-text);
+  }
+
+  &.active {
+    border-color: var(--indigo);
+    background: rgba(100, 155, 230, 0.04);
+    color: var(--indigo-text);
+  }
+
+  i {
+    font-size: 16px;
+  }
+}
+
+.stripe-card-wrapper {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.stripe-element-mount {
+  background: #fff;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  padding: 14px 16px;
+  min-height: 44px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus-within {
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 3px rgba(100, 155, 230, 0.12);
+  }
+}
+
+.stripe-error-msg {
+  color: var(--red);
+  font-size: 13px;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+/* ============================================================================
+   SALON CHECKOUT PAGE (Odoo payment.form integration)
+   ============================================================================ */
+.salon-checkout-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.salon-checkout-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Style the Odoo payment form to match salon theme */
+.salon-checkout-wrapper #o_payment_form {
+  .list-group-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px !important;
+    margin-bottom: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      border-color: var(--indigo, #8ab8f2);
+    }
+
+    &.o_outline {
+      border: 2px solid var(--indigo, #8ab8f2);
+      box-shadow: 0 0 0 2px rgba(100, 155, 230, 0.1);
+    }
+  }
+
+  /* Payment method labels */
+  .o_payment_option_label {
+    font-weight: 500;
+    color: #1a1a2e;
+  }
+
+  /* Submit button styling */
+  button[name="o_payment_submit_button"] {
+    background: var(--indigo, #8ab8f2) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 14px 32px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    width: 100%;
+    margin-top: 16px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: var(--indigo-dark, #74a6ea) !important;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Stripe inline form container */
+  div[name="o_payment_inline_form"] {
+    padding: 16px 0;
+  }
+}
+
+/* Responsive checkout */
+@media (max-width: 991px) {
+  .salon-checkout-wrapper > .row {
+    flex-direction: column-reverse;
+  }
+
+  .salon-checkout-card.sticky-top {
+    position: static !important;
+    margin-bottom: 20px;
+  }
+}
+
+/* Ticket 24: the services row uses align-items-start, which collapses the
+   right column to its content height and breaks the sticky summary card.
+   Stretch just that column so the card follows the page scroll. */
+.service-right-column {
+  align-self: stretch;
+}
+
+/* Ticket 30: the sticky summary card pinned at top:20px, sliding under the
+   fixed website navbar (~70px tall). Pin it below the header instead.
+   !important needed to beat the template's inline top:20px. */
+.service-right-column .sticky-top,
+.fresha-datetime-right .sticky-top,
+.fresha-beautician-right .sticky-top,
+.fresha-customer-right .sticky-top {
+  top: 96px !important;
+}
+
+/* Mobile booking: keep the step's existing action reachable on long lists. */
+.booking-mobile-actions {
+  display: none;
+}
+
+#fresha-booking-steps {
+  .service-item-info, .salon-info, .fresha-beautician-info,
+  .salon-booking-service-name, .selected-booking-info {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .service-detail-container > .row,
+  .fresha-datetime-container > .row {
+    --bs-gutter-x: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #fresha-booking-steps {
+    padding-inline: 0;
+    .location-step-wrapper, .service-detail-wrapper, .fresha-datetime-wrapper,
+    .fresha-beautician-wrapper, .fresha-customer-wrapper, .fresha-payment-wrapper {
+      min-height: 0;
+      padding-block: 20px;
+    }
+    .service-detail-container, .date-detail-container, .beauty-detail-container,
+    .customer-detail-header, .payment-detail-header, .location-results-container,
+    .fresha-datetime-container, .fresha-beautician-container {
+      padding-inline: 16px;
+      max-width: 100%;
+    }
+    .location-results-section { padding-block: 16px; }
+    .location-salon-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      > .col-12 { min-width: 0; padding: 0; margin: 0; }
+    }
+    .location-salon-info { overflow-wrap: anywhere; }
+    .customer-content-grid, .beauty-content-grid, .payment-content-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 24px;
+      width: 100%;
+      margin-inline: 0;
+      padding-inline: 16px;
+      > * { min-width: 0; width: 100%; padding-inline: 0; }
+    }
+    .beauty-content-grid { padding-inline: 0; }
+    .fresha-customer-wrapper > .row { margin-inline: 0; }
+    .fresha-datetime-right { padding-inline: 12px; }
+    .sticky-top, .sticky-card-wrapper { position: static !important; }
+    .service-booking-card { padding: 16px; margin-bottom: 0; }
+    .branch-main-details.d-flex { flex-direction: row !important; align-items: flex-start; }
+    .salon-image { width: 64px; height: 64px; margin: 0 12px 0 0 !important; }
+    .service-continue-btn, .fresha-continue-btn, .step-nav-btn, .service-book-btn,
+    .service-details-btn, .category-nav-btn, .service-tab, .fresha-select-btn,
+    .salon-booking-date-nav-btn, .salon-booking-timeslot, .fresha-time-slot {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+    .step-nav-btn, .category-nav-btn, .fresha-select-btn,
+    .salon-booking-date-nav-btn { min-width: 44px !important; }
+    .category-nav-btn { height: 44px !important; width: 44px !important; }
+    .service-tab { height: auto !important; }
+    .service-details-btn { padding-block: 10px !important; }
+    input:not([type='checkbox']):not([type='radio']), select, textarea {
+      font-size: 16px !important;
+      min-height: 48px;
+      max-width: 100%;
+    }
+    .input-group > .form-control { min-width: 0; }
+    .input-group > .btn { min-height: 48px; }
+    .fresha-checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 44px;
+      padding: 8px 0;
+      .form-check-input {
+        float: none;
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+        min-height: 0;
+        margin: 2px 0 0;
+      }
+    }
+    .fresha-checkbox-label { padding: 0; margin: 0; min-width: 0; }
+    .fresha-checkbox-text { font-size: 13px; line-height: 22px; }
+    .service-categories-tabs { min-width: 0; }
+    .fresha-breadcrumb {
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      gap: 0;
+      padding-bottom: 8px;
+      > * { flex-shrink: 0; white-space: nowrap; margin-bottom: 0 !important; }
+    }
+    .fresha-dates-row {
+      flex-wrap: nowrap !important;
+      width: 100%;
+      margin-inline: 0;
+      padding-inline: 0;
+      scroll-snap-type: x proximity;
+      > * { scroll-snap-align: start; }
+    }
+    .salon-booking-timeslots-grid {
+      grid-template-columns: repeat(auto-fit, minmax(88px, 1fr)) !important;
+      padding-inline: 0;
+      gap: 10px;
+    }
+    .fresha-beautician-list { margin-inline: 0; }
+  }
+
+  .booking-mobile-actions:not([hidden]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 1035;
+    padding: 12px unquote('max(16px, env(safe-area-inset-right))') calc(12px + env(safe-area-inset-bottom)) unquote('max(16px, env(safe-area-inset-left))');
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    box-shadow: 0 -4px 20px rgba(17, 24, 39, .08);
+  }
+  .booking-mobile-actions-summary { font-size: 14px; font-weight: 600; color: var(--gray-700); overflow-wrap: anywhere; }
+  .booking-mobile-continue {
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--indigo);
+    color: var(--on-indigo);
+    font-size: 16px;
+    font-weight: 600;
+    touch-action: manipulation;
+    &:disabled { opacity: .6; cursor: wait; }
+  }
+  .bnb-mobile-booking-active #wrapwrap { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .bnb-booking-keyboard-open .booking-mobile-actions { display: none; }
+
+  /* Only stack the top-level checkout columns, never expiry/CVV form rows. */
+  .salon-checkout-wrapper > .row {
+    flex-direction: column;
+    > .col-md-7, > .col-md-5 { width: 100%; }
+  }
+  .salon-checkout-wrapper {
+    padding-inline: 16px;
+    .salon-checkout-card { padding: 20px !important; }
+    .salon-checkout-service-line {
+      gap: 12px;
+      > :first-child { min-width: 0; overflow-wrap: anywhere; }
+      > :last-child { flex-shrink: 0; white-space: nowrap; }
+    }
+    .sticky-top { position: static !important; }
+    input:not([type='checkbox']):not([type='radio']), select, textarea {
+      font-size: 16px !important; min-height: 48px; min-width: 0;
+    }
+    #o_payment_form input[type='radio'], #o_payment_form input[type='checkbox'] {
+      width: 18px;
+      height: 18px;
+      min-height: 0;
+      flex-shrink: 0;
+    }
+    .nab-web-wallet-btn, button[name='o_payment_submit_button'] {
+      min-height: 44px;
+      height: 44px;
+      padding: 10px 16px !important;
+      font-size: 16px !important;
+      line-height: 24px;
+    }
+    // Keep the official Google Pay artwork; size its fill-mode container only.
+    .nab-google-pay-button { height: 44px !important; }
+    [name='o_nab_element_container'] {
+      min-width: 0;
+      > .mb-3 > .d-flex { flex-wrap: wrap; gap: 8px; }
+      > .row > .col-4 { width: 50%; &:last-child { width: 100%; margin-top: 12px; } }
+      #nab-card-number-container, #nab-card-cvv-container { min-width: 0 !important; min-height: 48px; }
+      .form-label { font-size: 14px; }
+    }
+    #o_payment_form .list-group-item { padding: 12px; }
+  }
+}
+
+/* Match the checkout typography to the booking steps on phones. */
+@media (max-width: 575px) {
+  .salon-checkout-wrapper {
+    font-size: 14px;
+    line-height: 1.5;
+    > .row:first-child h1 { font-size: 24px !important; line-height: 1.25; }
+    .salon-checkout-card > h4 { font-size: 18px; line-height: 1.35; }
+    #o_payment_form h4, #o_payment_form h5, #o_payment_form h6,
+    #o_payment_form .h4, #o_payment_form .h5, #o_payment_form .h6 {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .o_payment_option_label { font-size: 14px; }
+    .nab-web-wallets .small { font-size: 12px; }
+    #o_payment_form div[name='o_payment_inline_form'] { padding: 12px 0; }
+  }
+}
+
+/* Scroll inside dialogs on short screens; keep close/confirmation reachable. */
+.booking-availability-popup-card {
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  overscroll-behavior: contain;
+}
+.booking-availability-popup-close, .service-modal-close, .related-modal-close-x {
+  min-width: 44px;
+  min-height: 44px;
+}
+.service-modal-content, .related-services-modal-content {
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  min-height: 0;
+}
+.related-modal-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+
+@media (max-width: 767.98px) {
+  .booking-availability-popup { padding: 16px; }
+  .booking-availability-popup-card {
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    padding: 28px 20px 20px;
+    border-radius: 20px;
+  }
+  .service-modal-body { margin: 0 !important; }
+  .service-modal-footer { padding: 16px 0; }
+  .related-services-modal { padding-top: 16px; }
+  .related-modal-header { padding: 20px 16px 12px; }
+  .related-modal-body, .related-modal-footer { padding: 16px; }
+  .related-service-radio, .related-modal-no-thanks, .related-modal-add-btn, .service-modal-action-btn { min-height: 44px; min-width: 44px; }
+  .related-service-info, .related-service-name { min-width: 0; overflow-wrap: anywhere; }
+  .related-modal-footer { flex-shrink: 0; padding-bottom: unquote('max(16px, env(safe-area-inset-bottom))'); }
+  .spc-container, .spc-detail-value, .spc-service-line > :first-child { min-width: 0; overflow-wrap: anywhere; }
+  .spc-service-line { gap: 8px; }
+  .spc-new-btn, .spc-print-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .salon-checkout-wrapper .salon-checkout-card { padding: 16px !important; }
+}
+
+@media (max-width: 575.98px) {
+  #fresha-booking-steps .location-salon-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ============================================================================
+   iOS-STYLE REDESIGN (Book Online)
+   Clean, minimal look in the style of Fresha's booking flow and Apple's iOS
+   controls: system font, grouped cards, segmented control, pill buttons and
+   spring animations. Everything is scoped to the booking page.
+   ============================================================================ */
+
+$bnb-spring: cubic-bezier(.32, .72, 0, 1);
+
+#fresha-booking-steps,
+.booking-mobile-actions,
+.bnb-cart-sheet,
+.related-services-modal,
+.booking-availability-popup {
+  /* Blue theme: navy text, blue accent for anything chosen or tappable,
+     light blue fills, blue hairline borders and soft blue shadows. */
+  --bnb-ink: #0f1e3d;
+  --bnb-accent: #8ab8f2;          /* pastel blue: fills, borders */
+  --bnb-accent-dark: #74a6ea;     /* hover */
+  --bnb-accent-soft: #f3f8ff;
+  --bnb-accent-text: #3d7bd6;     /* blue text and icons on white */
+  --bnb-on-accent: #12305e;       /* text on pastel fills */
+  --bnb-label-2: rgba(30, 50, 90, .66);
+  --bnb-label-3: rgba(30, 50, 90, .4);
+  --bnb-fill: #f1f6fe;
+  --bnb-fill-2: #e3eefc;
+  --bnb-separator: #d7e6fa;
+  --bnb-card: #fff;
+  --bnb-shadow: 0 1px 2px rgba(100, 155, 230, .06), 0 2px 8px rgba(100, 155, 230, .08);
+  --bnb-shadow-hover: 0 6px 20px rgba(100, 155, 230, .14);
+  --bnb-focus: 0 0 0 4px rgba(100, 155, 230, .15);
+  --bnb-radius: 18px;
+  --bnb-radius-sm: 12px;
+  --bnb-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  font-family: var(--bnb-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -.01em;
+  color: var(--bnb-ink);
+  -webkit-tap-highlight-color: transparent;
+
+  button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+  }
+}
+
+/* No footer on the booking page (Odoo renders it as footer#bottom). */
+#wrapwrap:has(#fresha-booking-steps) > footer {
+  display: none;
+}
+
+#fresha-booking-steps {
+  overflow-x: clip;
+  padding-bottom: 32px;
+
+  /* Each step glides in when it is shown (display: none -> block restarts it). */
+  > [id^='step-'] {
+    animation: bnbStepIn .45s $bnb-spring both;
+  }
+
+  /* ---- Step header: back button on top, then the breadcrumb ------------ */
+  .service-detail-header,
+  .fresha-datetime-header,
+  .fresha-beautician-header,
+  .fresha-customer-header,
+  .fresha-payment-header {
+    padding: 12px 0 4px !important;
+    border: 0;
+    background: transparent;
+    margin: 0;
+  }
+
+  .step-navigation-buttons {
+    display: flex;
+    margin: 0 0 12px;
+  }
+
+  .step-nav-btn {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--bnb-fill);
+    box-shadow: none;
+    color: var(--bnb-ink);
+    transition: transform .25s $bnb-spring, background-color .2s ease;
+
+    i { font-size: 15px; color: var(--bnb-ink); }
+    &:hover { background: var(--bnb-fill-2); border: 0; transform: none; box-shadow: none; }
+    &:hover i { color: var(--bnb-ink); }
+    &:active { transform: scale(.9); }
+    &:focus-visible { outline: 3px solid rgba(100, 155, 230, .4); outline-offset: 2px; }
+  }
+
+  .fresha-breadcrumb {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 8px !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 4px 0;
+
+    &::-webkit-scrollbar { display: none; }
+
+    .fa-chevron-right {
+      margin: 0 !important;
+      font-size: 9px;
+      color: var(--bnb-label-3);
+      flex-shrink: 0;
+
+      &.completed { color: var(--bnb-label-2); }
+    }
+  }
+
+  .fresha-breadcrumb-item {
+    margin: 0 !important;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bnb-label-3);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color .2s ease;
+
+    &.completed { color: var(--bnb-label-2); }
+
+    /* The step you are on: bigger, bolder, and it "pops" in. */
+    &.active {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--bnb-accent-text);
+      transform-origin: left center;
+      animation: bnbCrumbPop .55s $bnb-spring both;
+    }
+  }
+
+  .fresha-customer-subtitle,
+  .fresha-payment-subtitle {
+    font-size: 15px;
+    color: var(--bnb-label-2) !important;
+    margin: 4px 0 0;
+  }
+
+  .fresha-timezone-with-time {
+    font-size: 13px;
+    color: var(--bnb-label-2);
+
+    .current-time {
+      background: var(--bnb-fill) !important;
+      color: var(--bnb-ink);
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+  }
+
+  .service-detail-container.py-4,
+  .fresha-datetime-container.py-4,
+  .fresha-beautician-container.py-4 {
+    padding-top: 12px !important;
+  }
+
+  /* ---- Parent categories: iOS segmented control ------------------------ */
+  .bnb-parent-filter {
+    margin-bottom: 14px;
+
+    &--segmented #parentCategoryDropdown { display: none; }
+
+    #parentCategoryDropdown {
+      height: 48px;
+      border-radius: var(--bnb-radius-sm);
+      border: 0;
+      background-color: var(--bnb-fill);
+      font-weight: 500;
+    }
+  }
+
+  .bnb-parent-segments {
+    position: relative;
+    display: flex;
+    padding: 3px;
+    border-radius: 12px;
+    background: var(--bnb-fill-2);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .bnb-parent-thumb {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 0;
+    width: 0;
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(100, 155, 230, .18);
+    transition: transform .4s $bnb-spring, width .4s $bnb-spring;
+    pointer-events: none;
+  }
+
+  .bnb-parent-segment {
+    position: relative;
+    z-index: 1;
+    flex: 1 0 auto;
+    min-height: 36px;
+    padding: 6px 14px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bnb-ink);
+    white-space: nowrap;
+    transition: transform .2s $bnb-spring;
+
+    &.active { font-weight: 600; color: var(--bnb-accent-text); }
+    &:active { transform: scale(.96); }
+    &:focus-visible { outline: 2px solid rgba(100, 155, 230, .5); outline-offset: -2px; }
+  }
+
+  /* ---- Child categories: swipeable pills, no arrows -------------------- */
+  .bnb-category-pills {
+    margin: 0 -12px 18px;
+  }
+
+  .service-categories-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 2px 12px 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .service-tab {
+    flex-shrink: 0;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bnb-ink);
+    white-space: nowrap;
+    scroll-snap-align: start;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s $bnb-spring;
+
+    &:hover:not(.active) { background: var(--bnb-fill); }
+    &:active { transform: scale(.95); }
+
+    &.active {
+      background: var(--bnb-accent);
+      border-color: var(--bnb-accent-text);
+      color: var(--bnb-on-accent);
+    }
+  }
+
+  /* ---- Service cards --------------------------------------------------- */
+  .service-items-list {
+    gap: 12px !important;
+  }
+
+  .service-item-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--bnb-separator);
+    border-radius: var(--bnb-radius);
+    background: var(--bnb-card);
+    box-shadow: var(--bnb-shadow);
+    cursor: pointer;
+    transition: transform .25s $bnb-spring, border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+    animation: bnbFadeUp .4s $bnb-spring both;
+
+    &:hover { box-shadow: var(--bnb-shadow-hover); border-color: #c4dbf8; }
+    &:active { transform: scale(.985); }
+
+    .card-body {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      padding: 16px 16px 16px 18px;
+    }
+
+    &.selected {
+      border-color: var(--bnb-accent-text);
+      box-shadow: inset 0 0 0 1px var(--bnb-accent), var(--bnb-shadow);
+      background: var(--bnb-accent-soft);
+    }
+  }
+
+  .service-item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    margin: 0 !important;
+  }
+
+  /* Title on the left, duration on the right, same line. */
+  .service-item-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .service-item-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--bnb-ink);
+    /* One line only, so long names don't make the card taller. */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .service-item-duration {
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--bnb-label-2);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  /* Description shown on the card instead of the Details popup. Fixed at
+     2 lines (longer text ends in "…") so every card is the same height;
+     the space is kept even when there is no description. */
+  .service-item-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    width: 100%;
+    height: calc(1.45em * 2);
+    margin: 6px 0 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--bnb-label-2);
+    overflow-wrap: anywhere;
+  }
+
+  /* "See all" opens the full description inside the card. */
+  .service-item-card.expanded .service-item-description {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: none;
+    height: auto;
+    overflow: visible;
+    white-space: pre-line;
+  }
+
+  .service-see-all-btn {
+    min-height: 32px;
+    margin-top: 2px;
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--bnb-accent-text);
+    cursor: pointer;
+
+    /* Keep the row's space when there's nothing to expand, so every card
+       stays the same height. */
+    &.is-idle { visibility: hidden; }
+    &:hover { text-decoration: underline; }
+  }
+
+  .service-item-price {
+    margin-top: 10px;
+  }
+
+  .service-price-from {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bnb-ink);
+  }
+
+  .service-details-btn {
+    min-height: 32px;
+    margin-top: 2px;
+    padding: 4px 0 !important;
+    border: 0;
+    background: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--bnb-label-2);
+    text-decoration: none;
+
+    &:hover { color: var(--bnb-accent-text); text-decoration: underline; }
+  }
+
+  /* No description, nothing to open. */
+  .service-item-card[data-service-description=''] .service-details-btn {
+    display: none;
+  }
+
+  /* Round add button: "+" becomes a check when the service is added. The
+     button's text (Book / Remove) is kept for screen readers. */
+  .service-book-btn {
+    position: relative;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 50%;
+    background: var(--bnb-accent-soft);
+    color: transparent;
+    font-size: 0;
+    overflow: hidden;
+    transition: background-color .2s ease, border-color .2s ease, transform .3s $bnb-spring;
+
+    &::before {
+      content: '\f067';
+      font-family: FontAwesome;
+      font-size: 15px;
+      color: var(--bnb-accent-text);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover { background: var(--bnb-fill); border-color: var(--bnb-separator); }
+    &:active { transform: scale(.88); }
+
+    &.selected {
+      background: var(--bnb-accent);
+      border-color: var(--bnb-accent-text);
+      animation: bnbBump .4s $bnb-spring;
+
+      &::before { content: '\f00c'; color: var(--bnb-on-accent); }
+    }
+  }
+
+  .top-selling-empty {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--bnb-label-2) !important;
+    background: var(--bnb-fill);
+    border-radius: var(--bnb-radius);
+  }
+
+  /* ---- Booking summary card (desktop sidebar) -------------------------- */
+  .service-booking-card {
+    border: 1px solid var(--bnb-separator);
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(100, 155, 230, .08);
+    overflow: hidden;
+
+    .card-footer { background: transparent !important; }
+  }
+
+  .salon-image { border-radius: 14px; }
+  .salon-name { font-size: 16px; font-weight: 600; letter-spacing: -.015em; color: var(--bnb-ink); }
+  span.salon-address { font-size: 13px; font-weight: 400; color: var(--bnb-label-2); }
+
+  .salon-booking-remove-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bnb-fill);
+    border: 0;
+    color: var(--bnb-label-2);
+    line-height: 1;
+  }
+
+  .service-continue-btn,
+  .fresha-continue-btn,
+  .fresha-complete-btn {
+    min-height: 52px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--bnb-accent);
+    color: var(--bnb-on-accent);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    box-shadow: 0 4px 12px rgba(100, 155, 230, .25);
+    transition: transform .2s $bnb-spring, opacity .2s ease, background-color .2s ease;
+
+    &:hover { background: var(--bnb-accent-dark); color: var(--bnb-on-accent); box-shadow: var(--bnb-shadow-hover); }
+    &:active { transform: scale(.97); }
+  }
+
+  /* ---- Date & time ---------------------------------------------------- */
+  .fresha-month-nav { justify-content: flex-start; margin-bottom: 14px; }
+  .fresha-month-title { font-size: 17px; font-weight: 600; letter-spacing: -.015em; }
+
+  .fresha-dates-row {
+    align-items: center;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    padding: 4px 2px 8px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .salon-booking-date-nav-btn {
+    width: 34px;
+    min-width: 34px !important;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--bnb-fill);
+    color: var(--bnb-accent-text);
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--disabled { opacity: .35; }
+  }
+
+  .fresha-date-item {
+    min-width: 58px;
+    height: 72px;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 16px;
+    transition: transform .25s $bnb-spring, background-color .2s ease, color .2s ease;
+
+    &:hover { box-shadow: var(--bnb-shadow); border-color: #c4dbf8; }
+    &:active { transform: scale(.94); }
+
+    &.selected {
+      background: var(--bnb-accent);
+      border-color: var(--bnb-accent-text);
+      color: var(--bnb-on-accent);
+    }
+  }
+
+  .fresha-date-number { font-size: 19px; font-weight: 600; }
+  .fresha-date-day { font-size: 12px; font-weight: 500; }
+  .fresha-date-check { display: none; }
+
+  .salon-booking-timeslots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+    gap: 10px;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  .fresha-time-slot {
+    padding: 13px 8px;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 999px;
+    background: #fff;
+    transition: transform .2s $bnb-spring, background-color .2s ease;
+
+    &:hover { background: var(--bnb-fill); border-color: var(--bnb-separator); }
+    &:active { transform: scale(.95); }
+
+    &.selected {
+      background: var(--bnb-accent);
+      border-color: var(--bnb-accent-text);
+
+      .fresha-time { color: var(--bnb-on-accent); }
+    }
+  }
+
+  .fresha-time { font-size: 15px; font-weight: 600; color: var(--bnb-ink); }
+
+  /* ---- Professionals: Fresha-style grid of centred cards ------------- */
+  .fresha-beautician-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 14px;
+    margin: 0;
+
+    > .salon-booking-availability-message,
+    > .salon-booking-loading { grid-column: 1 / -1; margin: 0 0 4px; }
+  }
+
+  .fresha-beautician-card,
+  .fresha-beautician-card.available,
+  .fresha-beautician-card.any-professional,
+  .fresha-beautician-card.busy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    min-height: 212px;
+    padding: 24px 14px 18px;
+    width: auto;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--bnb-separator);
+    border-radius: var(--bnb-radius);
+    box-shadow: none;
+    transition: transform .25s $bnb-spring, border-color .2s ease, box-shadow .2s ease;
+
+    &:hover {
+      border-color: #c4dbf8;
+      box-shadow: var(--bnb-shadow-hover);
+      transform: translateY(-2px);
+    }
+    &:active { transform: scale(.98); }
+
+    &.selected {
+      border-color: var(--bnb-accent-text);
+      box-shadow: inset 0 0 0 1px var(--bnb-accent), var(--bnb-shadow-hover);
+      background: var(--bnb-accent-soft);
+    }
+  }
+
+  .fresha-beautician-card.busy {
+    opacity: 1;
+    background: var(--bnb-fill);
+    border-color: transparent;
+    cursor: not-allowed;
+
+    .fresha-beautician-avatar { filter: grayscale(1); opacity: .55; }
+    .fresha-beautician-name { color: var(--bnb-label-2); }
+    .fresha-beautician-pricing { opacity: .6; }
+  }
+
+  /* Check badge in the corner, shown on the chosen card. */
+  .bnb-pro-check {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bnb-on-accent);
+    background: var(--bnb-accent);
+    opacity: 0;
+    transform: scale(.5);
+    transition: opacity .2s ease, transform .3s $bnb-spring;
+  }
+  .fresha-beautician-card.selected .bnb-pro-check { opacity: 1; transform: scale(1); }
+
+  /* Avatar: photo over soft-toned initials. */
+  .fresha-beautician-avatar {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: var(--pro-tone-bg, var(--bnb-fill));
+    color: var(--pro-tone-ink, var(--bnb-ink));
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--bnb-separator);
+    transition: box-shadow .2s ease;
+
+    &.tone-rose  { --pro-tone-bg: #f8e4df; --pro-tone-ink: #9c5646; }
+    &.tone-sand  { --pro-tone-bg: #f3eadb; --pro-tone-ink: #8a6a3b; }
+    &.tone-sage  { --pro-tone-bg: #e2eee4; --pro-tone-ink: #4f7a5a; }
+    &.tone-sky   { --pro-tone-bg: #e1ecf6; --pro-tone-ink: #476d93; }
+    &.tone-lilac { --pro-tone-bg: #ece6f5; --pro-tone-ink: #6c5893; }
+  }
+  .fresha-beautician-card.selected .fresha-beautician-avatar {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--bnb-accent);
+  }
+
+  .bnb-pro-initials {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    line-height: 1;
+  }
+
+  .fresha-avatar-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .fresha-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--bnb-fill);
+    color: var(--bnb-ink);
+  }
+
+  .fresha-beautician-info {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .fresha-beautician-name {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -.015em;
+    color: var(--bnb-ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fresha-beautician-details {
+    display: block;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .bnb-pro-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--bnb-label-2);
+    font-weight: 500;
+
+    &.is-available::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34c759;
+    }
+  }
+
+  .salon-booking-busy-reason {
+    color: var(--bnb-label-2);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .fresha-beautician-pricing {
+    display: block;
+    margin: auto 0 0;
+    padding-top: 12px;
+  }
+
+  .bnb-pro-price-note,
+  .bnb-pro-price-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .bnb-pro-price-note { background: var(--bnb-fill); color: var(--bnb-label-2); }
+  .bnb-pro-price-chip { background: var(--bnb-accent); color: var(--bnb-on-accent); }
+
+  .bnb-pro-price-chip .fresha-beautician-price {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  /* ---- Forms ---------------------------------------------------------- */
+  .fresha-form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--bnb-label-2);
+    margin-bottom: 6px;
+  }
+
+  .fresha-form-input,
+  #step-payment .form-select,
+  #step-payment .input-group .form-control {
+    min-height: 50px;
+    border: 1px solid transparent;
+    border-radius: var(--bnb-radius-sm);
+    background-color: var(--bnb-fill);
+    font-size: 16px;
+    box-shadow: none;
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+
+    &:focus {
+      background-color: #fff;
+      border-color: var(--bnb-accent-text);
+      box-shadow: var(--bnb-focus);
+      outline: none;
+    }
+  }
+
+  .social-login-btn {
+    min-height: 50px;
+    border-radius: 999px;
+  }
+
+  .form-check-input:checked {
+    background-color: var(--bnb-accent-text);
+    border-color: var(--bnb-accent-text);
+  }
+
+  /* ---- Service detail: bottom sheet on mobile, card on desktop -------- */
+  .service-modal-overlay {
+    background: rgba(15, 30, 61, .35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: bnbFadeIn .25s ease both;
+  }
+
+  .service-modal-content {
+    border-radius: 24px;
+    max-width: 520px;
+    animation: bnbModalIn .4s $bnb-spring both;
+  }
+
+  .service-modal-close {
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bnb-fill);
+    font-size: 20px;
+  }
+
+  .service-modal-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+  .service-modal-read-more { color: var(--bnb-accent-text); font-weight: 600; }
+  .service-modal-price { font-size: 18px; }
+
+  .service-modal-action-btn {
+    border-radius: 999px;
+    min-height: 50px;
+    padding: 12px 28px;
+
+    &.remove { border: 1px solid var(--bnb-accent); }
+  }
+}
+
+/* Related services ("add an extra?") sheet */
+.related-services-modal-overlay {
+  background: rgba(15, 30, 61, .35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.related-services-modal-content {
+  border-radius: 24px;
+  animation: bnbPopIn .4s $bnb-spring both;
+}
+
+.related-service-card { border-radius: 14px; }
+.related-service-card.selected { border-color: var(--bnb-accent-text); }
+.related-service-card.selected .radio-circle { border-color: var(--bnb-accent-text); }
+.related-service-card.selected .radio-circle::after { background: var(--bnb-accent); }
+
+.related-modal-no-thanks,
+.related-modal-add-btn,
+.booking-availability-popup-btn {
+  border-radius: 999px;
+  min-height: 48px;
+  font-weight: 600;
+}
+
+.related-modal-add-btn {
+  background: var(--bnb-accent);
+  border-color: var(--bnb-accent-text);
+}
+
+.booking-availability-popup-card { border-radius: 24px; }
+
+/* ---- Desktop: Continue appears in the summary card once you choose ------ */
+@media (min-width: 1025px) {
+  #fresha-booking-steps .service-booking-card .service-continue-btn {
+    animation: bnbSlideUp .5s $bnb-spring both;
+  }
+
+  body:not(.bnb-step-ready) #fresha-booking-steps .service-booking-card .service-continue-btn {
+    display: none;
+  }
+}
+
+/* ---- Mobile & tablet: frosted bottom bar slides up once you choose ------ */
+@media (max-width: 1024px) {
+  /* The bar's button replaces the card's own Continue button. */
+  #fresha-booking-steps .service-booking-card .service-continue-btn {
+    display: none !important;
+  }
+
+  .booking-mobile-actions,
+  .booking-mobile-actions:not([hidden]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 1035;
+    padding: 12px unquote('max(16px, env(safe-area-inset-right))') calc(12px + env(safe-area-inset-bottom)) unquote('max(16px, env(safe-area-inset-left))');
+    background: rgba(255, 255, 255, .82);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-top: .5px solid var(--bnb-separator);
+    box-shadow: 0 -6px 24px rgba(100, 155, 230, .1);
+    transform: translateY(110%);
+    visibility: hidden;
+    transition: transform .5s $bnb-spring, visibility 0s linear .5s;
+
+    &.is-visible {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform .5s $bnb-spring, visibility 0s;
+    }
+  }
+
+  .booking-mobile-actions-summary {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--bnb-ink);
+  }
+
+  .booking-mobile-continue {
+    min-height: 50px;
+    min-width: 140px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: var(--bnb-accent);
+    box-shadow: 0 4px 12px rgba(100, 155, 230, .25);
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform .2s $bnb-spring;
+
+    &:active { transform: scale(.96); }
+  }
+
+  .bnb-mobile-booking-active #wrapwrap {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
+  /* Service detail opens as an iOS bottom sheet. */
+  #fresha-booking-steps .service-modal-content {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    transform: none;
+    border-radius: 24px 24px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    animation-name: bnbSheetIn;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 5px;
+      margin: 8px auto 0;
+      border-radius: 3px;
+      background: var(--bnb-fill-2);
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  #fresha-booking-steps {
+    .service-detail-container,
+    .date-detail-container,
+    .beauty-detail-container,
+    .customer-detail-header,
+    .payment-detail-header,
+    .fresha-datetime-container,
+    .fresha-beautician-container {
+      padding-inline: 16px;
+    }
+
+    .bnb-category-pills { margin-inline: -16px; }
+    .service-categories-tabs { padding-inline: 16px; scroll-padding-inline: 16px; }
+
+    .fresha-beautician-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .fresha-beautician-card,
+    .fresha-beautician-card.available,
+    .fresha-beautician-card.any-professional,
+    .fresha-beautician-card.busy { min-height: 190px; padding: 20px 10px 14px; }
+    .fresha-beautician-avatar { width: 72px; height: 72px; margin-bottom: 12px; }
+    .bnb-pro-initials { font-size: 26px; }
+    .fresha-beautician-name { font-size: 15px; }
+
+    .service-item-card .card-body { padding: 14px 14px 14px 16px; }
+
+    .fresha-breadcrumb { gap: 5px; }
+    .fresha-breadcrumb-item { font-size: 13px; }
+    .fresha-breadcrumb-item.active { font-size: 19px; }
+  }
+}
+
+@keyframes bnbStepIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes bnbCrumbPop {
+  0% { opacity: .4; transform: scale(.8); }
+  60% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bnbFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes bnbFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bnbBump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bnbSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes bnbModalIn {
+  from { opacity: 0; transform: translate(-50%, -46%) scale(.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes bnbPopIn {
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes bnbSheetIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #fresha-booking-steps *,
+  #fresha-booking-steps > [id^='step-'],
+  .booking-mobile-actions,
+  .related-services-modal-content {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================================
+   MOBILE BOOKING CART
+   On phones and tablets the summary card no longer stacks at the bottom of
+   the page. The bottom bar's "2 services · $65" opens it as a bottom sheet,
+   styled like the "Add an extra service?" sheet. The payment step keeps its
+   card in the page because it holds the gift/discount code form.
+   ============================================================================ */
+.bnb-cart-sheet { display: none; }
+
+@media (max-width: 1024px) {
+  #fresha-booking-steps {
+    .service-right-column,
+    .fresha-datetime-right,
+    .fresha-beautician-right,
+    .fresha-customer-right {
+      display: none !important;
+    }
+  }
+
+  /* The summary in the bar becomes the cart button. */
+  .booking-mobile-actions .booking-mobile-actions-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bnb-ink);
+    touch-action: manipulation;
+
+    &:disabled { cursor: default; opacity: 1; }
+    &:focus-visible { outline: none; box-shadow: var(--bnb-focus); border-radius: 10px; }
+  }
+
+  .booking-mobile-actions.has-cart .booking-mobile-actions-summary {
+    cursor: pointer;
+
+    /* Up chevron: tap to open the cart. */
+    &::after {
+      content: '';
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      margin-top: 4px;
+      border-left: 2px solid var(--bnb-accent-text);
+      border-top: 2px solid var(--bnb-accent-text);
+      transform: rotate(45deg);
+    }
+  }
+
+  .bnb-cart-sheet:not([hidden]) {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: flex-end;
+    font-family: var(--bnb-font);
+    color: var(--bnb-ink);
+  }
+
+  .bnb-cart-sheet-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(2px);
+    animation: bnbFadeIn .25s ease-out both;
+  }
+
+  .bnb-cart-sheet-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    background: var(--bnb-card);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, .2);
+    animation: bnbSheetIn .45s $bnb-spring both;
+
+    /* Grabber */
+    &::before {
+      content: '';
+      display: block;
+      flex-shrink: 0;
+      width: 36px;
+      height: 5px;
+      margin: 8px auto 0;
+      border-radius: 3px;
+      background: var(--bnb-fill-2);
+    }
+  }
+
+  .bnb-cart-sheet-close {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--bnb-label-2);
+    font-size: 18px;
+
+    &:hover, &:focus-visible { background: var(--bnb-fill); outline: none; }
+  }
+
+  .bnb-cart-sheet-header {
+    padding: 16px 64px 12px 16px;
+    border-bottom: 1px solid var(--bnb-separator);
+  }
+
+  .bnb-cart-sheet-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--bnb-ink);
+  }
+
+  .bnb-cart-sheet-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px 16px 16px;
+
+    /* The copied summary card sits flat inside the sheet. */
+    .service-booking-card {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    .branch-main-details { padding: 8px 0 !important; flex-direction: row !important; }
+    .salon-image {
+      width: 64px;
+      height: 64px;
+      margin: 0 12px 0 0 !important;
+      border-radius: 14px;
+      align-self: flex-start !important;
+    }
+    .salon-name { font-size: 16px; font-weight: 600; letter-spacing: -.015em; color: var(--bnb-ink); }
+    span.salon-address { font-size: 13px; font-weight: 400; color: var(--bnb-label-2); }
+    .card-footer { padding: 0 !important; background: transparent !important; }
+    .salon-booking-service-name, .salon-booking-service-content { min-width: 0; overflow-wrap: anywhere; }
+    .salon-booking-remove-btn { min-width: 32px; min-height: 32px; }
+  }
+
+  .bnb-cart-sheet-footer {
+    flex-shrink: 0;
+    padding: 12px 16px unquote('max(16px, env(safe-area-inset-bottom))');
+    border-top: 1px solid var(--bnb-separator);
+  }
+
+  .bnb-cart-sheet-continue {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 26px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--bnb-accent);
+    color: var(--bnb-on-accent);
+    box-shadow: 0 4px 12px rgba(100, 155, 230, .25);
+    font-size: 16px;
+    font-weight: 600;
+    touch-action: manipulation;
+    transition: transform .2s $bnb-spring;
+
+    &:active { transform: scale(.98); }
+    &:disabled { opacity: .6; cursor: wait; }
+  }
+
+  body.bnb-cart-open { overflow: hidden; }
+}
+
+/* ============================================================================
+   PAYMENT STEP: iOS-STYLE CHECKOUT
+   Same blue theme as the other steps: grouped rounded panels, pill buttons,
+   a segmented "Pay in full / 50% deposit" control and a clear price
+   breakdown. Scoped with both ids so it wins over the older payment rules.
+   ============================================================================ */
+
+#fresha-booking-steps #step-payment {
+  .payment-content-grid {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .fresha-payment-right { width: 420px; align-self: stretch; }
+  .fresha-payment-right .sticky-card-wrapper { top: 96px; }
+
+  /* ---- Left column panels ---------------------------------------------- */
+  .fresha-payment-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .bnb-pay-panel {
+    padding: 24px;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 22px;
+    background: var(--bnb-card);
+    box-shadow: var(--bnb-shadow);
+    animation: bnbFadeUp .5s $bnb-spring both;
+
+    & + .bnb-pay-panel { animation-delay: .06s; }
+  }
+
+  .bnb-pay-panel-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .bnb-pay-panel-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--bnb-fill);
+    color: var(--bnb-accent-text);
+    font-size: 17px;
+  }
+
+  .fresha-section-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 2px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--bnb-ink);
+  }
+
+  .bnb-pay-optional {
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--bnb-fill);
+    color: var(--bnb-label-2);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+
+  .bnb-pay-panel-sub {
+    margin: 0;
+    font-size: 14px;
+    color: var(--bnb-label-2);
+  }
+
+  .fresha-payment-form { gap: 16px; }
+  .fresha-form-row { gap: 12px; }
+  .fresha-form-group { min-width: 0; }
+  .fresha-form-input { width: 100%; min-width: 0; }
+  .bnb-pay-form-row-3 { grid-template-columns: 1.4fr 1fr 1fr; }
+
+  /* How payment works */
+  .bnb-pay-steps {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+
+    li {
+      position: relative;
+      display: flex;
+      gap: 14px;
+      padding-bottom: 18px;
+
+      /* thin connector between the numbers */
+      &:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 32px;
+        bottom: 4px;
+        width: 2px;
+        border-radius: 1px;
+        background: var(--bnb-separator);
+      }
+      &:last-child { padding-bottom: 0; }
+    }
+
+    strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--bnb-ink);
+      letter-spacing: -.01em;
+    }
+
+    span:not(.bnb-pay-step-num) {
+      display: block;
+      margin-top: 2px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--bnb-label-2);
+    }
+  }
+
+  .bnb-pay-step-num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bnb-accent);
+    color: var(--bnb-on-accent);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .fresha-security-notice {
+    margin: 0;
+    padding: 12px 14px;
+    gap: 10px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--bnb-accent-soft);
+    color: var(--bnb-on-accent);
+    font-size: 13px;
+    line-height: 1.45;
+
+    i { color: var(--bnb-accent-text); font-size: 14px; }
+  }
+
+  /* ---- Summary card ---------------------------------------------------- */
+  .fresha-payment-right .service-booking-card.bnb-pay-card {
+    position: static;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--bnb-separator);
+    border-radius: 22px;
+    background: var(--bnb-card);
+    box-shadow: 0 8px 30px rgba(100, 155, 230, .1);
+    overflow: hidden;
+  }
+
+  .bnb-pay-salon {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 22px;
+    background: linear-gradient(180deg, var(--bnb-accent-soft), #fff);
+
+    .salon-image {
+      width: 60px;
+      height: 60px;
+      margin: 0;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(100, 155, 230, .2);
+    }
+    .salon-name { margin: 0 0 2px; font-size: 16px; }
+  }
+
+  .bnb-pay-section {
+    padding: 18px 22px;
+    border-top: 1px solid var(--bnb-separator);
+  }
+
+  .bnb-pay-label {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--bnb-label-2);
+  }
+
+  /* Date & time */
+  .bnb-pay-when {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 14px;
+    background: var(--bnb-fill);
+  }
+
+  .bnb-pay-when-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--bnb-accent-text);
+    font-size: 15px;
+  }
+
+  .bnb-pay-when-date { font-size: 15px; font-weight: 600; color: var(--bnb-ink); }
+  .bnb-pay-when-time { font-size: 13px; color: var(--bnb-label-2); }
+
+  /* Services */
+  .bnb-pay-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+
+    & + .bnb-pay-service { border-top: 1px dashed var(--bnb-separator); }
+  }
+
+  .bnb-pay-service-info { min-width: 0; overflow-wrap: anywhere; }
+  .bnb-pay-service-name { font-size: 15px; font-weight: 600; color: var(--bnb-ink); }
+  .bnb-pay-service-meta { font-size: 13px; color: var(--bnb-label-2); }
+  .bnb-pay-service-price { font-size: 15px; font-weight: 600; color: var(--bnb-ink); white-space: nowrap; }
+
+  /* Gift / discount code: one rounded field with the button inside */
+  .bnb-promo-field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 50px;
+    padding: 5px 5px 5px 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: var(--bnb-fill);
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+
+    &:focus-within {
+      background: #fff;
+      border-color: var(--bnb-accent-text);
+      box-shadow: var(--bnb-focus);
+    }
+  }
+
+  .bnb-promo-icon { color: var(--bnb-label-3); font-size: 14px; }
+
+  .bnb-promo-input {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    font-size: 16px;
+    color: var(--bnb-ink);
+    letter-spacing: .02em;
+    outline: none;
+
+    &::placeholder { color: var(--bnb-label-3); letter-spacing: 0; }
+  }
+
+  .bnb-promo-btn {
+    flex-shrink: 0;
+    height: 40px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--bnb-accent);
+    color: var(--bnb-on-accent);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform .2s $bnb-spring, background-color .2s ease;
+
+    &:hover { background: var(--bnb-accent-dark); }
+    &:active { transform: scale(.95); }
+    &:focus-visible { outline: 3px solid rgba(100, 155, 230, .4); outline-offset: 2px; }
+
+    &--clear {
+      width: 40px;
+      padding: 0;
+      background: #fff;
+      color: var(--bnb-label-2);
+
+      &:hover { background: var(--bnb-fill-2); }
+    }
+  }
+
+  .bnb-promo-feedback {
+    margin-top: 8px;
+    font-size: 13px;
+
+    &:empty { display: none; }
+    .text-success { color: var(--green-dark) !important; font-weight: 500; }
+    .text-danger { color: var(--red) !important; }
+  }
+
+  /* Pay in full / 50% deposit */
+  .bnb-pay-segments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3px;
+    border-radius: 12px;
+    background: var(--bnb-fill-2);
+  }
+
+  .bnb-pay-segment {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 6px 10px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--bnb-ink);
+      text-align: center;
+      transition: background-color .3s $bnb-spring, box-shadow .3s $bnb-spring, color .2s ease;
+    }
+
+    input:checked + span {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(100, 155, 230, .2);
+      color: var(--bnb-accent-text);
+      font-weight: 600;
+    }
+
+    input:focus-visible + span { outline: 2px solid rgba(100, 155, 230, .6); outline-offset: -2px; }
+    &:active span { transform: scale(.97); }
+  }
+
+  .bnb-pay-hint {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--bnb-label-2);
+  }
+
+  /* Price breakdown */
+  .bnb-pay-breakdown { background: #fcfdff; }
+
+  .bnb-pay-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 5px 0;
+    font-size: 14px;
+    color: var(--bnb-label-2);
+
+    > span:last-child { color: var(--bnb-ink); font-weight: 500; white-space: nowrap; }
+
+    small {
+      display: block;
+      font-size: 12px;
+      color: var(--bnb-label-3);
+    }
+
+    &--discount,
+    &--discount > span:last-child { color: var(--green-dark); font-weight: 600; }
+  }
+
+  .bnb-pay-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--bnb-separator);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bnb-ink);
+
+    #amountToPayDisplay {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+  }
+
+  .bnb-pay-remaining {
+    margin-top: 12px;
+    border: 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--bnb-accent-soft);
+    color: var(--bnb-on-accent);
+    font-size: 13px;
+
+    i { margin-right: 4px; color: var(--bnb-accent-text); }
+  }
+
+  /* Pay button */
+  .bnb-pay-action {
+    padding: 4px 22px 20px;
+    background: #fcfdff;
+
+    .service-continue-btn {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 54px;
+      font-size: 17px;
+    }
+  }
+
+  .bnb-pay-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--bnb-label-3);
+  }
+}
+
+/* Tablet & phone: card first, then the panels, all full width. The bottom
+   bar's "Secure checkout" button replaces the card's own button. */
+@media (max-width: 1024px) {
+  #fresha-booking-steps #step-payment {
+    .payment-content-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 16px; }
+    .fresha-payment-right { width: 100% !important; order: 1; }
+    .fresha-payment-left { order: 2; gap: 16px; }
+    .fresha-payment-right .sticky-card-wrapper { position: static; }
+    .bnb-pay-action { display: none; }
+    .bnb-pay-breakdown { padding-bottom: 20px; }
+  }
+}
+
+@media (max-width: 575.98px) {
+  #fresha-booking-steps #step-payment {
+    .bnb-pay-panel { padding: 18px; border-radius: 18px; }
+    .fresha-payment-right .service-booking-card.bnb-pay-card { border-radius: 18px; }
+    .bnb-pay-salon, .bnb-pay-section { padding-inline: 16px; }
+    .bnb-pay-form-row-3 { grid-template-columns: 1fr 1fr; }
+    .bnb-pay-form-row-3 > :first-child { grid-column: 1 / -1; }
+  }
+}

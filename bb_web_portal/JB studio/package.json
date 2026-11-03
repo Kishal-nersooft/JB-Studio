@@ -1,0 +1,12 @@
+{
+  "name": "jb-studio-bnb-portal-preview",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local HTML preview of the Browz & Beauty online booking portal (bnb_portal_appointment) for UI work",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "sass": "1.79.4"
+  }
+}

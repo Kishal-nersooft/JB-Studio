@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- Core HR/base multi-company rules are intentionally not overridden here.
+             Keep Odoo 19 default behavior for:
+             - hr.hr_employee_comp_rule
+             - hr.hr_employee_public_comp_rule
+             - hr.ir_rule_hr_contract_multi_company
+             - base.res_partner_rule -->
+
+        <!-- Branch Access Rules
+             READS are unrestricted here: users need to see branches from all companies
+             to assign employees cross-company (beautician_branch_ids M2M selection).
+             WRITES/CREATES/UNLINKS are company-scoped to prevent cross-company mutations.
+
+             Installing bnb_multi narrows the read: it declares its own global read
+             rule on beauty.branch scoped to company_ids, and global rules are AND-ed,
+             so branches outside the active companies become unreadable. Cross-company
+             employee assignment still works, through the branch clauses bnb_multi adds
+             to hr.hr_employee_comp_rule. Do not read [(1, '=', 1)] below as the
+             effective read scope on a multi-company database. -->
+        <record id="branch_company_rule" model="ir.rule">
+            <field name="name">Branch: Multi Company Rule (write/create/unlink only)</field>
+            <field name="model_id" ref="model_beauty_branch"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="branch_read_all_rule" model="ir.rule">
+            <field name="name">Branch: Read All Companies (cross-company employee assignment)</field>
+            <field name="model_id" ref="model_beauty_branch"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="global" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="location_area_company_rule" model="ir.rule">
+            <field name="name">Location Area: Multi Company Rule</field>
+            <field name="model_id" ref="model_beauty_location_area"/>
+            <field name="domain_force">[('branch_id.company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="salon_appointment_company_rule" model="ir.rule">
+            <field name="name">Salon Appointment: Multi Company Rule</field>
+            <field name="model_id" ref="model_salon_appointment"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="salon_appointment_service_company_rule" model="ir.rule">
+            <field name="name">Salon Appointment Service: Multi Company Rule</field>
+            <field name="model_id" ref="model_salon_appointment_service"/>
+            <field name="domain_force">[('appointment_id.company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="salon_appointment_consumption_company_rule" model="ir.rule">
+            <field name="name">Salon Appointment Consumption: Multi Company Rule</field>
+            <field name="model_id" ref="model_salon_appointment_consumption"/>
+            <field name="domain_force">[('appointment_id.company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="salon_appointment_payment_company_rule" model="ir.rule">
+            <field name="name">Salon Appointment Payment: Multi Company Rule</field>
+            <field name="model_id" ref="model_salon_appointment_payment"/>
+            <field name="domain_force">[('appointment_id.company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="customer_deposit_company_rule" model="ir.rule">
+            <field name="name">Customer Deposit: Multi Company Rule</field>
+            <field name="model_id" ref="model_beauty_customer_deposit"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="product_beautician_line_company_rule" model="ir.rule">
+            <field name="name">Product Beautician Line: Multi Company Rule</field>
+            <field name="model_id" ref="model_product_beautician_line"/>
+            <field name="domain_force">[('product_tmpl_id.company_id', 'in', company_ids + [False])]</field>
+            <field name="global" eval="True"/>
+        </record>
+
+        <record id="product_service_consumption_line_company_rule" model="ir.rule">
+            <field name="name">Product Service Consumption Line: Multi Company Rule</field>
+            <field name="model_id" ref="model_product_service_consumption_line"/>
+            <field name="domain_force">[('product_tmpl_id.company_id', 'in', company_ids + [False])]</field>
+            <field name="global" eval="True"/>
+        </record>
+    </data>
+</odoo>

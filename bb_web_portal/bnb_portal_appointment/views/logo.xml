@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bnb_header_brand_logo" inherit_id="website.option_header_brand_logo" name="BnB Header Logo">
+        <xpath expr="//span[@t-field='website.logo']" position="replace">
+            <img src="/bnb_portal_appointment/static/img/abt_logo.png" width="95" height="40" class="img img-fluid bnb-header-logo" alt="Browz &amp; Beauty" role="img"/>
+        </xpath>
+        <xpath expr="//a[@data-name='Navbar Logo']" position="attributes">
+            <attribute name="t-att-href">'https://browzandbeauty.com.au/' if bnb_payment_navigation else '/'</attribute>
+        </xpath>
+    </template>
+
+    <!-- Keep the live-site navigation specific to salon payment pages. -->
+    <template id="bnb_secure_checkout_navigation" inherit_id="bnb_portal_appointment.secure_checkout">
+        <xpath expr="//t[@t-call='website.layout']" position="inside">
+            <t t-set="bnb_payment_navigation" t-value="True"/>
+        </xpath>
+    </template>
+    <template id="bnb_legacy_checkout_navigation" inherit_id="bnb_portal_appointment.salon_checkout_page">
+        <xpath expr="//t[@t-call='website.layout']" position="inside">
+            <t t-set="bnb_payment_navigation" t-value="True"/>
+        </xpath>
+    </template>
+    <template id="bnb_payment_submenu" inherit_id="website.submenu">
+        <xpath expr="//t[@t-set='show_dropdown']" position="before">
+            <t t-set="bnb_hide_payment_menu" t-value="submenu.bnb_hide_from_navigation or (bnb_payment_navigation and (submenu.url or '').split('?')[0].rstrip('/') in ('/jobs', '/slides'))"/>
+            <t t-set="bnb_live_menu_urls" t-value="{
+                '/': 'https://browzandbeauty.com.au/',
+                '/bnb-home': 'https://browzandbeauty.com.au/',
+                '/shop': 'https://browzandbeauty.com.au/products/',
+                '/blog': 'https://browzandbeauty.com.au/beauty-blog/',
+                '/helpdesk': 'https://browzandbeauty.com.au/contact/',
+                '/contactus': 'https://browzandbeauty.com.au/contact/',
+                '/book-online': 'https://browzandbeauty.com.au/book-online/'
+            }"/>
+        </xpath>
+        <xpath expr="//li[@t-if]" position="attributes">
+            <attribute name="t-if">not bnb_hide_payment_menu and submenu.is_visible and not (submenu.child_id or submenu.is_mega_menu)</attribute>
+        </xpath>
+        <xpath expr="//li[@t-elif]" position="attributes">
+            <attribute name="t-elif">not bnb_hide_payment_menu and show_dropdown</attribute>
+        </xpath>
+        <xpath expr="//a[@t-att-href='submenu._clean_url()']" position="attributes">
+            <attribute name="t-att-href">bnb_live_menu_urls.get((submenu.url or '').rstrip('/') or '/', submenu._clean_url()) if bnb_payment_navigation else submenu._clean_url()</attribute>
+        </xpath>
+    </template>
+    <template id="bnb_payment_contact_button" inherit_id="website.header_call_to_action">
+        <xpath expr="//a[@href='/contactus']" position="attributes">
+            <attribute name="t-att-href">'https://browzandbeauty.com.au/contact/' if bnb_payment_navigation else '/contactus'</attribute>
+        </xpath>
+    </template>
+    <record id="bnb_website_menu_visibility_form" model="ir.ui.view">
+        <field name="name">website.menu.navigation.visibility.form</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.website_menus_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='new_window']" position="after">
+                <field name="bnb_hide_from_navigation"/>
+            </xpath>
+            <xpath expr="//field[@name='child_id']/list/field[@name='name']" position="after">
+                <field name="bnb_hide_from_navigation"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="bnb_website_menu_visibility_list" model="ir.ui.view">
+        <field name="name">website.menu.navigation.visibility.list</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.menu_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='new_window']" position="after">
+                <field name="bnb_hide_from_navigation" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

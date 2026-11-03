@@ -1,0 +1,125 @@
+<!-- Stand-in for the Odoo website header (logo from views/logo.xml, menu from the website's menu records). -->
+<!-- Two layouts (see site.css):
+     - Desktop (992px+): logo on the left, menu links on the right.
+     - Mobile: logo + hamburger (side menu opens from the right). On booking steps
+       after a salon is chosen (flag "branch"): [back]  logo  [hamburger]. -->
+<header id="top" class="o_header_standard bnb-topbar-wrap">
+    <nav class="bnb-topbar o_header_mobile<!-- if:branch --> bnb-topbar--booking<!-- endif:branch -->" aria-label="Main">
+        <div class="container bnb-topbar-inner">
+            <!-- if:branch -->
+            <button type="button" class="bnb-round-btn bnb-back-btn" id="bnbHeaderBack" aria-label="Go back">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <!-- endif:branch -->
+
+            <a href="/" class="navbar-brand bnb-topbar-brand" data-name="Navbar Logo">
+                <img src="/bnb_portal_appointment/static/img/abt_logo.png" width="95" height="40" class="img img-fluid bnb-header-logo" alt="Browz &amp; Beauty" role="img"/>
+            </a>
+
+            <!-- Desktop links (hidden on mobile) -->
+            <ul class="bnb-topbar-links" id="top_menu">
+                <li><a class="nav-link" href="/" data-match="/">Home</a></li>
+                <li><a class="nav-link" href="/book-online" data-match="/book-online">Book Online</a></li>
+                <li><a class="nav-link" href="/gift-voucher" data-match="/gift-voucher">Gift Voucher</a></li>
+                <li><a class="nav-link" href="#footer">Contact</a></li>
+                <li><a href="#footer" class="bnb-btn-primary">Contact Us</a></li>
+            </ul>
+
+            <button type="button" class="bnb-round-btn bnb-menu-btn" data-bs-toggle="offcanvas" data-bs-target="#bnbSideMenu" aria-controls="bnbSideMenu" aria-label="Open menu">
+                <span class="bnb-menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Slide-in menu from the right. Kept outside <header> so it opens above
+     everything on the page (including the booking page's bottom Continue bar). -->
+<div class="offcanvas offcanvas-end bnb-side-menu" tabindex="-1" id="bnbSideMenu" aria-labelledby="bnbSideMenuLabel">
+    <div class="offcanvas-header bnb-side-menu-header">
+        <a href="/" id="bnbSideMenuLabel" class="bnb-side-menu-brand">
+            <img src="/bnb_portal_appointment/static/img/abt_logo.png" width="95" height="40" alt="Browz &amp; Beauty"/>
+        </a>
+        <button type="button" class="bnb-round-btn bnb-close-btn" data-bs-dismiss="offcanvas" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </button>
+    </div>
+    <div class="offcanvas-body bnb-side-menu-body">
+        <p class="bnb-side-menu-caption">Menu</p>
+        <ul class="bnb-side-menu-list">
+            <li><a href="/" data-match="/"><span class="bnb-side-icon"><i class="fa fa-home"></i></span>Home<i class="fa fa-angle-right bnb-side-arrow"></i></a></li>
+            <li><a href="/book-online" data-match="/book-online"><span class="bnb-side-icon"><i class="fa fa-calendar-check-o"></i></span>Book Online<i class="fa fa-angle-right bnb-side-arrow"></i></a></li>
+            <li><a href="/gift-voucher" data-match="/gift-voucher"><span class="bnb-side-icon"><i class="fa fa-gift"></i></span>Gift Voucher<i class="fa fa-angle-right bnb-side-arrow"></i></a></li>
+            <li><a href="#footer" data-bs-dismiss-link><span class="bnb-side-icon"><i class="fa fa-envelope-o"></i></span>Contact<i class="fa fa-angle-right bnb-side-arrow"></i></a></li>
+        </ul>
+        <div class="bnb-side-menu-footer">
+            <a href="/book-online" class="bnb-btn-primary w-100">Book an appointment</a>
+            <a href="#footer" class="bnb-btn-outline w-100" data-bs-dismiss-link>Contact Us</a>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Highlight the current page in the desktop links and the side menu.
+    var path = window.location.pathname;
+    document.querySelectorAll('#top_menu a[data-match], .bnb-side-menu-list a[data-match]').forEach(function (link) {
+        var match = link.getAttribute('data-match');
+        var active = match === '/' ? path === '/' : path.indexOf(match) === 0;
+        if (active) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
+    });
+
+    // Close the side menu when an in-page link (e.g. #footer) is chosen.
+    document.querySelectorAll('.bnb-side-menu [data-bs-dismiss-link]').forEach(function (link) {
+        link.addEventListener('click', function () {
+            var menu = document.getElementById('bnbSideMenu');
+            if (window.bootstrap && menu) bootstrap.Offcanvas.getOrCreateInstance(menu).hide();
+        });
+    });
+
+    // The side menu is mobile-only: close it if the window grows to desktop width.
+    var desktop = window.matchMedia('(min-width: 992px)');
+    var closeOnDesktop = function () {
+        var menu = document.getElementById('bnbSideMenu');
+        if (desktop.matches && window.bootstrap && menu) bootstrap.Offcanvas.getOrCreateInstance(menu).hide();
+    };
+    if (desktop.addEventListener) desktop.addEventListener('change', closeOnDesktop);
+
+    // Booking back button (mobile).
+    var back = document.getElementById('bnbHeaderBack');
+    if (!back) return;
+    var order = ['location', 'service', 'date', 'beautician', 'customer', 'payment', 'confirmation'];
+    var currentStep = function () {
+        var last = window.location.pathname.split('/').filter(Boolean).pop();
+        return order.indexOf(last) >= 0 ? last : null;
+    };
+    back.addEventListener('click', function () {
+        var step = currentStep();
+        if (step === 'confirmation') return;
+        // Use the module's own per-step back button (category_filter.js) when it is there,
+        // so the header Back behaves exactly like it.
+        var visibleStepBack = Array.prototype.find.call(
+            document.querySelectorAll('#fresha-booking-steps .step-nav-prev'),
+            function (btn) {
+                var stepEl = btn.closest('[id^="step-"]');
+                return stepEl && stepEl.style.display !== 'none';
+            }
+        );
+        if (visibleStepBack) { visibleStepBack.click(); return; }
+        // First step after choosing a salon: go back to the salon list.
+        if (!step || step === 'service') { window.location.href = '/book-online'; return; }
+        // base.js keeps a history entry for each step, so let its popstate handler show the previous one.
+        if (history.state && history.state.step) { history.back(); return; }
+        // Opened straight on a later step (no history): load the previous step's URL.
+        var url = new URL(window.location.href);
+        var parts = url.pathname.split('/').filter(Boolean);
+        parts[parts.length - 1] = order[order.indexOf(step) - 1];
+        url.pathname = '/' + parts.join('/');
+        window.location.href = url.toString();
+    });
+    // No going back once the booking is confirmed.
+    var syncBack = function () { back.hidden = currentStep() === 'confirmation'; };
+    var confirmStep = document.getElementById('step-confirmation');
+    if (confirmStep) new MutationObserver(syncBack).observe(confirmStep, { attributes: true, attributeFilter: ['style'] });
+    window.addEventListener('popstate', syncBack);
+    syncBack();
+});
+</script>

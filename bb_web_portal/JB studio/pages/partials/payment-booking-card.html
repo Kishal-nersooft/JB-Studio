@@ -1,0 +1,99 @@
+<!-- views/base_view.xml : payment_booking_card -->
+<!-- Odoo only renders this card once a salon is chosen -->
+<!-- if:branch -->
+<div class="service-booking-card bnb-pay-card">
+    <!-- Branch Info -->
+    <div class="branch-main-details bnb-pay-salon">
+        <img src="{{BRANCH_IMAGE}}" alt="Salon" class="salon-image"/>
+        <div class="salon-info">
+            <h3 class="salon-name">{{BRANCH_NAME}}</h3>
+            <span class="salon-address d-block">{{BRANCH_SHORT_ADDRESS}}</span>
+        </div>
+    </div>
+
+    <!-- Appointment: date/time and services (filled in by base.js) -->
+    <div class="bnb-pay-section">
+        <div class="bnb-pay-label">Your appointment</div>
+        <div id="dateTimeSummary" class="date-time-summary"></div>
+        <div id="selectedServicesSummary" class="selected-services-summary"></div>
+    </div>
+
+    <!-- Gift / Discount Code -->
+    <div class="bnb-pay-section">
+        <label class="bnb-pay-label" for="promo_code">Gift or discount code</label>
+        <div class="bnb-promo-field">
+            <i class="fa fa-tag bnb-promo-icon" aria-hidden="true"></i>
+            <input type="text" class="bnb-promo-input" id="promo_code" name="promo_code" placeholder="Enter code" autocomplete="off" autocapitalize="characters" spellcheck="false"/>
+            <button type="button" class="bnb-promo-btn bnb-promo-btn--clear" id="clearPromoBtn" style="display: none;" aria-label="Remove code">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="bnb-promo-btn" id="applyPromoBtn">Apply</button>
+        </div>
+        <div id="promoCodeFeedback" class="bnb-promo-feedback" aria-live="polite"></div>
+    </div>
+
+    <!-- Payment Option: segmented control. The hidden select keeps the value
+         that base.js reads and submits; the radios update it. -->
+    <div class="bnb-pay-section">
+        <div class="bnb-pay-label" id="paymentOptionLabel">How would you like to pay?</div>
+        <select id="payment_option" name="payment_option" hidden="hidden" aria-hidden="true" tabindex="-1">
+            <option value="full">Pay total</option>
+            <option value="half">Pay advance</option>
+        </select>
+        <div class="bnb-pay-segments" role="radiogroup" aria-labelledby="paymentOptionLabel">
+            <label class="bnb-pay-segment">
+                <input type="radio" name="bnb_payment_option" value="full" checked="checked"/>
+                <span>Pay in full</span>
+            </label>
+            <label class="bnb-pay-segment">
+                <input type="radio" name="bnb_payment_option" value="half"/>
+                <span>50% deposit</span>
+            </label>
+        </div>
+        <div id="payAdvanceNote" class="bnb-pay-hint" style="display: none;">Pay half now and the rest at your appointment.</div>
+    </div>
+
+    <!-- Price breakdown -->
+    <div class="bnb-pay-section bnb-pay-breakdown">
+        <div class="bnb-pay-row">
+            <span>Services</span>
+            <span id="serviceTotalDisplay">$0.00</span>
+        </div>
+        <div class="bnb-pay-row" id="surchargeRow" style="display: none;">
+            <span>Weekend surcharge</span>
+            <span id="surchargeDisplay">$0.00</span>
+        </div>
+        <div class="bnb-pay-row">
+            <span>Booking fee <small>Secures your appointment</small></span>
+            <span id="bookingFeeDisplay">$0.00</span>
+        </div>
+        <div class="bnb-pay-row bnb-pay-row--discount" id="discountRow" style="display: none;">
+            <span><i class="fa fa-tag" aria-hidden="true"></i> Discount</span>
+            <span id="discountDisplay">-$0.00</span>
+        </div>
+
+        <div class="bnb-pay-total">
+            <span>Due today</span>
+            <span id="amountToPayDisplay">$0.00</span>
+        </div>
+        <div id="remainingBalanceRow" class="bnb-pay-remaining" style="display: none;">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            Remaining <strong id="remainingBalanceDisplay">$0.00</strong> is due at your appointment
+        </div>
+    </div>
+
+    <!-- Pay Button -->
+    <div class="bnb-pay-action">
+        <button class="service-continue-btn">
+            <i class="fa fa-lock" aria-hidden="true"></i> Secure checkout
+        </button>
+        <div class="bnb-pay-trust">
+            <i class="fa fa-shield" aria-hidden="true"></i> Encrypted, secure payment
+        </div>
+    </div>
+
+    <!-- Hidden fields -->
+    <input type="hidden" id="payment_amount" name="payment_amount" value="0"/>
+    <input type="hidden" id="discount_amount" name="discount_amount" value="0"/>
+</div>
+<!-- endif:branch -->

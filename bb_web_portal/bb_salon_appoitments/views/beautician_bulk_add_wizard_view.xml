@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_beautician_bulk_add_wizard_form" model="ir.ui.view">
+        <field name="name">beautician.bulk.add.wizard.form</field>
+        <field name="model">beautician.bulk.add.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Multiple Beauticians">
+                <group>
+                    <field name="product_tmpl_id" readonly="1"/>
+                    <field name="branch_ids" widget="many2many_tags" readonly="1"/>
+                </group>
+                <separator string="Select Beauticians"/>
+                <field name="beautician_ids" widget="many2many_tags"
+                       options="{'no_create': True, 'no_create_edit': True}"
+                       domain="[('is_beautician', '=', True), '|', ('branch_id', 'in', branch_ids), ('beautician_branch_ids', 'in', branch_ids)]"/>
+                <group string="Defaults for New Lines">
+                    <field name="default_duration" widget="float_time"/>
+                    <field name="default_price"/>
+                </group>
+                <footer>
+                    <button name="action_add_beauticians" type="object"
+                            string="Add Beauticians" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,29 @@
+<div class="service-item-card card"
+     data-service-id="{{id}}"
+     data-sold-quantity="{{sold_quantity}}"
+     data-parent-id="{{parent_id}}"
+     data-service-name="{{name}}"
+     data-service-price="{{formatted_price}}"
+     data-service-duration="{{duration}}"
+     data-service-description="{{description}}"
+     data-category-id="{{category_id}}">
+    <div class="card-body">
+        <div class="service-item-info">
+            <!-- Title with the duration on the right, same line -->
+            <div class="service-item-header">
+                <h3 class="service-item-name" title="{{name}}">{{name}}</h3>
+                <div class="service-item-duration">{{duration}}</div>
+            </div>
+            <!-- Description shown on the card (no Details popup). Clamped to 2 lines by CSS
+                 so all cards are the same height. base.js shows "See all" only when the
+                 text is cut off; it expands the description inside the card. -->
+            <p class="service-item-description">{{description}}</p>
+            <button type="button" class="service-see-all-btn is-idle" aria-expanded="false" aria-hidden="true" tabindex="-1">See all</button>
+            <div class="service-item-price">
+                <span class="service-price-from">{{formatted_price}}</span>
+            </div>
+        </div>
+        <!-- Shown as a round +/✓ icon by main-booking.scss; base.js swaps the text Book/Remove for screen readers -->
+        <button type="button" class="service-book-btn">Book</button>
+    </div>
+</div>

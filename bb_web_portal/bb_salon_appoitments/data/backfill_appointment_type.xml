@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Record the booking channel on appointments made before it was kept.
+
+        Declared as a function rather than a post-install hook so it also runs
+        when the module is updated, which is how it reaches the appointments
+        already in the system. It only touches appointments still on the plain
+        Appointment type, so Leave, Break and anything already classified are
+        left alone and repeating it changes nothing.
+    -->
+    <function model="salon.appointment" name="_backfill_appointment_type"/>
+</odoo>

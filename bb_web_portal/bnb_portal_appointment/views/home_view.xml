@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        BnB homepage: assembled from the editable V2 snippets.
+        All styling lives in static/src/scss/homepage_snippets.scss (loaded in
+        web.assets_frontend) so the same look applies here AND when a snippet
+        is dragged onto any other page from the website editor.
+    -->
+    <template id="custom_home_view" name="BROWZ &amp; BEAUTY">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <t t-call="bnb_portal_appointment.s_bnb_v2_hero"/>
+                <t t-call="bnb_portal_appointment.s_bnb_dynamic_services"/>
+                <t t-call="bnb_portal_appointment.s_bnb_v2_about"/>
+                <t t-call="bnb_portal_appointment.s_bnb_v2_features"/>
+                <t t-call="bnb_portal_appointment.s_bnb_dynamic_testimonials"/>
+                <t t-call="bnb_portal_appointment.s_bnb_dynamic_promotions"/>
+                <t t-call="bnb_portal_appointment.s_bnb_v2_newsletter"/>
+                <t t-call="bnb_portal_appointment.s_bnb_dynamic_gallery"/>
+                <t t-call="bnb_portal_appointment.s_bnb_v2_social"/>
+            </div>
+        </t>
+    </template>
+</odoo>

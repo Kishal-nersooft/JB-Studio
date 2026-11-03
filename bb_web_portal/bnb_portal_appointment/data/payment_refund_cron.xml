@@ -1,0 +1,9 @@
+<odoo noupdate="1">
+  <record id="ir_cron_online_refund_apply" model="ir.cron">
+    <field name="name">Online booking: apply gateway refunds to bookings</field>
+    <field name="model_id" ref="model_bb_online_refund_service"/>
+    <field name="state">code</field><field name="code">model._cron_apply_pending()</field>
+    <field name="interval_number">15</field><field name="interval_type">minutes</field>
+    <field name="user_id" ref="base.user_root"/><field name="active" eval="True"/>
+  </record>
+</odoo>

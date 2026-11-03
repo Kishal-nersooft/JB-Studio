@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_email_testing" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.email.testing</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="mail.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='emails']" position="inside">
+                <setting id="block_external_emails_during_testing_setting"
+                         string="Block Customer Emails During Testing"
+                         help="Keep employee and manager notifications active while preventing emails from reaching customers and other external recipients.">
+                    <field name="block_external_emails_during_testing"/>
+                    <div class="text-warning mt8" invisible="not block_external_emails_during_testing">
+                        External emails are cancelled immediately and will not be sent later when this setting is disabled.
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Confirmed | Browz &amp; Beauty</title>
+    <!-- include: head -->
+</head>
+<body>
+<div id="wrapwrap">
+    <!-- include: header -->
+    <main>
+        <!-- views/payment_intent.xml : checkout_result, shown in its "paid" state.
+             This is where customers land after paying on the secure checkout page. -->
+        <div class="spc-wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+
+                        <!-- Status Header -->
+                        <div class="text-center spc-header">
+                            <div class="spc-status-icon spc-status-success mx-auto">
+                                <svg class="spc-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="spc-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                                    <path class="spc-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                </svg>
+                            </div>
+                            <h1 class="spc-title">Booking Confirmed!</h1>
+                            <p class="spc-subtitle">Your payment was received and your appointment is booked.</p>
+                            <span class="spc-badge spc-badge-success">Confirmed</span>
+                        </div>
+
+                        <!-- Booking Details Card -->
+                        <div class="spc-card">
+                            <div class="spc-card-header">
+                                <h2 class="spc-card-title">Booking Details</h2>
+                            </div>
+                            <div class="spc-card-body">
+                                <div class="spc-detail-row">
+                                    <div class="spc-detail-label">Salon</div>
+                                    <div class="spc-detail-value">{{BRANCH_NAME}}</div>
+                                    <div class="spc-detail-meta">{{BRANCH_CITY}}</div>
+                                </div>
+
+                                <div class="spc-detail-row">
+                                    <div class="spc-detail-label">Appointment Date</div>
+                                    <div class="spc-detail-value">{{DATE}}</div>
+                                </div>
+
+                                <div class="spc-detail-row">
+                                    <div class="spc-detail-label">Time</div>
+                                    <div class="spc-detail-value">{{TIME}}</div>
+                                </div>
+
+                                <div class="spc-detail-row">
+                                    <div class="spc-detail-label">Customer</div>
+                                    <div class="spc-detail-value">{{CUSTOMER_NAME}}</div>
+                                    <div class="spc-detail-meta">{{CUSTOMER_EMAIL}}</div>
+                                </div>
+
+                                <div class="spc-detail-row">
+                                    <div class="spc-detail-label">Services</div>
+                                    {{SERVICE_LINES}}
+                                </div>
+
+                                <!-- Payment Summary -->
+                                <div class="spc-payment-summary">
+                                    <div class="spc-payment-row">
+                                        <span>Payment Method</span>
+                                        <span class="fw-semibold">Online</span>
+                                    </div>
+                                    {{PAYMENT_TYPE_ROW}}
+                                    <div class="spc-payment-total">
+                                        <span>Payment Amount</span>
+                                        <span class="spc-amount-paid">
+                                            <span>{{AMOUNT_PAID}}</span>
+                                        </span>
+                                    </div>
+                                    {{REMAINING_ROW}}
+                                    <div class="spc-payment-row spc-payment-row-muted">
+                                        <span>Appointment Reference</span>
+                                        <span>{{REFERENCE}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="text-center spc-actions">
+                            <a href="/book-online" class="spc-new-btn">
+                                <i class="fa fa-plus"></i>
+                                New Appointment
+                            </a>
+                            <div class="spc-print-wrap">
+                                <a href="javascript:void(0);" class="spc-print-link" onclick="window.print();">Print confirmation</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- include: checkout-result-styles -->
+    </main>
+    <!-- include: footer -->
+</div>
+<!-- include: scripts -->
+</body>
+</html>

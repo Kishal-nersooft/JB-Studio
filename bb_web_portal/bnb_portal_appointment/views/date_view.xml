@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Step 3: Date Selection Template -->
+    <template id="date_step" name="Date Selection Step">
+        <div class="fresha-datetime-wrapper container-fluid">
+            <div class="fresha-datetime-header py-3 py-md-4">
+                <div class="date-detail-container container">
+                    <t t-call="bnb_portal_appointment.booking_breadcrumb"/>
+                    <h1 class="fresha-datetime-title mb-3">Select time</h1>
+                    <span class="fresha-timezone-with-time d-flex flex-wrap align-items-center gap-2">
+                        <i class="fa fa-globe"></i>
+                        <span>Timezone: <strong><t t-out="branch_tz_display or branch_tz"/></strong></span>
+                        <span class="current-time badge bg-secondary" id="currentTime"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="fresha-datetime-container container py-4">
+                <div class="row g-4">
+                    <!-- Left Column - Date/Time Selection -->
+                    <div class="fresha-datetime-left col-12 col-lg-8">
+                        <div class="fresha-month-section mb-4">
+                            <div class="fresha-month-nav">
+                                <h2 class="fresha-month-title mb-0">Loading...</h2>
+                            </div>
+                        </div>
+
+                        <!-- Available Dates (Dynamic) -->
+                        <div class="fresha-dates-row d-flex flex-wrap gap-2 mb-4"/>
+
+                        <!-- Time Slots (Dynamic) -->
+                        <div class="fresha-time-slots"/>
+                    </div>
+
+                    <!-- Right Column - Booking Summary -->
+                    <div class="fresha-datetime-right col-12 col-lg-4">
+                        <div class="sticky-top" style="top: 20px;">
+                            <t t-call="bnb_portal_appointment.salon_service_booking_card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Popup -->
+            <div class="fresha-calendar-popup modal fade" id="calendarPopup" tabindex="-1" style="display: none;">
+                <div class="fresha-popup-content modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="fresha-popup-header modal-header d-flex justify-content-between align-items-center">
+                            <button class="fresha-popup-nav btn btn-sm btn-outline-secondary">
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <h3 class="fresha-popup-title modal-title">September 2025</h3>
+                            <button class="fresha-popup-nav btn btn-sm btn-outline-secondary">
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="fresha-popup-calendar modal-body">
+                            <div class="fresha-popup-headers d-grid gap-1 mb-2" style="grid-template-columns: repeat(7, 1fr);">
+                                <div class="fresha-popup-day text-center small fw-bold">Sun</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Mon</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Tue</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Wed</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Thu</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Fri</div>
+                                <div class="fresha-popup-day text-center small fw-bold">Sat</div>
+                            </div>
+
+                            <div class="fresha-popup-dates d-grid gap-1" style="grid-template-columns: repeat(7, 1fr);">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

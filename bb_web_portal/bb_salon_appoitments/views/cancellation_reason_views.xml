@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Editable list: reasons are short, so managers can add several without
+         opening a form for each. -->
+    <record id="view_salon_cancellation_reason_list" model="ir.ui.view">
+        <field name="name">salon.cancellation.reason.list</field>
+        <field name="model">salon.cancellation.reason</field>
+        <field name="arch" type="xml">
+            <list string="Cancellation Reasons" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_salon_cancellation_reason_form" model="ir.ui.view">
+        <field name="name">salon.cancellation.reason.form</field>
+        <field name="model">salon.cancellation.reason</field>
+        <field name="arch" type="xml">
+            <form string="Cancellation Reason">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_salon_cancellation_reason_search" model="ir.ui.view">
+        <field name="name">salon.cancellation.reason.search</field>
+        <field name="model">salon.cancellation.reason</field>
+        <field name="arch" type="xml">
+            <search string="Cancellation Reasons">
+                <field name="name"/>
+                <filter name="filter_inactive" string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_salon_cancellation_reason" model="ir.actions.act_window">
+        <field name="name">Cancellation Reasons</field>
+        <field name="res_model">salon.cancellation.reason</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add a cancellation reason</p>
+            <p>Staff choose from these when cancelling an appointment. Archiving a
+               reason removes it from the list without affecting appointments
+               already cancelled with it.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_salon_cancellation_reason"
+              name="Cancellation Reasons"
+              parent="menu_beauty_configurations"
+              action="action_salon_cancellation_reason"
+              sequence="20"/>
+</odoo>

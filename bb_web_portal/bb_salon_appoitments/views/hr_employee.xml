@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_view_form_bb" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit.bb</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <!-- Legacy field kept for DB compatibility - HIDDEN -->
+                <field name="branch_id" invisible="1"/>
+            </xpath>
+            <!-- Work Phone is shown (kept visible). Remove the Work Mobile
+                 field together with its icon by hiding its wrapping <h5>.
+                 The field itself stays loaded (hidden) because core button
+                 contexts reference `mobile_phone` (default_mobile). -->
+            <xpath expr="//field[@name='mobile_phone']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hide Job Title and Manager on the employee form -->
+            <xpath expr="//field[@name='job_title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='work_information']//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Work Location is auto-selected from the Main Branch -->
+            <xpath expr="//field[@name='work_location_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="is_beautician"/>
+                <field name="branch_id" string="Main Branch"/>
+                <field name="beautician_branch_ids" widget="many2many_tags" placeholder="Select branches..."/>
+                <field name="portal_manager_id" string="Area Manager"
+                       domain="[('is_beautician', '=', False)]"/>
+            </xpath>
+            <!-- Services this beautician performs. Same records as the
+                 beautician list on the service form, shown from the other
+                 side so they can be assigned in bulk per person. -->
+            <xpath expr="//page[@name='hr_settings']" position="before">
+                <page string="Services" name="beautician_services"
+                      invisible="not is_beautician">
+                    <button name="action_open_service_bulk_wizard"
+                            type="object"
+                            string="Add Multiple Services"
+                            class="btn-primary"
+                            icon="fa-plus"/>
+                    <field name="beautician_service_line_ids" nolabel="1">
+                        <list editable="bottom">
+                            <field name="product_tmpl_id" string="Service"
+                                   options="{'no_create': True, 'no_create_edit': True}"
+                                   domain="[('is_appointment_service', '=', True)]"/>
+                            <field name="duration" widget="float_time"/>
+                            <field name="price"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
